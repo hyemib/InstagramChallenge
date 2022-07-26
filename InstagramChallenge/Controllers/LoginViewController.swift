@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     }
     
     func setTextFieldDesign() {
-        idTextField.addLeftPaading()
-        passwordTextField.addLeftPaading()
+        idTextField.addLeftPaading(padding: 10)
+        passwordTextField.addLeftPaading(padding: 10)
     }
     
     func setTextField() {
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     
     @objc func didChangeTextField(_ sender: Any?) {
         if passwordTextField.text!.isEmpty {
-            loginButton.backgroundColor = UIColor(red: 65/255, green: 146/255, blue: 236/255, alpha: 0.5)
+            loginButton.backgroundColor = .mainBlueBlurColor
         } else {
             loginButton.backgroundColor = .mainBlueColor
         }
@@ -52,8 +52,13 @@ class LoginViewController: UIViewController {
     
     func setLoginButtonDesign() {
         loginButton.layer.cornerRadius = loginButton.frame.height / 5
-        loginButton.backgroundColor = UIColor(red: 65/255, green: 146/255, blue: 236/255, alpha: 0.5)
+        loginButton.backgroundColor = .mainBlueBlurColor
     }
-
+    
+    @IBAction func moveJoinButton(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "JoinViewController") as? JoinViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
 }
 

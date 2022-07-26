@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D538288F6B1900CFBC11 /* UIColor.swift */; };
+		9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D53A288F84C200CFBC11 /* JoinViewController.swift */; };
+		9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D53C288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift */; };
+		9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D53E288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift */; };
+		9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D540288FE26900CFBC11 /* EmailJoinViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		9230D538288F6B1900CFBC11 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9230D53A288F84C200CFBC11 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		9230D53C288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberOrEmailJoinViewController.swift; sourceTree = "<group>"; };
+		9230D53E288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberJoinViewController.swift; sourceTree = "<group>"; };
+		9230D540288FE26900CFBC11 /* EmailJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailJoinViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				9261E31B288E4F4D00A9094D /* LoginViewController.swift */,
+				9230D53A288F84C200CFBC11 /* JoinViewController.swift */,
+				9230D53C288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift */,
+				9230D53E288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift */,
+				9230D540288FE26900CFBC11 /* EmailJoinViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,10 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */,
 				9261E333288EE39400A9094D /* UITextField.swift in Sources */,
+				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
+				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
+				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
