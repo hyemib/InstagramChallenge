@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pAS-Zo-A9n">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="pAS-Zo-A9n">
                                 <rect key="frame" x="157" y="348" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="DIJ-Ko-UmR"/>
                                     <constraint firstAttribute="height" constant="100" id="my4-91-44C"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashLogoDown" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-aQ-t9X">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo_down" translatesAutoresizingMaskIntoConstraints="NO" id="OgC-aQ-t9X">
                                 <rect key="frame" x="147" y="736" width="120" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Amw-kK-9P8"/>
@@ -47,8 +47,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SplashLogo" width="160" height="161"/>
-        <image name="SplashLogoDown" width="186" height="147"/>
+        <image name="splash_logo" width="160" height="161"/>
+        <image name="splash_logo_down" width="186" height="147"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
