@@ -15,6 +15,7 @@
 		9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54228900E3B00CFBC11 /* VerificationCodeViewController.swift */; };
 		9230D54528901F0C00CFBC11 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54428901F0C00CFBC11 /* NameViewController.swift */; };
 		9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5472890217B00CFBC11 /* PasswordViewController.swift */; };
+		9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54928902CC300CFBC11 /* BirthdayViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -33,6 +34,7 @@
 		9230D54228900E3B00CFBC11 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
 		9230D54428901F0C00CFBC11 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NameViewController.swift; path = InstagramChallenge/Controllers/Intro/NameViewController.swift; sourceTree = SOURCE_ROOT; };
 		9230D5472890217B00CFBC11 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		9230D54928902CC300CFBC11 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9230D54228900E3B00CFBC11 /* VerificationCodeViewController.swift */,
 				9230D54428901F0C00CFBC11 /* NameViewController.swift */,
 				9230D5472890217B00CFBC11 /* PasswordViewController.swift */,
+				9230D54928902CC300CFBC11 /* BirthdayViewController.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
+				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
 				9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */,
 				9261E333288EE39400A9094D /* UITextField.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
