@@ -18,6 +18,7 @@
 		9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54928902CC300CFBC11 /* BirthdayViewController.swift */; };
 		9230D54C2890EC9900CFBC11 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54B2890EC9900CFBC11 /* TermsViewController.swift */; };
 		9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54D2890F45100CFBC11 /* UserNameViewController.swift */; };
+		9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D54F2890F68400CFBC11 /* FinalConfirmationViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -39,6 +40,7 @@
 		9230D54928902CC300CFBC11 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		9230D54B2890EC9900CFBC11 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		9230D54D2890F45100CFBC11 /* UserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameViewController.swift; sourceTree = "<group>"; };
+		9230D54F2890F68400CFBC11 /* FinalConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalConfirmationViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				9230D54928902CC300CFBC11 /* BirthdayViewController.swift */,
 				9230D54B2890EC9900CFBC11 /* TermsViewController.swift */,
 				9230D54D2890F45100CFBC11 /* UserNameViewController.swift */,
+				9230D54F2890F68400CFBC11 /* FinalConfirmationViewController.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
+				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
 				9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */,
