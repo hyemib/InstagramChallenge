@@ -22,6 +22,9 @@
 		9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D55C289156B600CFBC11 /* HomeStoryCell.swift */; };
 		9230D5682891617E00CFBC11 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5672891617E00CFBC11 /* NameViewController.swift */; };
 		9230D5782892538300CFBC11 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5772892538300CFBC11 /* HomeFeedCell.swift */; };
+		9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5842892D88600CFBC11 /* MyPageViewController.swift */; };
+		9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */; };
+		9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5882892DCE300CFBC11 /* TagViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -47,6 +50,9 @@
 		9230D55C289156B600CFBC11 /* HomeStoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStoryCell.swift; sourceTree = "<group>"; };
 		9230D5672891617E00CFBC11 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		9230D5772892538300CFBC11 /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
+		9230D5842892D88600CFBC11 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
+		9230D5882892DCE300CFBC11 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9230D56A2891642E00CFBC11 /* Home */,
+				9230D5812892D82100CFBC11 /* MyPage */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -113,6 +120,16 @@
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9230D5812892D82100CFBC11 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				9230D5842892D88600CFBC11 /* MyPageViewController.swift */,
+				9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */,
+				9230D5882892DCE300CFBC11 /* TagViewController.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		9261E30B288E4F4D00A9094D = {
@@ -273,6 +290,7 @@
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
+				9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */,
 				9230D5782892538300CFBC11 /* HomeFeedCell.swift in Sources */,
 				9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */,
 				9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */,
@@ -281,6 +299,8 @@
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
 				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
+				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
+				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
