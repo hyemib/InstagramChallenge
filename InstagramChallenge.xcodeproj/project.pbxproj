@@ -25,6 +25,7 @@
 		9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5842892D88600CFBC11 /* MyPageViewController.swift */; };
 		9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */; };
 		9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5882892DCE300CFBC11 /* TagViewController.swift */; };
+		9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D58A2892E73500CFBC11 /* CommentViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -53,6 +54,7 @@
 		9230D5842892D88600CFBC11 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
 		9230D5882892DCE300CFBC11 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		9230D58A2892E73500CFBC11 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				9230D5512891404900CFBC11 /* HomeViewController.swift */,
 				9230D55C289156B600CFBC11 /* HomeStoryCell.swift */,
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
+				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,
+				9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
