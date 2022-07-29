@@ -26,6 +26,7 @@
 		9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */; };
 		9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D5882892DCE300CFBC11 /* TagViewController.swift */; };
 		9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D58A2892E73500CFBC11 /* CommentViewController.swift */; };
+		9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -55,6 +56,7 @@
 		9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
 		9230D5882892DCE300CFBC11 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		9230D58A2892E73500CFBC11 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				9230D55C289156B600CFBC11 /* HomeStoryCell.swift */,
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
 				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
+				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				9230D5682891617E00CFBC11 /* NameViewController.swift in Sources */,
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
+				9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
@@ -470,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagramChallenge.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagraChallenge.InstagramChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -498,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagramChallenge.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagraChallenge.InstagramChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
