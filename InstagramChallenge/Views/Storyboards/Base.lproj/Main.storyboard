@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9a3-Yx-j8k">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +298,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="movePhoneNumberOrEmailJoinButton:" destination="BEL-oM-YL4" eventType="touchUpInside" id="Vpp-48-VIE"/>
+                                    <action selector="movePhoneNumberOrEmailJoin:" destination="BEL-oM-YL4" eventType="touchUpInside" id="WK3-Ye-Ff6"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="jbu-x5-CKs">
@@ -317,6 +317,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="BEL-oM-YL4" eventType="touchUpInside" id="sqj-3l-uBm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -371,13 +374,25 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="utX-WF-x7i">
                                         <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVB-rq-0vu">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="moveJoinView:" destination="rEd-Bj-jHP" eventType="touchUpInside" id="Sws-qt-w76"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="utX-WF-x7i" secondAttribute="bottom" id="2Xl-1i-C9t"/>
                                     <constraint firstAttribute="width" constant="23" id="HO2-eN-oku"/>
+                                    <constraint firstItem="nVB-rq-0vu" firstAttribute="top" secondItem="vWW-wR-hMi" secondAttribute="top" id="K2e-ns-a8B"/>
                                     <constraint firstItem="utX-WF-x7i" firstAttribute="top" secondItem="vWW-wR-hMi" secondAttribute="top" id="QJH-NB-hQf"/>
+                                    <constraint firstItem="nVB-rq-0vu" firstAttribute="leading" secondItem="vWW-wR-hMi" secondAttribute="leading" id="Yo1-IW-gwp"/>
                                     <constraint firstItem="utX-WF-x7i" firstAttribute="leading" secondItem="vWW-wR-hMi" secondAttribute="leading" id="jhH-0Q-Rb7"/>
+                                    <constraint firstAttribute="trailing" secondItem="nVB-rq-0vu" secondAttribute="trailing" id="l05-ez-rwB"/>
+                                    <constraint firstAttribute="bottom" secondItem="nVB-rq-0vu" secondAttribute="bottom" id="oEj-4G-MBQ"/>
                                     <constraint firstAttribute="trailing" secondItem="utX-WF-x7i" secondAttribute="trailing" id="uG5-rF-08H"/>
                                     <constraint firstAttribute="height" constant="23" id="ykB-Nf-RBt"/>
                                 </constraints>
@@ -455,6 +470,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="rEd-Bj-jHP" eventType="touchUpInside" id="4Wc-mS-afm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -521,8 +539,41 @@
                                     <constraint firstAttribute="height" constant="50" id="CTi-T3-zF9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="setPhoneNumberTextField_:" destination="C4i-nf-tt8" eventType="editingChanged" id="NsS-Ch-gED"/>
+                                </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhT-OH-8kW">
+                                <rect key="frame" x="336" y="80" width="18" height="18"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-9d-Ziz">
+                                        <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
+                                        <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUP-DV-aSJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clearTextFieldText:" destination="C4i-nf-tt8" eventType="touchUpInside" id="5Pr-4G-izE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Qcm-9d-Ziz" secondAttribute="trailing" id="2yJ-Mw-2hF"/>
+                                    <constraint firstItem="Qcm-9d-Ziz" firstAttribute="leading" secondItem="nhT-OH-8kW" secondAttribute="leading" id="4q2-cv-qX4"/>
+                                    <constraint firstAttribute="bottom" secondItem="JUP-DV-aSJ" secondAttribute="bottom" id="AQA-O0-f0Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="JUP-DV-aSJ" secondAttribute="trailing" id="Nak-ZO-cnR"/>
+                                    <constraint firstItem="Qcm-9d-Ziz" firstAttribute="top" secondItem="nhT-OH-8kW" secondAttribute="top" id="P7y-Et-VZT"/>
+                                    <constraint firstItem="JUP-DV-aSJ" firstAttribute="leading" secondItem="nhT-OH-8kW" secondAttribute="leading" id="QDj-4J-RDl"/>
+                                    <constraint firstAttribute="width" constant="18" id="UCL-fk-IbC"/>
+                                    <constraint firstAttribute="height" constant="18" id="hxH-Y9-atI"/>
+                                    <constraint firstItem="JUP-DV-aSJ" firstAttribute="top" secondItem="nhT-OH-8kW" secondAttribute="top" id="iz9-xn-xCT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qcm-9d-Ziz" secondAttribute="bottom" id="lfJ-Jk-OJI"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KR +82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG0-PX-hUr">
                                 <rect key="frame" x="62" y="79.5" width="55" height="19.5"/>
                                 <color key="tintColor" red="0.25490197539999998" green="0.57254904510000004" blue="0.92549026010000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -548,6 +599,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressNextButton:" destination="C4i-nf-tt8" eventType="touchUpInside" id="a5b-Hw-eNh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보안 및 로그인 목적으로 Instagram에서 보내는 SMS 알림을 수신할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8w-T8-Nli">
                                 <rect key="frame" x="65" y="202" width="284" height="33.5"/>
@@ -610,6 +664,7 @@
                             <constraint firstItem="m8w-T8-Nli" firstAttribute="leading" secondItem="ws3-8e-ItG" secondAttribute="leading" constant="65" id="1Cl-3Y-gSZ"/>
                             <constraint firstItem="xS7-Xd-fRx" firstAttribute="centerY" secondItem="C4n-PV-mlc" secondAttribute="centerY" id="2RR-6r-2YO"/>
                             <constraint firstItem="ZZP-6w-B6S" firstAttribute="leading" secondItem="amR-uO-0Is" secondAttribute="leading" constant="95" id="9fD-b7-CZa"/>
+                            <constraint firstItem="nhT-OH-8kW" firstAttribute="centerY" secondItem="amR-uO-0Is" secondAttribute="centerY" id="Fkq-RL-YaL"/>
                             <constraint firstItem="amR-uO-0Is" firstAttribute="top" secondItem="ws3-8e-ItG" secondAttribute="top" constant="20" id="K81-Ol-gm4"/>
                             <constraint firstItem="4Eh-1b-gtf" firstAttribute="top" secondItem="amR-uO-0Is" secondAttribute="bottom" constant="20" id="KL2-Pp-o8m"/>
                             <constraint firstItem="amR-uO-0Is" firstAttribute="leading" secondItem="ws3-8e-ItG" secondAttribute="leading" constant="40" id="KMW-2M-cHx"/>
@@ -626,6 +681,7 @@
                             <constraint firstItem="C4n-PV-mlc" firstAttribute="centerX" secondItem="EjD-Cp-k5O" secondAttribute="centerX" id="kcP-cm-vl9"/>
                             <constraint firstItem="xS7-Xd-fRx" firstAttribute="leading" secondItem="EjD-Cp-k5O" secondAttribute="leading" constant="25" id="o3V-Wc-pqI"/>
                             <constraint firstItem="4Eh-1b-gtf" firstAttribute="leading" secondItem="amR-uO-0Is" secondAttribute="leading" id="r05-s9-FH2"/>
+                            <constraint firstItem="nhT-OH-8kW" firstAttribute="trailing" secondItem="amR-uO-0Is" secondAttribute="trailing" constant="-20" id="vDu-2D-bzX"/>
                             <constraint firstItem="C4n-PV-mlc" firstAttribute="top" secondItem="m8w-T8-Nli" secondAttribute="bottom" constant="30" id="wx9-ZU-URC"/>
                             <constraint firstItem="LG0-PX-hUr" firstAttribute="leading" secondItem="amR-uO-0Is" secondAttribute="leading" constant="22" id="xUL-Hv-deq"/>
                             <constraint firstAttribute="trailing" secondItem="nMs-2N-r9b" secondAttribute="trailing" constant="25" id="xqw-44-Vzq"/>
@@ -635,11 +691,12 @@
                     <connections>
                         <outlet property="nextButton" destination="4Eh-1b-gtf" id="GDI-bT-LbI"/>
                         <outlet property="phoneNumberTextField" destination="amR-uO-0Is" id="VQ4-SQ-gi5"/>
+                        <outlet property="xButtonView" destination="nhT-OH-8kW" id="Z47-oy-7VC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbD-Bv-VZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="751"/>
+            <point key="canvasLocation" x="1573.913043478261" y="750.66964285714278"/>
         </scene>
         <!--Verification Code View Controller-->
         <scene sceneID="Mr2-Ni-bfZ">
@@ -665,6 +722,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="전화번호 변경">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveJoinView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="Thg-SY-j8n"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="또는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOh-Xv-vat">
                                         <rect key="frame" x="116" y="0.0" width="31.5" height="35.5"/>
@@ -679,6 +739,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="SMS 재전송">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveJoinView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="7DD-wm-S6R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -695,8 +758,41 @@
                                     <constraint firstAttribute="height" constant="50" id="YcS-Gu-bol"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="setverificationCodeTextField:" destination="va2-yw-9Sd" eventType="editingChanged" id="Sve-8I-asR"/>
+                                </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbD-DN-wcr">
+                                <rect key="frame" x="336" y="235" width="18" height="18"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OeR-mJ-2d3">
+                                        <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
+                                        <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJR-5T-v81">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clearTextFieldText:" destination="va2-yw-9Sd" eventType="touchUpInside" id="Nad-ZV-ztU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EJR-5T-v81" secondAttribute="bottom" id="3cA-jq-1L8"/>
+                                    <constraint firstItem="EJR-5T-v81" firstAttribute="top" secondItem="HbD-DN-wcr" secondAttribute="top" id="5PO-6x-qTt"/>
+                                    <constraint firstItem="EJR-5T-v81" firstAttribute="leading" secondItem="HbD-DN-wcr" secondAttribute="leading" id="6ov-rP-MWE"/>
+                                    <constraint firstAttribute="height" constant="18" id="9Fi-lN-MrG"/>
+                                    <constraint firstAttribute="width" constant="18" id="Asu-NF-D0B"/>
+                                    <constraint firstItem="OeR-mJ-2d3" firstAttribute="top" secondItem="HbD-DN-wcr" secondAttribute="top" id="gSB-Ng-Y8F"/>
+                                    <constraint firstAttribute="trailing" secondItem="OeR-mJ-2d3" secondAttribute="trailing" id="q2o-5Z-ZSZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="OeR-mJ-2d3" secondAttribute="bottom" id="s8p-Sy-gHY"/>
+                                    <constraint firstItem="OeR-mJ-2d3" firstAttribute="leading" secondItem="HbD-DN-wcr" secondAttribute="leading" id="t5z-zc-4r2"/>
+                                    <constraint firstAttribute="trailing" secondItem="EJR-5T-v81" secondAttribute="trailing" id="vFN-K4-Tgq"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zt5-eg-FXQ">
                                 <rect key="frame" x="40" y="284" width="334" height="48"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.57254901960000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -708,6 +804,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressNextButton:" destination="va2-yw-9Sd" eventType="touchUpInside" id="kxS-kA-ZZd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peA-u2-DNc">
                                 <rect key="frame" x="172.5" y="832" width="69" height="30"/>
@@ -716,6 +815,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="돌아가기">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="moveJoinView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="ujw-Um-jRm"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blW-bA-k69">
                                 <rect key="frame" x="0.0" y="801" width="414" height="1"/>
@@ -740,18 +842,22 @@
                             <constraint firstItem="zt5-eg-FXQ" firstAttribute="trailing" secondItem="xvS-ee-Rz0" secondAttribute="trailing" id="fVD-Z8-htv"/>
                             <constraint firstItem="peA-u2-DNc" firstAttribute="centerX" secondItem="XDV-DJ-1pN" secondAttribute="centerX" id="gLu-B6-zkb"/>
                             <constraint firstItem="xvS-ee-Rz0" firstAttribute="top" secondItem="3zb-7r-ck8" secondAttribute="bottom" constant="20" id="h57-7I-d4O"/>
+                            <constraint firstItem="HbD-DN-wcr" firstAttribute="trailing" secondItem="xvS-ee-Rz0" secondAttribute="trailing" constant="-20" id="isA-Uq-tDp"/>
                             <constraint firstItem="peA-u2-DNc" firstAttribute="top" secondItem="blW-bA-k69" secondAttribute="bottom" constant="30" id="jEq-zn-YSl"/>
                             <constraint firstItem="blW-bA-k69" firstAttribute="leading" secondItem="XDV-DJ-1pN" secondAttribute="leading" id="kka-Sw-bnL"/>
                             <constraint firstItem="yg1-tb-yrE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DsA-sC-ytU" secondAttribute="leading" symbolic="YES" id="mum-kH-RQf"/>
                             <constraint firstAttribute="trailing" secondItem="blW-bA-k69" secondAttribute="trailing" id="pCJ-9C-DWK"/>
                             <constraint firstAttribute="trailing" secondItem="5ey-Lk-oO4" secondAttribute="trailing" constant="30" id="rE8-Qh-vOE"/>
                             <constraint firstItem="DsA-sC-ytU" firstAttribute="bottom" secondItem="peA-u2-DNc" secondAttribute="bottom" id="t45-JQ-l2V"/>
+                            <constraint firstItem="HbD-DN-wcr" firstAttribute="centerY" secondItem="xvS-ee-Rz0" secondAttribute="centerY" id="vid-2T-sr4"/>
                             <constraint firstItem="yg1-tb-yrE" firstAttribute="centerY" secondItem="eJM-Jc-afB" secondAttribute="centerY" id="zTN-Jd-uoI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="nextButton" destination="zt5-eg-FXQ" id="jJE-tT-Bui"/>
+                        <outlet property="nextButton" destination="zt5-eg-FXQ" id="XHm-MJ-4MK"/>
+                        <outlet property="phoneNumberLabel" destination="5ey-Lk-oO4" id="3Yw-Bl-2F5"/>
                         <outlet property="verificationCodeTextField" destination="xvS-ee-Rz0" id="pcf-FG-J3e"/>
+                        <outlet property="xButtonView" destination="HbD-DN-wcr" id="fUG-LR-ALw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6l-SB-zdS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1637,40 +1743,59 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P86-7c-3hc">
-                                        <rect key="frame" x="348.5" y="12.5" width="55.5" height="35.5"/>
+                                        <rect key="frame" x="358.5" y="10.5" width="60.5" height="39.5"/>
                                         <color key="tintColor" red="0.25490197539999998" green="0.57254904510000004" blue="0.92549026010000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="다음">
-                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="21"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-4W-A9D">
-                                        <rect key="frame" x="10" y="12.5" width="55.5" height="35.5"/>
+                                        <rect key="frame" x="-5" y="11" width="59" height="38"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="취소">
-                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Bbm-BF-ouF"/>
-                                    <constraint firstAttribute="trailing" secondItem="P86-7c-3hc" secondAttribute="trailing" constant="10" id="DwW-eT-llc"/>
+                                    <constraint firstAttribute="trailing" secondItem="P86-7c-3hc" secondAttribute="trailing" constant="-5" id="DwW-eT-llc"/>
                                     <constraint firstItem="P86-7c-3hc" firstAttribute="centerY" secondItem="GHj-r2-wEn" secondAttribute="centerY" id="MDJ-sS-lpu"/>
                                     <constraint firstItem="GHj-r2-wEn" firstAttribute="centerY" secondItem="4Yn-N1-0Ys" secondAttribute="centerY" id="Ssv-zp-F6G"/>
                                     <constraint firstItem="GHj-r2-wEn" firstAttribute="centerX" secondItem="4Yn-N1-0Ys" secondAttribute="centerX" id="kCq-5L-8Mp"/>
-                                    <constraint firstItem="pda-4W-A9D" firstAttribute="leading" secondItem="4Yn-N1-0Ys" secondAttribute="leading" constant="10" id="qzc-Hg-5CR"/>
+                                    <constraint firstItem="pda-4W-A9D" firstAttribute="leading" secondItem="4Yn-N1-0Ys" secondAttribute="leading" constant="-5" id="qzc-Hg-5CR"/>
                                     <constraint firstItem="pda-4W-A9D" firstAttribute="centerY" secondItem="GHj-r2-wEn" secondAttribute="centerY" id="xQ9-Z3-PUc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lcl-5A-bVZ">
+                                <rect key="frame" x="0.0" y="104" width="414" height="450"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fgk-RQ-7W5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fgk-RQ-7W5" secondAttribute="trailing" id="2S8-Bg-ZIT"/>
+                                    <constraint firstAttribute="bottom" secondItem="fgk-RQ-7W5" secondAttribute="bottom" id="MYs-Za-Zhf"/>
+                                    <constraint firstAttribute="height" constant="450" id="fEk-IK-g1f"/>
+                                    <constraint firstItem="fgk-RQ-7W5" firstAttribute="leading" secondItem="Lcl-5A-bVZ" secondAttribute="leading" id="ldg-0c-Bhn"/>
+                                    <constraint firstItem="fgk-RQ-7W5" firstAttribute="top" secondItem="Lcl-5A-bVZ" secondAttribute="top" id="pTl-j3-4E3"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1PT-8f-RBd"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Lcl-5A-bVZ" firstAttribute="top" secondItem="4Yn-N1-0Ys" secondAttribute="bottom" id="4sd-m3-OpU"/>
                             <constraint firstAttribute="trailing" secondItem="4Yn-N1-0Ys" secondAttribute="trailing" id="HzT-jY-eJo"/>
                             <constraint firstItem="4Yn-N1-0Ys" firstAttribute="top" secondItem="1PT-8f-RBd" secondAttribute="top" id="Rvq-NM-yy0"/>
+                            <constraint firstItem="Lcl-5A-bVZ" firstAttribute="leading" secondItem="1PT-8f-RBd" secondAttribute="leading" id="kfY-7X-nRE"/>
                             <constraint firstItem="4Yn-N1-0Ys" firstAttribute="leading" secondItem="1PT-8f-RBd" secondAttribute="leading" id="mSr-J7-ge5"/>
+                            <constraint firstItem="1PT-8f-RBd" firstAttribute="trailing" secondItem="Lcl-5A-bVZ" secondAttribute="trailing" id="op4-Mf-uIe"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -2390,7 +2515,40 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setNameTextField_:" destination="AwX-00-f2y" eventType="editingChanged" id="wYv-Ci-IpX"/>
+                                </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPt-iH-U54">
+                                <rect key="frame" x="336" y="199" width="18" height="18"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mDT-eC-xKG">
+                                        <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
+                                        <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8X-Sn-KVu">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clearTextFieldText:" destination="AwX-00-f2y" eventType="touchUpInside" id="Siq-v2-z0v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="X8X-Sn-KVu" firstAttribute="leading" secondItem="KPt-iH-U54" secondAttribute="leading" id="2MH-kq-zPm"/>
+                                    <constraint firstItem="mDT-eC-xKG" firstAttribute="leading" secondItem="KPt-iH-U54" secondAttribute="leading" id="6Gc-KT-ZmZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="mDT-eC-xKG" secondAttribute="bottom" id="EJf-1u-nxX"/>
+                                    <constraint firstItem="mDT-eC-xKG" firstAttribute="top" secondItem="KPt-iH-U54" secondAttribute="top" id="Nom-uP-tp2"/>
+                                    <constraint firstAttribute="height" constant="18" id="Tkb-Sk-lFc"/>
+                                    <constraint firstAttribute="bottom" secondItem="X8X-Sn-KVu" secondAttribute="bottom" id="Yt1-V2-zsQ"/>
+                                    <constraint firstItem="X8X-Sn-KVu" firstAttribute="top" secondItem="KPt-iH-U54" secondAttribute="top" id="bdZ-q3-OZN"/>
+                                    <constraint firstAttribute="width" constant="18" id="hsi-0k-x5h"/>
+                                    <constraint firstAttribute="trailing" secondItem="mDT-eC-xKG" secondAttribute="trailing" id="yge-py-SMM"/>
+                                    <constraint firstAttribute="trailing" secondItem="X8X-Sn-KVu" secondAttribute="trailing" id="zrH-zX-jxi"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-24-26n">
                                 <rect key="frame" x="40" y="258" width="334" height="48"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.57254901960000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2402,6 +2560,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressNextButton:" destination="AwX-00-f2y" eventType="touchUpInside" id="1xF-QR-wVB"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="kWI-Hl-zXb">
                                 <rect key="frame" x="117.5" y="832" width="179.5" height="30"/>
@@ -2419,6 +2580,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="AwX-00-f2y" eventType="touchUpInside" id="XAB-yZ-anK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2441,8 +2605,10 @@
                             <constraint firstAttribute="trailing" secondItem="aKC-yw-hYd" secondAttribute="trailing" id="KaT-ba-AHD"/>
                             <constraint firstItem="kWI-Hl-zXb" firstAttribute="top" secondItem="aKC-yw-hYd" secondAttribute="bottom" constant="30" id="Udn-Jz-uBe"/>
                             <constraint firstItem="d21-kV-j2p" firstAttribute="centerX" secondItem="w78-eA-PFI" secondAttribute="centerX" id="WNb-kn-KT4"/>
+                            <constraint firstItem="KPt-iH-U54" firstAttribute="centerY" secondItem="VFa-b6-1gM" secondAttribute="centerY" id="cX4-tZ-Diu"/>
                             <constraint firstItem="vWx-ZM-5EM" firstAttribute="top" secondItem="d21-kV-j2p" secondAttribute="bottom" constant="17" id="dc6-zV-AcV"/>
                             <constraint firstItem="p1w-Gg-7Nj" firstAttribute="trailing" secondItem="VFa-b6-1gM" secondAttribute="trailing" constant="40" id="jeP-hT-hR6"/>
+                            <constraint firstItem="KPt-iH-U54" firstAttribute="trailing" secondItem="VFa-b6-1gM" secondAttribute="trailing" constant="-20" id="oyx-id-oz1"/>
                             <constraint firstItem="kWI-Hl-zXb" firstAttribute="centerX" secondItem="w78-eA-PFI" secondAttribute="centerX" id="qil-wa-WKj"/>
                             <constraint firstItem="d21-kV-j2p" firstAttribute="top" secondItem="p1w-Gg-7Nj" secondAttribute="top" constant="45" id="srJ-b6-dkD"/>
                             <constraint firstItem="xIU-24-26n" firstAttribute="top" secondItem="VFa-b6-1gM" secondAttribute="bottom" constant="25" id="th6-kE-oTy"/>
@@ -2452,7 +2618,8 @@
                     </view>
                     <connections>
                         <outlet property="nameTextField" destination="VFa-b6-1gM" id="UWa-9Q-LyU"/>
-                        <outlet property="nextButton" destination="xIU-24-26n" id="jEU-I9-5YB"/>
+                        <outlet property="nextButton" destination="xIU-24-26n" id="gh3-y9-Xnn"/>
+                        <outlet property="xButtonView" destination="KPt-iH-U54" id="Msd-hT-v91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0T-DV-SeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2487,6 +2654,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setPasswordTextField_:" destination="aRy-pB-T4b" eventType="editingChanged" id="hZQ-54-N12"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7G-OX-elq">
                                 <rect key="frame" x="40" y="296" width="334" height="48"/>
@@ -2499,6 +2669,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressNextButton:" destination="aRy-pB-T4b" eventType="touchUpInside" id="3TD-j9-mLd"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lk-oY-EkC">
                                 <rect key="frame" x="336" y="212" width="18" height="18"/>
@@ -2512,7 +2685,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="removeTextFieldText:" destination="aRy-pB-T4b" eventType="touchUpInside" id="9jE-sf-OHA"/>
+                                            <action selector="clearTextFieldText:" destination="aRy-pB-T4b" eventType="touchUpInside" id="7tK-pJ-Jvh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2546,6 +2719,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="aRy-pB-T4b" eventType="touchUpInside" id="94g-bj-HtW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2583,6 +2759,7 @@
                     <connections>
                         <outlet property="nextButton" destination="L7G-OX-elq" id="DMR-jN-cwh"/>
                         <outlet property="passwordTextField" destination="cU5-hf-DY0" id="slK-9Q-jjz"/>
+                        <outlet property="xButtonView" destination="9lk-oY-EkC" id="VfY-TR-Abs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEZ-nC-Pzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2648,12 +2825,6 @@
                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="uih-2T-u88">
-                                <rect key="frame" x="0.0" y="617" width="414" height="235"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="235" id="BJT-qA-XD2"/>
-                                </constraints>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGA-N5-xgX">
                                 <rect key="frame" x="20" y="564" width="374" height="48"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.57254901960000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2665,6 +2836,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressNextButton:" destination="SAt-IB-RdL" eventType="touchUpInside" id="7mf-XC-miD"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPB-lO-3QY">
                                 <rect key="frame" x="0.0" y="552" width="414" height="1"/>
@@ -2683,9 +2857,7 @@
                         <viewLayoutGuide key="safeArea" id="pKb-hH-EHa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uih-2T-u88" firstAttribute="leading" secondItem="pKb-hH-EHa" secondAttribute="leading" id="1V3-nJ-T1x"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="erL-ph-wM4" secondAttribute="trailing" id="2DP-oX-DBp"/>
-                            <constraint firstItem="uih-2T-u88" firstAttribute="top" secondItem="lGA-N5-xgX" secondAttribute="bottom" constant="5" id="2Dq-fj-Hwa"/>
                             <constraint firstItem="fHc-41-XHm" firstAttribute="top" secondItem="MCk-1f-Qd9" secondAttribute="bottom" constant="-4" id="2Wj-Xo-T5H"/>
                             <constraint firstItem="MCk-1f-Qd9" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" id="AVS-52-pcy"/>
                             <constraint firstItem="9RH-ME-Zh2" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" id="ErS-VQ-AUj"/>
@@ -2693,16 +2865,15 @@
                             <constraint firstItem="dPB-lO-3QY" firstAttribute="leading" secondItem="pEB-CX-vxt" secondAttribute="leading" id="Ghm-s8-p6s"/>
                             <constraint firstAttribute="trailing" secondItem="dPB-lO-3QY" secondAttribute="trailing" id="JT7-j9-T2E"/>
                             <constraint firstItem="pKb-hH-EHa" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lGA-N5-xgX" secondAttribute="trailing" id="LFb-jN-fgk"/>
-                            <constraint firstAttribute="trailing" secondItem="uih-2T-u88" secondAttribute="trailing" id="LJp-94-fXb"/>
                             <constraint firstItem="MCk-1f-Qd9" firstAttribute="top" secondItem="pKb-hH-EHa" secondAttribute="top" constant="25" id="MRP-ho-2Th"/>
                             <constraint firstItem="jpZ-ph-CUn" firstAttribute="top" secondItem="eCZ-1f-bvd" secondAttribute="bottom" constant="15" id="MpV-Sz-tdk"/>
                             <constraint firstItem="lGA-N5-xgX" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" id="RPE-yu-O9n"/>
-                            <constraint firstItem="pKb-hH-EHa" firstAttribute="bottom" secondItem="uih-2T-u88" secondAttribute="bottom" constant="10" id="U7v-1q-QxI"/>
                             <constraint firstItem="wGk-Wp-iaZ" firstAttribute="top" secondItem="MCk-1f-Qd9" secondAttribute="bottom" constant="20" id="UOY-XW-htr"/>
                             <constraint firstItem="lGA-N5-xgX" firstAttribute="leading" secondItem="pKb-hH-EHa" secondAttribute="leading" constant="20" id="ZmS-XC-RGO"/>
                             <constraint firstItem="Fhm-ST-8vD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jpZ-ph-CUn" secondAttribute="leading" id="ZyG-j8-uvp"/>
                             <constraint firstItem="eCZ-1f-bvd" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" id="dlE-Ve-ELa"/>
                             <constraint firstItem="dPB-lO-3QY" firstAttribute="top" secondItem="erL-ph-wM4" secondAttribute="bottom" constant="10" id="e1P-Gz-6ii"/>
+                            <constraint firstItem="erL-ph-wM4" firstAttribute="top" secondItem="jpZ-ph-CUn" secondAttribute="bottom" constant="138" id="jWe-q5-iym"/>
                             <constraint firstItem="Fhm-ST-8vD" firstAttribute="trailing" secondItem="jpZ-ph-CUn" secondAttribute="trailing" constant="-10" id="jrk-6v-ABb"/>
                             <constraint firstItem="fHc-41-XHm" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" constant="7" id="kAt-Fe-jqA"/>
                             <constraint firstItem="wGk-Wp-iaZ" firstAttribute="centerX" secondItem="pEB-CX-vxt" secondAttribute="centerX" id="lId-RH-owX"/>
@@ -2716,6 +2887,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="Fhm-ST-8vD" id="nNY-K0-MRi"/>
+                        <outlet property="birthdayTextField" destination="jpZ-ph-CUn" id="7cv-Wd-qlU"/>
                         <outlet property="nextButton" destination="lGA-N5-xgX" id="dwc-CD-VCi"/>
                     </connections>
                 </viewController>
@@ -2726,7 +2899,7 @@
         <!--Terms View Controller-->
         <scene sceneID="zYs-qs-kXS">
             <objects>
-                <viewController storyboardIdentifier="TermsViewController:" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Etd-oO-fdI" customClass="TermsViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Etd-oO-fdI" customClass="TermsViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bqd-Qy-ZVQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2769,6 +2942,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="더 알아보기">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="moveWebView:" destination="Etd-oO-fdI" eventType="touchUpInside" id="B1h-Ma-dox"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="데이터 정책(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYi-FU-bgo">
                                 <rect key="frame" x="20" y="338.5" width="127" height="21.5"/>
@@ -2783,6 +2959,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="더 알아보기">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="moveWebView:" destination="Etd-oO-fdI" eventType="touchUpInside" id="pdA-hr-Avo"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치 기반 기능(필수)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bh-Pg-TRW">
                                 <rect key="frame" x="20" y="405.5" width="147" height="21.5"/>
@@ -2797,18 +2976,24 @@
                                 <buttonConfiguration key="configuration" style="plain" title="더 알아보기">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="moveWebView:" destination="Etd-oO-fdI" eventType="touchUpInside" id="j3b-pu-9r2"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-bV-KiY">
                                 <rect key="frame" x="364" y="220" width="30" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ap4-hO-zLv">
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
-                                        <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bu-HH-dwp">
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bu-HH-dwp">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clickAllAgreementButton:" destination="Etd-oO-fdI" eventType="touchUpInside" id="N1y-Bn-Kg9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2832,10 +3017,13 @@
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
                                         <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54j-h5-Svp">
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54j-h5-Svp">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clickUseTermsButton:" destination="Etd-oO-fdI" eventType="touchUpInside" id="WDO-js-dH6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2859,10 +3047,13 @@
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
                                         <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-Zg-tKC">
+                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-Zg-tKC">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clickDataButton:" destination="Etd-oO-fdI" eventType="touchUpInside" id="qc6-ag-bCo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2886,10 +3077,13 @@
                                         <rect key="frame" x="0.0" y="0.5" width="30" height="29"/>
                                         <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-R0-fN6">
+                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-R0-fN6">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clickLocationButton:" destination="Etd-oO-fdI" eventType="touchUpInside" id="AGq-Se-v8J"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2917,6 +3111,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="계속">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressContinueButton:" destination="Etd-oO-fdI" eventType="touchUpInside" id="Wah-1X-MG3"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwN-7W-dvJ">
                                 <rect key="frame" x="0.0" y="766" width="414" height="1"/>
@@ -2975,7 +3172,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allAgreementButton" destination="5bu-HH-dwp" id="tPH-18-UHc"/>
+                        <outlet property="allAgreementButtonImage" destination="ap4-hO-zLv" id="iw6-R3-E1F"/>
                         <outlet property="continueButton" destination="mYt-0g-HNY" id="Gad-ZK-0JI"/>
+                        <outlet property="dataButtonImage" destination="Cog-Qm-6kX" id="ABI-nV-qem"/>
+                        <outlet property="dateButton" destination="iVB-Zg-tKC" id="D8e-sw-cjK"/>
+                        <outlet property="locationButton" destination="gfv-R0-fN6" id="oP8-is-Tx3"/>
+                        <outlet property="locationButtonImage" destination="Ajw-q0-AhL" id="ouc-Lf-iB8"/>
+                        <outlet property="useTermsButton" destination="54j-h5-Svp" id="DVV-tN-Nxk"/>
+                        <outlet property="useTermsButtonImage" destination="Qht-mg-PCj" id="Uov-ao-dHI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKV-BC-jjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3010,7 +3215,41 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="setUserNameTextField_:" destination="9a3-Yx-j8k" eventType="editingChanged" id="6bn-tH-sfc"/>
+                                </connections>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oox-xF-FoR">
+                                <rect key="frame" x="336" y="211" width="18" height="18"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UJg-IB-J4L">
+                                        <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
+                                        <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdC-7t-PsB">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="clearTextFieldText:" destination="aRy-pB-T4b" eventType="touchUpInside" id="4xe-n0-hZ5"/>
+                                            <action selector="clearTextFieldText:" destination="9a3-Yx-j8k" eventType="touchUpInside" id="HX0-6O-lel"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="FdC-7t-PsB" firstAttribute="leading" secondItem="Oox-xF-FoR" secondAttribute="leading" id="9ue-yB-ce8"/>
+                                    <constraint firstItem="FdC-7t-PsB" firstAttribute="top" secondItem="Oox-xF-FoR" secondAttribute="top" id="MpC-vg-VAA"/>
+                                    <constraint firstAttribute="trailing" secondItem="FdC-7t-PsB" secondAttribute="trailing" id="PjS-BY-KBX"/>
+                                    <constraint firstAttribute="height" constant="18" id="TFw-R0-6fV"/>
+                                    <constraint firstAttribute="bottom" secondItem="UJg-IB-J4L" secondAttribute="bottom" id="fay-dj-JHw"/>
+                                    <constraint firstAttribute="trailing" secondItem="UJg-IB-J4L" secondAttribute="trailing" id="iuz-GR-tjv"/>
+                                    <constraint firstAttribute="width" constant="18" id="jV9-Dl-xF9"/>
+                                    <constraint firstItem="UJg-IB-J4L" firstAttribute="leading" secondItem="Oox-xF-FoR" secondAttribute="leading" id="nNz-bC-Eug"/>
+                                    <constraint firstItem="UJg-IB-J4L" firstAttribute="top" secondItem="Oox-xF-FoR" secondAttribute="top" id="u33-cv-uRZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FdC-7t-PsB" secondAttribute="bottom" id="xl8-Gd-vhp"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxM-tN-XCN">
                                 <rect key="frame" x="40" y="270" width="334" height="48"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.57254901960000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3022,6 +3261,10 @@
                                 <buttonConfiguration key="configuration" style="plain" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressContinueButton:" destination="zK3-62-O2u" eventType="touchUpInside" id="Mul-Zv-mQf"/>
+                                    <action selector="pressNextButton:" destination="9a3-Yx-j8k" eventType="touchUpInside" id="ONg-Qj-070"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXg-UM-evZ"/>
@@ -3038,6 +3281,8 @@
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="leading" secondItem="QJ4-1j-VQd" secondAttribute="leading" id="Ude-fH-zdl"/>
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" id="Ztu-Ja-FhW"/>
                             <constraint firstItem="QJ4-1j-VQd" firstAttribute="leading" secondItem="aXg-UM-evZ" secondAttribute="leading" constant="40" id="gWe-tG-eNa"/>
+                            <constraint firstItem="Oox-xF-FoR" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" constant="-20" id="pdK-2k-pQd"/>
+                            <constraint firstItem="Oox-xF-FoR" firstAttribute="centerY" secondItem="QJ4-1j-VQd" secondAttribute="centerY" id="rmq-7F-MFT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3046,6 +3291,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j58-wf-A6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="zK3-62-O2u" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5078" y="1419"/>
         </scene>
@@ -3085,6 +3331,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="D5E-lH-mE7" eventType="touchUpInside" id="edV-ZE-xzR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -3099,6 +3348,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="가입하기">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="completeJoin:" destination="D5E-lH-mE7" eventType="touchUpInside" id="ybS-cb-nIf"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IY3-dD-Ech">
                                 <rect key="frame" x="0.0" y="730" width="414" height="1"/>

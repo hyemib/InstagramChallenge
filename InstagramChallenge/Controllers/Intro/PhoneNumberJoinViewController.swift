@@ -1,34 +1,72 @@
 
 import UIKit
 
-class PhoneNumberJoinViewController: UIViewController {
+class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var xButtonView: UIView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var enableNextButton = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        phoneNumberTextField.delegate = self
+       
+        xButtonView.isHidden = true
+        
         phoneNumberTextField.addLeftPaading(padding: 105)
         setNextButtonDesign()
-        setTextField()
     }
     
-    func setTextField() {
-        self.phoneNumberTextField.addTarget(self, action: #selector(didChangeTextField(_:)), for: .editingChanged)
-    }
-    
-    @objc func didChangeTextField(_ sender: Any?) {
-        if phoneNumberTextField.text!.isEmpty {
-            nextButton.backgroundColor = .mainBlueBlurColor
-        } else {
-            nextButton.backgroundColor = .mainBlueColor
+    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
+        if textField.text?.count ?? 0 > maxLength {
+            textField.deleteBackward()
         }
+    }
+    
+    @IBAction func setPhoneNumberTextField_(_ sender: Any) {
+        checkTextFieldMaxLength(textField: phoneNumberTextField, maxLength: 11)
+        setEnableNextButton()
     }
     
     func setNextButtonDesign() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 5
         nextButton.backgroundColor = .mainBlueBlurColor
     }
-
+    
+    func setEnableNextButton() {
+        if phoneNumberTextField.text!.isEmpty {
+            nextButton.backgroundColor = .mainBlueBlurColor
+            enableNextButton = false
+            xButtonView.isHidden = true
+        } else {
+            nextButton.backgroundColor = .mainBlueColor
+            enableNextButton = true
+            xButtonView.isHidden = false
+        }
+    }
+    
+    @IBAction func clearTextFieldText(_ sender: UIButton) {
+        phoneNumberTextField.text = ""
+        setEnableNextButton()
+    }
+    
+    func isValidPhoneNumber(phone: String?) -> Bool {
+        guard phone != nil else { return false }
+        let phoneRegEx = "[0-9]{11}"
+        let pred = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return pred.evaluate(with: phone)
+    }
+    
+    @IBAction func pressNextButton(_ sender: UIButton) {
+        if !enableNextButton { return }
+        if isValidPhoneNumber(phone: phoneNumberTextField.text!) {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "VerificationCodeViewController") as? VerificationCodeViewController else { return }
+            vc.phoneNumber = phoneNumberTextField.text!
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+        }
+    }
 }

@@ -16,6 +16,10 @@ class PhoneNumberOrEmailJoinViewController: UIViewController {
         emailBar.isHidden = true
     }
     
+    @IBAction func moveJoinView(_ sender: UIButton) {
+        dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func selectPhoneNumberTabBar(_ sender: UIButton) {
         changeViewToPhoneNumberView()
         phoneNumberBar.isHidden = false
@@ -45,6 +49,12 @@ class PhoneNumberOrEmailJoinViewController: UIViewController {
         containerView.addSubview((vc.view)!)
         vc.view.frame = containerView.bounds
         vc.didMove(toParent: self)
+    }
+    
+    @IBAction func moveLoginView(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
     }
     
 }
