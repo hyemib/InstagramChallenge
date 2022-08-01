@@ -12,7 +12,7 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
-        UserApi.shared.loginWithKakaoAccount {(_, error) in
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let error = error {
                  print(error)
              } else {
@@ -22,8 +22,8 @@ class JoinViewController: UIViewController {
                      if let error = error {
                          print(error)
                      } else {
-                         UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
-                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+                         UserDefaults.standard.set(oauthToken?.accessToken, forKey: "kakaoToken")
+                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberJoinViewController") as? PhoneNumberJoinViewController else { return }
                          vc.modalPresentationStyle = .fullScreen
                          self.present(vc, animated: false, completion: nil)
                      }

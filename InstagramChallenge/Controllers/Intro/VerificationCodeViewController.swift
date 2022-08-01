@@ -15,7 +15,7 @@ class VerificationCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       // phoneNumberLabel.text = "+82\(phoneNumber.suffix(phoneNumber.count-1))번으로 전송된 인증 코드를 입력하세요."
+       // phoneNumberLabel.text = "\(phoneNumber)번으로 전송된 인증 코드를 입력하세요."
         xButtonView.isHidden = true
         
         verificationCodeTextField.addLeftPaading(padding: 10)

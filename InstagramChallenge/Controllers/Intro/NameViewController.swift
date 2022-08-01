@@ -56,12 +56,16 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
-        UserDefaults.standard.set(
-            "\(nameTextField.text!)@instagram.com", forKey: "emailKey")
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
-        
+        if UserDefaults.standard.string(forKey: "kakaoToken") != nil {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "BirthdayViewController") as? BirthdayViewController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+        } else {
+            UserDefaults.standard.set(nameTextField.text!, forKey: "nameKey")
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+        }
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {

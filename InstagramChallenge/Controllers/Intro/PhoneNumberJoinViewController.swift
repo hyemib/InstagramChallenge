@@ -13,7 +13,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nextButton: UIButton!
     
     var enableNextButton = false
-    var verifyID:String?
+    var phoneNumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,9 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
+        phoneNumber = "+82\(phoneNumberTextField.text!.suffix(phoneNumberTextField.text!.count-1))"
         if isValidPhoneNumber(phone: phoneNumberTextField.text!) {
+            UserDefaults.standard.set(phoneNumber, forKey: "phoneNumberKey")
             guard let vc = self.storyboard?.instantiateViewController(identifier: "VerificationCodeViewController") as? VerificationCodeViewController else { return }
             vc.phoneNumber = phoneNumberTextField.text!
             vc.modalPresentationStyle = .fullScreen
@@ -77,18 +79,17 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
-        UserApi.shared.loginWithKakaoAccount {(_, error) in
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let error = error {
                  print(error)
              } else {
                  print("loginWithKakaoAccount() success.")
-
                  UserApi.shared.me {(user, error) in
                      if let error = error {
                          print(error)
                      } else {
-                         UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
-                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+                         UserDefaults.standard.set(oauthToken?.accessToken, forKey: "kakaoToken")
+                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberJoinViewController") as? PhoneNumberJoinViewController else { return }
                          vc.modalPresentationStyle = .fullScreen
                          self.present(vc, animated: false, completion: nil)
                      }

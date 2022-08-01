@@ -11,14 +11,14 @@ import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: "6bf3b9bbc353619381411d68b9ac3a7d")
-        if Auth.auth().currentUser?.uid != nil {
-            sleep(1)
-        }
+        sleep(1)
         return true
     }
 
