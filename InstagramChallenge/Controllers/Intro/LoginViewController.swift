@@ -1,5 +1,9 @@
 
 import UIKit
+import Firebase
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -22,6 +26,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setTextFieldDesign()
         setLoginButtonDesign()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       // checkAuthLogin()
+    }
+    
+    func checkAuthLogin() {
+        if Auth.auth().currentUser?.uid != nil {
+            print(Auth.auth().currentUser?.uid)
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+            
+        }
     }
     
     func setTextFieldDesign() {
@@ -117,6 +135,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func pressJoinButton(_ sender: UIButton) {
+       
         moveJoinView()
     }
+    
+    @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
+        UserApi.shared.loginWithKakaoAccount {(_, error) in
+             if let error = error {
+                 print(error)
+             } else {
+                 print("loginWithKakaoAccount() success.")
+                 UserApi.shared.me {(user, error) in
+                     if let error = error {
+                         print(error)
+                     } else {
+                         UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
+                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+                         vc.modalPresentationStyle = .fullScreen
+                         self.present(vc, animated: false, completion: nil)
+                     }
+                 }
+             }
+        }
+    }
+    
 }

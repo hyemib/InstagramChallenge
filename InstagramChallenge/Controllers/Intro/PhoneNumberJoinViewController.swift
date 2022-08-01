@@ -1,5 +1,10 @@
 
 import UIKit
+import FirebaseAuth
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
+
 
 class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
 
@@ -8,6 +13,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nextButton: UIButton!
     
     var enableNextButton = false
+    var verifyID:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,4 +75,26 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
             self.present(vc, animated: false, completion: nil)
         }
     }
+    
+    @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
+        UserApi.shared.loginWithKakaoAccount {(_, error) in
+             if let error = error {
+                 print(error)
+             } else {
+                 print("loginWithKakaoAccount() success.")
+
+                 UserApi.shared.me {(user, error) in
+                     if let error = error {
+                         print(error)
+                     } else {
+                         UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
+                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+                         vc.modalPresentationStyle = .fullScreen
+                         self.present(vc, animated: false, completion: nil)
+                     }
+                 }
+             }
+        }
+    }
 }
+

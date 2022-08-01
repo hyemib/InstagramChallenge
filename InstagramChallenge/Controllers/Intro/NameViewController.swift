@@ -56,7 +56,8 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
-        
+        UserDefaults.standard.set(
+            "\(nameTextField.text!)@instagram.com", forKey: "emailKey")
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

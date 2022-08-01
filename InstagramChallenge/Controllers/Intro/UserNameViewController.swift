@@ -49,6 +49,7 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
         alret.addAction(yes)
         present(alret, animated: true, completion: nil)
         */
+        UserDefaults.standard.set(userNameTextField.text!, forKey: "userNameKey")
         guard let vc = self.storyboard?.instantiateViewController(identifier: "FinalConfirmationViewController") as? FinalConfirmationViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

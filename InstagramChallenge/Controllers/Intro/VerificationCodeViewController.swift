@@ -1,5 +1,6 @@
 
 import UIKit
+import Firebase
 
 class VerificationCodeViewController: UIViewController {
 

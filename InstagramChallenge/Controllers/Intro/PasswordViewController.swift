@@ -66,6 +66,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         if !enableNextButton { return }
         
         if isValidLogin(textField: passwordTextField, minLength: 6, maxLength: 20) {
+            UserDefaults.standard.set(passwordTextField.text!, forKey: "passwordKey")
             guard let vc = self.storyboard?.instantiateViewController(identifier: "BirthdayViewController") as? BirthdayViewController else { return }
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
