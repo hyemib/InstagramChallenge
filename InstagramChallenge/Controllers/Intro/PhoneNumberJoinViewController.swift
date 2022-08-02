@@ -72,7 +72,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
         if isValidPhoneNumber(phone: phoneNumberTextField.text!) {
             UserDefaults.standard.set(phoneNumber, forKey: "phoneNumberKey")
             guard let vc = self.storyboard?.instantiateViewController(identifier: "VerificationCodeViewController") as? VerificationCodeViewController else { return }
-            vc.phoneNumber = phoneNumberTextField.text!
+            vc.phoneNumber = phoneNumber
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
         }
@@ -82,16 +82,32 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let error = error {
                  print(error)
+                 let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
+                 let yes = UIAlertAction(title: "확인", style: .default)
+                 alret.addAction(yes)
+                 self.present(alret, animated: true, completion: nil)
              } else {
                  print("loginWithKakaoAccount() success.")
                  UserApi.shared.me {(user, error) in
                      if let error = error {
                          print(error)
                      } else {
-                         UserDefaults.standard.set(oauthToken?.accessToken, forKey: "kakaoToken")
-                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberJoinViewController") as? PhoneNumberJoinViewController else { return }
-                         vc.modalPresentationStyle = .fullScreen
-                         self.present(vc, animated: false, completion: nil)
+                         Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
+                             if let error = error {
+                                 print(error)
+                                 UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
+                                 UserDefaults.standard.set("\(String(describing: user?.id))", forKey: "passwordKey")
+                                 kakaoJoin = true
+                                 
+                                 guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberOrEmailJoinViewController") as? PhoneNumberOrEmailJoinViewController else { return }
+                                 vc.modalPresentationStyle = .fullScreen
+                                 self.present(vc, animated: false, completion: nil)
+                                 return
+                             }
+                             guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+                             vc.modalPresentationStyle = .fullScreen
+                             self.present(vc, animated: false, completion: nil)
+                         }
                      }
                  }
              }

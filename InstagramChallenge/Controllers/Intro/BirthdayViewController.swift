@@ -58,6 +58,7 @@ class BirthdayViewController: UIViewController {
     func configureDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.backgroundColor = .white
         datePicker.addTarget(self, action: #selector(datePickerValueDidChange(_:)), for: .valueChanged)
         birthdayTextField.inputView = datePicker
     }

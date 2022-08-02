@@ -24,27 +24,21 @@ class FinalConfirmationViewController: UIViewController {
         guard let name = UserDefaults.standard.string(forKey: "nameKey") else { return print("Something Wierd") }
         guard let userName = UserDefaults.standard.string(forKey: "userNameKey") else { return print("Something Wierd") }
         guard let birthday = UserDefaults.standard.string(forKey: "birthdayKey") else { return print("Something Wierd") }
+        guard let password = UserDefaults.standard.string(forKey: "passwordKey") else { return print("Something Wierd") }
         
-        let verificationCode = "123456"
        
-        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+        Auth.auth().createUser(withEmail: userName, password: password) { authData, error in
             if let error = error {
                 print(error)
                 return
             }
-            let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: verificationCode)
-            Auth.auth().signIn(with: credential, completion: { authData, error in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                let uid = authData?.user.uid
-                Database.database().reference().child("users").child(uid!).setValue(["name":name, "userName":userName, "birthday":birthday])
-                guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: false, completion: nil)
-            })
+            //let uid = authData?.user.uid
+            Database.database().reference().child("users").child(userName).setValue(["name":name, "birthday":birthday, "phoneNumber": phoneNumber])
+            Auth.auth().signIn(withEmail: userName, password: password, completion: nil)
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false, completion: nil)
+            
         }
     }
     

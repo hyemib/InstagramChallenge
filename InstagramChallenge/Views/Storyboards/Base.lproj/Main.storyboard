@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D5E-lH-mE7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -733,6 +733,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="moveJoinView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="Thg-SY-j8n"/>
+                                            <action selector="movePhoneNumberOrEmailView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="ABD-xK-umJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="또는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOh-Xv-vat">
@@ -749,7 +750,7 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="moveJoinView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="7DD-wm-S6R"/>
+                                            <action selector="movePhoneNumberOrEmailView:" destination="va2-yw-9Sd" eventType="touchUpInside" id="ggS-9e-bvg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3231,7 +3232,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oox-xF-FoR">
                                 <rect key="frame" x="336" y="211" width="18" height="18"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UJg-IB-J4L">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UJg-IB-J4L">
                                         <rect key="frame" x="0.0" y="0.5" width="18" height="17"/>
                                         <color key="tintColor" red="0.78431367870000002" green="0.78431367870000002" blue="0.78431367870000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
@@ -3477,6 +3478,7 @@
         <image name="tag_contents" width="150" height="149"/>
         <image name="tag_false" width="43" height="43"/>
         <image name="video_tabbar" width="27" height="26"/>
+        <image name="x.circle" catalog="system" width="128" height="121"/>
         <image name="x.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

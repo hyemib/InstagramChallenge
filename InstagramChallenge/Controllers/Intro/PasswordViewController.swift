@@ -15,6 +15,8 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         
         passwordTextField.addLeftPaading(padding: 10)
+        passwordTextField.isSecureTextEntry = true
+        
         xButtonView.isHidden = true
         
         setNextButtonDesign()
@@ -56,7 +58,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     func isValidLogin(textField: UITextField!, minLength: Int, maxLength: Int) -> Bool {
         guard textField.text != nil else { return false }
         
-        let regEx = "[A-Za-z0-9!_@$%^&+=]{\(minLength),\(maxLength)}"
+        let regEx = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{\(minLength),\(maxLength)}"
         
         let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
         return pred.evaluate(with: textField.text)

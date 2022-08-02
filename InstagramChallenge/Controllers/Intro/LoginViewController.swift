@@ -4,6 +4,9 @@ import Firebase
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import FirebaseAuth
+
+var kakaoJoin = false
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -13,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    var isPasswordView = true
+    var viewPassword = true
     var enableLoginButton = false
     
     override func viewDidLoad() {
@@ -22,7 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passwordTextField.delegate = self
         
-        passwordTextField.isSecureTextEntry = isPasswordView
+        passwordTextField.isSecureTextEntry = viewPassword
         
         setTextFieldDesign()
         setLoginButtonDesign()
@@ -50,14 +53,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func changePasswordView(_ sender: Any) {
-        if isPasswordView {
+        if viewPassword {
             passwordTextField.isSecureTextEntry = false
             passwordViewButtonImgae.image = UIImage(named: "password_view_true")
         } else {
             passwordTextField.isSecureTextEntry = true
             passwordViewButtonImgae.image = UIImage(named: "password_view_false")
         }
-        isPasswordView = !isPasswordView
+        viewPassword = !viewPassword
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -88,9 +91,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard textField.text != nil else { return false }
         var regEx = ""
         if textField == idTextField {
-            regEx = "[A-Za-z0-9]{\(minLength),\(maxLength)}"
+            regEx = "^.{\(minLength),\(maxLength)}"
         } else if textField == passwordTextField {
-            regEx = "[A-Za-z0-9!_@$%^&+=]{\(minLength),\(maxLength)}"
+            regEx = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{\(minLength),\(maxLength)}"
         }
         let pred = NSPredicate(format:"SELF MATCHES %@", regEx)
         return pred.evaluate(with: textField.text)
@@ -98,17 +101,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressLoginButton(_ sender: UIButton) {
         if !enableLoginButton { return }
+    
         if isValidLogin(textField: idTextField, minLength: 3, maxLength: 20) && isValidLogin(textField: passwordTextField, minLength: 6, maxLength: 20) {
             Auth.auth().signIn(withEmail: "\(idTextField.text!)@instagram.com", password: passwordTextField.text!) { result, error in
                 if let error = error {
                     print(error)
+                    let alret = UIAlertController(title: "계정을 찾을 수 없음", message: "\(self.idTextField.text!)에 연결된 계정을 찾을 수 없습니다. 다른 전화번호나 이메일 주소를 사용해보세요. Instagram 계정이 없으면 가입할 수 있습니다.", preferredStyle: .alert)
+                    let join = UIAlertAction(title: "가입하기", style: .default) {_ in
+                        self.moveJoinView()
+                    }
+                    let retry = UIAlertAction(title: "다시 시도", style: .default)
+                    alret.addAction(join)
+                    alret.addAction(retry)
+                    self.present(alret, animated: true, completion: nil)
                     return
                 }
                 guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: false, completion: nil)
+                 vc.modalPresentationStyle = .fullScreen
+                 self.present(vc, animated: false, completion: nil)
             }
-            
         } else {
             let alret = UIAlertController(title: "계정을 찾을 수 없음", message: "\(idTextField.text!)에 연결된 계정을 찾을 수 없습니다. 다른 전화번호나 이메일 주소를 사용해보세요. Instagram 계정이 없으면 가입할 수 있습니다.", preferredStyle: .alert)
             let join = UIAlertAction(title: "가입하기", style: .default) {_ in
@@ -119,6 +130,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alret.addAction(retry)
             present(alret, animated: true, completion: nil)
         }
+        
     }
     
     func moveJoinView() {
@@ -135,16 +147,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let error = error {
                  print(error)
+                 let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
+                 let yes = UIAlertAction(title: "확인", style: .default)
+                 alret.addAction(yes)
+                 self.present(alret, animated: true, completion: nil)
              } else {
                  print("loginWithKakaoAccount() success.")
                  UserApi.shared.me {(user, error) in
                      if let error = error {
                          print(error)
                      } else {
-                         UserDefaults.standard.set(oauthToken?.accessToken, forKey: "kakaoToken")
-                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberJoinViewController") as? PhoneNumberJoinViewController else { return }
-                         vc.modalPresentationStyle = .fullScreen
-                         self.present(vc, animated: false, completion: nil)
+                         Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
+                             if let error = error {
+                                 print(error)
+                                 UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
+                                 UserDefaults.standard.set("\(String(describing: user?.id))", forKey: "passwordKey")
+                                 kakaoJoin = true
+                                 
+                                 guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberOrEmailJoinViewController") as? PhoneNumberOrEmailJoinViewController else { return }
+                                 vc.modalPresentationStyle = .fullScreen
+                                 self.present(vc, animated: false, completion: nil)
+                                 return
+                             }
+                             guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+                             vc.modalPresentationStyle = .fullScreen
+                             self.present(vc, animated: false, completion: nil)
+                         }
                      }
                  }
              }

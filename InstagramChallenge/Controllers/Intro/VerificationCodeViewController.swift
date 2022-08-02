@@ -15,7 +15,7 @@ class VerificationCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       // phoneNumberLabel.text = "\(phoneNumber)번으로 전송된 인증 코드를 입력하세요."
+        phoneNumberLabel.text = "\(phoneNumber)번으로 전송된 인증 코드를 입력하세요."
         xButtonView.isHidden = true
         
         verificationCodeTextField.addLeftPaading(padding: 10)
@@ -30,6 +30,10 @@ class VerificationCodeViewController: UIViewController {
     func setNextButtonDesign() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 5
         nextButton.backgroundColor = .mainBlueBlurColor
+    }
+    
+    @IBAction func movePhoneNumberOrEmailView(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {

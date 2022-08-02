@@ -56,13 +56,13 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
-        if UserDefaults.standard.string(forKey: "kakaoToken") != nil {
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "BirthdayViewController") as? BirthdayViewController else { return }
+        UserDefaults.standard.set(nameTextField.text!, forKey: "nameKey")
+        if !kakaoJoin {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
         } else {
-            UserDefaults.standard.set(nameTextField.text!, forKey: "nameKey")
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "BirthdayViewController") as? BirthdayViewController else { return }
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
         }
