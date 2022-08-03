@@ -36,6 +36,9 @@
 		9261E321288E4F4E00A9094D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9261E320288E4F4E00A9094D /* Assets.xcassets */; };
 		9261E324288E4F4E00A9094D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9261E322288E4F4E00A9094D /* LaunchScreen.storyboard */; };
 		9261E333288EE39400A9094D /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E332288EE39400A9094D /* UITextField.swift */; };
+		926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608D28999BAA00554679 /* PhotoSelectViewController.swift */; };
+		926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608F289A9EB900554679 /* AlbumCell.swift */; };
+		926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* PostWriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,9 @@
 		9261E323288E4F4E00A9094D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9261E325288E4F4E00A9094D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9261E332288EE39400A9094D /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		926B608D28999BAA00554679 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
+		926B608F289A9EB900554679 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		926B6091289AE43C00554679 /* PostWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWriteViewController.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +143,9 @@
 				9230D5512891404900CFBC11 /* HomeViewController.swift */,
 				9230D55C289156B600CFBC11 /* HomeStoryCell.swift */,
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
+				926B608D28999BAA00554679 /* PhotoSelectViewController.swift */,
+				926B608F289A9EB900554679 /* AlbumCell.swift */,
+				926B6091289AE43C00554679 /* PostWriteViewController.swift */,
 				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
 				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
 			);
@@ -367,8 +376,10 @@
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
+				926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
+				926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */,
 				9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */,
 				9230D5782892538300CFBC11 /* HomeFeedCell.swift in Sources */,
 				9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */,
@@ -381,6 +392,7 @@
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
+				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,

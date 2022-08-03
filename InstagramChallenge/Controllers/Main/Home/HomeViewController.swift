@@ -12,12 +12,14 @@ class HomeViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        makeHeaderView()
     }
     
-    func makeHeaderView() {
+    @IBAction func goToCreatePost(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PhotoSelectViewController") as? PhotoSelectViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
     }
+    
 }
 
 extension HomeViewController: UITableViewDelegate {
