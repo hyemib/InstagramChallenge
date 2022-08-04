@@ -12,11 +12,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordViewButtonImgae: UIImageView!
-    
     @IBOutlet weak var loginButton: UIButton!
     
+    private let authDataService = AuthDataService()
+
     var viewPassword = true
     var enableLoginButton = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +104,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !enableLoginButton { return }
     
         if isValidLogin(textField: idTextField, minLength: 3, maxLength: 20) && isValidLogin(textField: passwordTextField, minLength: 6, maxLength: 20) {
+            authDataService.requestFetchSignIn(SignInRequest(loginId: idTextField.text!, password: passwordTextField.text!))
+            
             /*
             Auth.auth().signIn(withEmail: "\(idTextField.text!)@instagram.com", password: passwordTextField.text!) { result, error in
                 if let error = error {

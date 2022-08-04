@@ -12,8 +12,6 @@ class FinalConfirmationViewController: UIViewController {
         super.viewDidLoad()
 
         setJoinButtonDesign()
-        
-        print(signUp)
     }
     
     func setJoinButtonDesign() {
