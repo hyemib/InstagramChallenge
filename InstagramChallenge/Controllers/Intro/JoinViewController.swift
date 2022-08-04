@@ -26,6 +26,7 @@ class JoinViewController: UIViewController {
                      if let error = error {
                          print(error)
                      } else {
+                         /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {
                                  print(error)
@@ -41,7 +42,7 @@ class JoinViewController: UIViewController {
                              guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
                              vc.modalPresentationStyle = .fullScreen
                              self.present(vc, animated: false, completion: nil)
-                         }
+                         }*/
                      }
                  }
              }

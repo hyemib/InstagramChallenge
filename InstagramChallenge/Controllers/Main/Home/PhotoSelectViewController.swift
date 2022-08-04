@@ -4,13 +4,14 @@ import Photos
 
 class PhotoSelectViewController: UIViewController {
     
-    @IBOutlet weak var selectImage: UIImageView!
+    @IBOutlet weak var selectImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
 
     var fetchResult: PHFetchResult<PHAsset>!
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     
     var selectImageIndex = 0
+    var selectImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,9 @@ class PhotoSelectViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func goToWritePostView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostWriteViewController") as? PostWriteViewController else { return }
+    @IBAction func goPostWriteView(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "WritingViewController") as? WritingViewController else { return }
+        vc.selectImage = selectImage
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
@@ -92,8 +94,9 @@ extension PhotoSelectViewController: UICollectionViewDelegate, UICollectionViewD
         imageManager.requestImage(for: asset, targetSize: CGSize(width: collectionView.frame.width, height: collectionView.frame.width), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             cell.albumImage?.image = image
             if indexPath.row == self.selectImageIndex {
-                self.selectImage.image = image
+                self.selectImageView.image = image
                 cell.selectView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.7)
+                self.selectImage = image
             }
         })
         return cell

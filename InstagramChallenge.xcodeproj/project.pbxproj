@@ -38,7 +38,8 @@
 		9261E333288EE39400A9094D /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E332288EE39400A9094D /* UITextField.swift */; };
 		926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608D28999BAA00554679 /* PhotoSelectViewController.swift */; };
 		926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608F289A9EB900554679 /* AlbumCell.swift */; };
-		926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* PostWriteViewController.swift */; };
+		926B6092289AE43C00554679 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* WritingViewController.swift */; };
+		929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CABEA289BB31C00856AED /* PhraseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,8 @@
 		9261E332288EE39400A9094D /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		926B608D28999BAA00554679 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		926B608F289A9EB900554679 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		926B6091289AE43C00554679 /* PostWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWriteViewController.swift; sourceTree = "<group>"; };
+		926B6091289AE43C00554679 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		929CABEA289BB31C00856AED /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,7 +147,8 @@
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
 				926B608D28999BAA00554679 /* PhotoSelectViewController.swift */,
 				926B608F289A9EB900554679 /* AlbumCell.swift */,
-				926B6091289AE43C00554679 /* PostWriteViewController.swift */,
+				926B6091289AE43C00554679 /* WritingViewController.swift */,
+				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
 				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
 				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
 			);
@@ -376,7 +379,7 @@
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
-				926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */,
+				926B6092289AE43C00554679 /* WritingViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
 				926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */,
@@ -385,6 +388,7 @@
 				9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */,
 				9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */,
 				9261E333288EE39400A9094D /* UITextField.swift in Sources */,
+				929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */,
 				9230D54C2890EC9900CFBC11 /* TermsViewController.swift in Sources */,
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,

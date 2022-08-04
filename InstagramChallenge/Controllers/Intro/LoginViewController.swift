@@ -4,7 +4,6 @@ import Firebase
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
-import FirebaseAuth
 
 var kakaoJoin = false
 
@@ -103,6 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !enableLoginButton { return }
     
         if isValidLogin(textField: idTextField, minLength: 3, maxLength: 20) && isValidLogin(textField: passwordTextField, minLength: 6, maxLength: 20) {
+            /*
             Auth.auth().signIn(withEmail: "\(idTextField.text!)@instagram.com", password: passwordTextField.text!) { result, error in
                 if let error = error {
                     print(error)
@@ -119,7 +119,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
                  vc.modalPresentationStyle = .fullScreen
                  self.present(vc, animated: false, completion: nil)
+             
             }
+             */
         } else {
             let alret = UIAlertController(title: "계정을 찾을 수 없음", message: "\(idTextField.text!)에 연결된 계정을 찾을 수 없습니다. 다른 전화번호나 이메일 주소를 사용해보세요. Instagram 계정이 없으면 가입할 수 있습니다.", preferredStyle: .alert)
             let join = UIAlertAction(title: "가입하기", style: .default) {_ in
@@ -157,6 +159,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                      if let error = error {
                          print(error)
                      } else {
+                         /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {
                                  print(error)
@@ -172,7 +175,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                              guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
                              vc.modalPresentationStyle = .fullScreen
                              self.present(vc, animated: false, completion: nil)
-                         }
+                         }*/
                      }
                  }
              }

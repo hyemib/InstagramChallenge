@@ -1,6 +1,5 @@
 
 import UIKit
-import FirebaseAuth
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
@@ -92,9 +91,12 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
                      if let error = error {
                          print(error)
                      } else {
+                         /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {
+                                 
                                  print(error)
+                                 
                                  UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
                                  UserDefaults.standard.set("\(String(describing: user?.id))", forKey: "passwordKey")
                                  kakaoJoin = true
@@ -108,6 +110,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
                              vc.modalPresentationStyle = .fullScreen
                              self.present(vc, animated: false, completion: nil)
                          }
+                         */
                      }
                  }
              }
