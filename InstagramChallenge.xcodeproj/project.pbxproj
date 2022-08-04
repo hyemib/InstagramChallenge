@@ -29,6 +29,7 @@
 		9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D58A2892E73500CFBC11 /* CommentViewController.swift */; };
 		9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */; };
 		9230D58F2896366B00CFBC11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9230D58E2896366B00CFBC11 /* GoogleService-Info.plist */; };
+		9260D7FE289BF24800B11BFC /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260D7FD289BF24800B11BFC /* CommentCell.swift */; };
 		9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E317288E4F4D00A9094D /* AppDelegate.swift */; };
 		9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E319288E4F4D00A9094D /* SceneDelegate.swift */; };
 		9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E31B288E4F4D00A9094D /* LoginViewController.swift */; };
@@ -40,6 +41,10 @@
 		926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608F289A9EB900554679 /* AlbumCell.swift */; };
 		926B6092289AE43C00554679 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* WritingViewController.swift */; };
 		929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CABEA289BB31C00856AED /* PhraseViewController.swift */; };
+		92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8703289C162700E3DA94 /* SignUpRequest.swift */; };
+		92EB8707289C1F0700E3DA94 /* AuthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8706289C1F0700E3DA94 /* AuthDataService.swift */; };
+		92EB8709289C204400E3DA94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8708289C204400E3DA94 /* Constant.swift */; };
+		92EB870B289C311C00E3DA94 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB870A289C311C00E3DA94 /* SignUpResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +70,7 @@
 		9230D58A2892E73500CFBC11 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		9230D58E2896366B00CFBC11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9260D7FD289BF24800B11BFC /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		9261E314288E4F4D00A9094D /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9261E317288E4F4D00A9094D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9261E319288E4F4D00A9094D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,10 @@
 		926B608F289A9EB900554679 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		926B6091289AE43C00554679 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		929CABEA289BB31C00856AED /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
+		92EB8703289C162700E3DA94 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		92EB8706289C1F0700E3DA94 /* AuthDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataService.swift; sourceTree = "<group>"; };
+		92EB8708289C204400E3DA94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		92EB870A289C311C00E3DA94 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +160,7 @@
 				926B6091289AE43C00554679 /* WritingViewController.swift */,
 				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
 				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
+				9260D7FD289BF24800B11BFC /* CommentCell.swift */,
 				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
 			);
 			path = Home;
@@ -188,9 +199,11 @@
 			children = (
 				9261E325288E4F4E00A9094D /* Info.plist */,
 				9230D58E2896366B00CFBC11 /* GoogleService-Info.plist */,
+				92EB8708289C204400E3DA94 /* Constant.swift */,
+				9261E331288EE37A00A9094D /* Extensions */,
 				9261E32F288E565000A9094D /* Resources */,
 				9261E330288E566E00A9094D /* AppDelegate */,
-				9261E331288EE37A00A9094D /* Extensions */,
+				92EB8705289C1DE600E3DA94 /* Network */,
 				9261E32B288E50F600A9094D /* Models */,
 				9261E32D288E518D00A9094D /* Views */,
 				9261E32E288E519700A9094D /* Controllers */,
@@ -201,6 +214,8 @@
 		9261E32B288E50F600A9094D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				92EB8703289C162700E3DA94 /* SignUpRequest.swift */,
+				92EB870A289C311C00E3DA94 /* SignUpResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +261,14 @@
 				9230D538288F6B1900CFBC11 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92EB8705289C1DE600E3DA94 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				92EB8706289C1F0700E3DA94 /* AuthDataService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		9C37A48701E703F71AE81C1F /* Pods */ = {
@@ -377,6 +400,7 @@
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
+				9260D7FE289BF24800B11BFC /* CommentCell.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
 				926B6092289AE43C00554679 /* WritingViewController.swift in Sources */,
@@ -391,15 +415,19 @@
 				929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */,
 				9230D54C2890EC9900CFBC11 /* TermsViewController.swift in Sources */,
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
+				92EB8709289C204400E3DA94 /* Constant.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
 				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
+				92EB870B289C311C00E3DA94 /* SignUpResponse.swift in Sources */,
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
+				92EB8707289C1F0700E3DA94 /* AuthDataService.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,
+				92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */,
 				9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

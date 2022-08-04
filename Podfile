@@ -7,6 +7,7 @@ target 'InstagramChallenge' do
 
   # Pods for InstagramChallenge
 
+  pod 'Alamofire'
   pod 'Firebase/Storage'
   pod 'KakaoSDK'
 

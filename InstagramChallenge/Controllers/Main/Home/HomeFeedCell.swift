@@ -6,6 +6,10 @@ class HomeFeedCell: UITableViewCell {
     @IBOutlet weak var feedProfileImage: UIImageView!
     @IBOutlet weak var feedImageCountView: UIView!
     @IBOutlet weak var feedImageCount: UILabel!
+    @IBOutlet weak var feedPhrase: UITextView!
+    
+    var delegate: MoveCommentViewDelegate?
+    var index: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,8 +20,15 @@ class HomeFeedCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
+    @IBAction func clickCommentButton(_ sender: UIButton) {
+        guard let idx = index else { return }
+        delegate?.moveCommentView(index: idx, pharse: feedPhrase.text)
+        
+    }
+}
 
+protocol MoveCommentViewDelegate: AnyObject {
+    func moveCommentView(index: Int, pharse: String)
 }

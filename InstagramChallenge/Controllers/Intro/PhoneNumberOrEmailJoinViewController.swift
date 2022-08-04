@@ -1,6 +1,8 @@
 
 import UIKit
 
+var signUp = SignUpRequest()
+
 class PhoneNumberOrEmailJoinViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!

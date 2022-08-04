@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -29,7 +28,6 @@ extension HomeViewController: UITableViewDelegate {
 }
 
 extension HomeViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -38,15 +36,27 @@ extension HomeViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         }
-        return 2
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath) as! HomeStoryCell
              return cell
         }
-       let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! HomeFeedCell
+        cell.delegate = self
+        cell.index = indexPath.row
         return cell
     }
 }
+
+extension HomeViewController: MoveCommentViewDelegate {
+    func moveCommentView(index: Int, pharse: String) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "CommentViewController") as? CommentViewController else { return }
+        vc.pharse = pharse
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+}
+

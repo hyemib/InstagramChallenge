@@ -4,7 +4,6 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-
 class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -69,7 +68,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
         if !enableNextButton { return }
         phoneNumber = "+82\(phoneNumberTextField.text!.suffix(phoneNumberTextField.text!.count-1))"
         if isValidPhoneNumber(phone: phoneNumberTextField.text!) {
-            UserDefaults.standard.set(phoneNumber, forKey: "phoneNumberKey")
+            signUp.phoneNumber = phoneNumberTextField.text!
             guard let vc = self.storyboard?.instantiateViewController(identifier: "VerificationCodeViewController") as? VerificationCodeViewController else { return }
             vc.phoneNumber = phoneNumber
             vc.modalPresentationStyle = .fullScreen

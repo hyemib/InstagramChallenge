@@ -9,9 +9,9 @@ class BirthdayViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     var date: Date?
-    var birthday: Date?
     var age = 0
     var day = 0
+    var birthDate = ""
     
     var enableNextButton = false
     
@@ -66,12 +66,13 @@ class BirthdayViewController: UIViewController {
     
     @objc func datePickerValueDidChange(_ datePicker: UIDatePicker) {
         let formmater = DateFormatter()
+        formmater.dateFormat = "yyyy.MM.dd"
+        birthDate = formmater.string(from: datePicker.date)
         formmater.dateFormat = "yyyy년 MM월 dd일"
         formmater.locale = Locale(identifier: "ko_KR")
-        birthday = datePicker.date
-        birthdayTextField.text = formmater.string(from: birthday!)
+        birthdayTextField.text = formmater.string(from: datePicker.date)
         
-        let interval = date!.timeIntervalSince(birthday!)
+        let interval = date!.timeIntervalSince(datePicker.date)
         day = Int(interval/86400)
         age = day > 0 ? (day/365)+1 : 0
         
@@ -83,7 +84,7 @@ class BirthdayViewController: UIViewController {
     
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
-        UserDefaults.standard.set(birthdayTextField.text!, forKey: "birthdayKey")
+        signUp.birthDate = birthDate
         guard let vc = self.storyboard?.instantiateViewController(identifier: "TermsViewController") as? TermsViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

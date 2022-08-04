@@ -1,15 +1,19 @@
 
 import UIKit
-import Firebase
+import Alamofire
 
 class FinalConfirmationViewController: UIViewController {
 
     @IBOutlet weak var joinButton: UIButton!
     
+    private let authDataService = AuthDataService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setJoinButtonDesign()
+        
+        print(signUp)
     }
     
     func setJoinButtonDesign() {
@@ -17,13 +21,8 @@ class FinalConfirmationViewController: UIViewController {
     }
     
     @IBAction func completeJoin(_ sender: UIButton) {
-        /*
-        guard let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumberKey") else { return print("Something Wierd") }
-        guard let name = UserDefaults.standard.string(forKey: "nameKey") else { return print("Something Wierd") }
-        guard let userName = UserDefaults.standard.string(forKey: "userNameKey") else { return print("Something Wierd") }
-        guard let birthday = UserDefaults.standard.string(forKey: "birthdayKey") else { return print("Something Wierd") }
-        guard let password = UserDefaults.standard.string(forKey: "passwordKey") else { return print("Something Wierd") }
-        */
+        authDataService.requestFetchSignUp(signUp)
+        
        /*
         Auth.auth().createUser(withEmail: userName, password: password) { authData, error in
             if let error = error {
