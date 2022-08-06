@@ -14,4 +14,8 @@ extension UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
+    
+    func expireToken() {
+        
+    }
 }

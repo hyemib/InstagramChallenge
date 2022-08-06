@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9a3-Yx-j8k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xnu-Ho-qT5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -2878,8 +2878,13 @@
                     <connections>
                         <outlet property="TagBar" destination="PAe-mi-YT4" id="GXn-WA-qbn"/>
                         <outlet property="containerView" destination="bce-74-iqE" id="FZr-cK-VCa"/>
+                        <outlet property="feedCount" destination="pej-id-CwD" id="W8d-Dx-9nw"/>
+                        <outlet property="followerCount" destination="ioG-uJ-DPP" id="1Jr-V7-yqV"/>
+                        <outlet property="followingCount" destination="4x9-Dl-jyn" id="2A4-Oa-h4m"/>
+                        <outlet property="loginId" destination="CtB-CP-sVz" id="naG-ym-i91"/>
                         <outlet property="myFeedBar" destination="Y0Z-CY-1Do" id="pxZ-Bo-WVo"/>
                         <outlet property="myFeedImage" destination="s5l-uz-IgU" id="GiI-rz-cVB"/>
+                        <outlet property="realName" destination="kj4-KP-cbm" id="UfY-BJ-76o"/>
                         <outlet property="tagImage" destination="rq9-bC-eKc" id="vHU-Z4-hmM"/>
                     </connections>
                 </viewController>
@@ -3927,6 +3932,7 @@
                     </view>
                     <connections>
                         <outlet property="joinButton" destination="w7d-zq-2pA" id="9cp-Wc-v3e"/>
+                        <outlet property="loginId" destination="Agr-bp-uMj" id="LOD-zZ-ovY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qt-sf-9qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

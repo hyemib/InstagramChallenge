@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var viewPassword = true
     var enableLoginButton = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setTextFieldDesign()
         setLoginButtonDesign()
         
-        userDataService.requestFetchAutoSignIn(delegate: self)
+        //userDataService.requestFetchAutoSignIn(delegate: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

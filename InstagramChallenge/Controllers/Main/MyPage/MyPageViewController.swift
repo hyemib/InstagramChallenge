@@ -11,11 +11,29 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var TagBar: UIView!
     @IBOutlet weak var tagImage: UIImageView!
     
+    @IBOutlet weak var loginId: UILabel!
+    @IBOutlet var realName: UILabel!
+    @IBOutlet weak var feedCount: UILabel!
+    @IBOutlet weak var followerCount: UILabel!
+    @IBOutlet weak var followingCount: UILabel!
+    
+    private let userDataService = UserDataService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         changeViewToMyFeedView()
         TagBar.isHidden = true
+        
+        userDataService.requestFetchMyPage(loginId: Constant.myId, delegate: self)
+    }
+    
+    func setMyPageView(result: MyPageResponseResult) {
+        loginId.text = result.loginId
+        realName.text = result.realName
+        followerCount.text = "\(String(describing: (result.followerCount)!))"
+        followingCount.text = "\(String(describing: (result.followingCount)!))"
+        feedCount.text = "\(String(describing: (result.feedCount)!))"
     }
     
     @IBAction func selectMyFeedBarTabBar(_ sender: UIButton) {

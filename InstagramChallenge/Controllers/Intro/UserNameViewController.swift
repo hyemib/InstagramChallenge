@@ -25,7 +25,7 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
     
     func setNextButtonDesign() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 5
-        nextButton.backgroundColor = .mainBlueBlurColor
+        nextButton.backgroundColor = .mainBlueColor
     }
     
     func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
@@ -62,6 +62,7 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             guard let vc = self.storyboard?.instantiateViewController(identifier: "FinalConfirmationViewController") as? FinalConfirmationViewController else { return }
+            vc.id = self.userNameTextField.text!
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
         }

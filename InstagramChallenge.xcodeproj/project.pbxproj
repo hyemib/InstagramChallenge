@@ -49,6 +49,7 @@
 		92EB8723289E25A600E3DA94 /* KakaoSignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */; };
 		92EB8725289E27CC00E3DA94 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8724289E27CC00E3DA94 /* UIViewController.swift */; };
 		92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */; };
+		92EB8729289E4ACD00E3DA94 /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,9 +94,10 @@
 		92EB8708289C204400E3DA94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		92EB870C289C34F700E3DA94 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		92EB8720289E203500E3DA94 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KakaoSignInRequest.swift; path = InstagramChallenge/Models/KakaoSignInRequest.swift; sourceTree = SOURCE_ROOT; };
+		92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KakaoSignInRequest.swift; path = InstagramChallenge/Models/User/KakaoSignInRequest.swift; sourceTree = SOURCE_ROOT; };
 		92EB8724289E27CC00E3DA94 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequest.swift; sourceTree = "<group>"; };
+		92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageResponse.swift; path = InstagramChallenge/Models/User/MyPageResponse.swift; sourceTree = SOURCE_ROOT; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,11 +224,7 @@
 		9261E32B288E50F600A9094D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92EB8703289C162700E3DA94 /* SignUpRequest.swift */,
-				92EB870C289C34F700E3DA94 /* SignInRequest.swift */,
-				92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */,
-				92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */,
-				92EB8720289E203500E3DA94 /* AuthResponse.swift */,
+				92EB872A289E4ADB00E3DA94 /* User */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +279,19 @@
 				92EB8706289C1F0700E3DA94 /* UserDataService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		92EB872A289E4ADB00E3DA94 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				92EB8703289C162700E3DA94 /* SignUpRequest.swift */,
+				92EB870C289C34F700E3DA94 /* SignInRequest.swift */,
+				92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */,
+				92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */,
+				92EB8720289E203500E3DA94 /* AuthResponse.swift */,
+				92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		9C37A48701E703F71AE81C1F /* Pods */ = {
@@ -412,6 +423,7 @@
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
+				92EB8729289E4ACD00E3DA94 /* MyPageResponse.swift in Sources */,
 				9260D7FE289BF24800B11BFC /* CommentCell.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,

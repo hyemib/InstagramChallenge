@@ -4,41 +4,38 @@ import Alamofire
 
 class FinalConfirmationViewController: UIViewController {
 
+    @IBOutlet weak var loginId: UILabel!
     @IBOutlet weak var joinButton: UIButton!
     
     private let authDataService = UserDataService()
+    var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setJoinButtonDesign()
+        loginId.text = "\(id)님으로 가입하시겠어요?"
+        
+        print(signUp)
+        print(kakaoSignUp)
     }
     
     func setJoinButtonDesign() {
         joinButton.layer.cornerRadius = joinButton.frame.height / 5
     }
     
+    func didSuccessJoin() {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     @IBAction func completeJoin(_ sender: UIButton) {
         if kakaoSignUp.accessToken == "" {
-            authDataService.requestFetchSignUp(signUp)
+            authDataService.requestFetchSignUp(signUp, delegate: self)
         } else {
-            authDataService.requestFetchKakaoSignUp(kakaoSignUp)
+            authDataService.requestFetchKakaoSignUp(kakaoSignUp, delegate: self)
         }
-        
-       /*
-        Auth.auth().createUser(withEmail: userName, password: password) { authData, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            //let uid = authData?.user.uid
-            Database.database().reference().child("users").child(userName).setValue(["name":name, "birthday":birthday, "phoneNumber": phoneNumber])
-            Auth.auth().signIn(withEmail: userName, password: password, completion: nil)
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: false, completion: nil)
-            
-        }*/
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {
