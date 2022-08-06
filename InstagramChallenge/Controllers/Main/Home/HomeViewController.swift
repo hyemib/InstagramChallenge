@@ -19,6 +19,13 @@ class HomeViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
+    
+    @IBAction func goChatView(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "ChatViewController") as? ChatViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
 }
 
 extension HomeViewController: UITableViewDelegate {

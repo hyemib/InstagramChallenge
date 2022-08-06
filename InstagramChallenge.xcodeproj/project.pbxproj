@@ -50,6 +50,10 @@
 		92EB8725289E27CC00E3DA94 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8724289E27CC00E3DA94 /* UIViewController.swift */; };
 		92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */; };
 		92EB8729289E4ACD00E3DA94 /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */; };
+		92EB872C289E5CD400E3DA94 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872B289E5CD400E3DA94 /* ChatViewController.swift */; };
+		92EB872E289E6D2100E3DA94 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872D289E6D2100E3DA94 /* DateCell.swift */; };
+		92EB8730289E6D3200E3DA94 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */; };
+		92EB8732289E6D3C00E3DA94 /* YourMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,10 @@
 		92EB8724289E27CC00E3DA94 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequest.swift; sourceTree = "<group>"; };
 		92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageResponse.swift; path = InstagramChallenge/Models/User/MyPageResponse.swift; sourceTree = SOURCE_ROOT; };
+		92EB872B289E5CD400E3DA94 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		92EB872D289E6D2100E3DA94 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
+		92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourMessageCell.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +180,10 @@
 				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
 				9260D7FD289BF24800B11BFC /* CommentCell.swift */,
 				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
+				92EB872B289E5CD400E3DA94 /* ChatViewController.swift */,
+				92EB872D289E6D2100E3DA94 /* DateCell.swift */,
+				92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */,
+				92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -441,7 +453,9 @@
 				9230D54C2890EC9900CFBC11 /* TermsViewController.swift in Sources */,
 				92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */,
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
+				92EB872C289E5CD400E3DA94 /* ChatViewController.swift in Sources */,
 				92EB8709289C204400E3DA94 /* Constant.swift in Sources */,
+				92EB8732289E6D3C00E3DA94 /* YourMessageCell.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
 				92EB8721289E203500E3DA94 /* AuthResponse.swift in Sources */,
 				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
@@ -449,6 +463,7 @@
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
+				92EB872E289E6D2100E3DA94 /* DateCell.swift in Sources */,
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
@@ -456,6 +471,7 @@
 				92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,
 				92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */,
+				92EB8730289E6D3200E3DA94 /* MyMessageCell.swift in Sources */,
 				9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
