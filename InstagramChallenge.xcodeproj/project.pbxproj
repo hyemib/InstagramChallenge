@@ -42,11 +42,13 @@
 		926B6092289AE43C00554679 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* WritingViewController.swift */; };
 		929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CABEA289BB31C00856AED /* PhraseViewController.swift */; };
 		92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8703289C162700E3DA94 /* SignUpRequest.swift */; };
-		92EB8707289C1F0700E3DA94 /* AuthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8706289C1F0700E3DA94 /* AuthDataService.swift */; };
+		92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8706289C1F0700E3DA94 /* UserDataService.swift */; };
 		92EB8709289C204400E3DA94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8708289C204400E3DA94 /* Constant.swift */; };
-		92EB870B289C311C00E3DA94 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB870A289C311C00E3DA94 /* SignUpResponse.swift */; };
 		92EB870D289C34F700E3DA94 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB870C289C34F700E3DA94 /* SignInRequest.swift */; };
-		92EB870F289C352900E3DA94 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB870E289C352900E3DA94 /* SignInResponse.swift */; };
+		92EB8721289E203500E3DA94 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8720289E203500E3DA94 /* AuthResponse.swift */; };
+		92EB8723289E25A600E3DA94 /* KakaoSignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */; };
+		92EB8725289E27CC00E3DA94 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8724289E27CC00E3DA94 /* UIViewController.swift */; };
+		92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,11 +89,13 @@
 		926B6091289AE43C00554679 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		929CABEA289BB31C00856AED /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
 		92EB8703289C162700E3DA94 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
-		92EB8706289C1F0700E3DA94 /* AuthDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataService.swift; sourceTree = "<group>"; };
+		92EB8706289C1F0700E3DA94 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		92EB8708289C204400E3DA94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		92EB870A289C311C00E3DA94 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		92EB870C289C34F700E3DA94 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
-		92EB870E289C352900E3DA94 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		92EB8720289E203500E3DA94 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KakaoSignInRequest.swift; path = InstagramChallenge/Models/KakaoSignInRequest.swift; sourceTree = SOURCE_ROOT; };
+		92EB8724289E27CC00E3DA94 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequest.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,9 +223,10 @@
 			isa = PBXGroup;
 			children = (
 				92EB8703289C162700E3DA94 /* SignUpRequest.swift */,
-				92EB870A289C311C00E3DA94 /* SignUpResponse.swift */,
 				92EB870C289C34F700E3DA94 /* SignInRequest.swift */,
-				92EB870E289C352900E3DA94 /* SignInResponse.swift */,
+				92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */,
+				92EB8722289E25A600E3DA94 /* KakaoSignInRequest.swift */,
+				92EB8720289E203500E3DA94 /* AuthResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			children = (
 				9261E332288EE39400A9094D /* UITextField.swift */,
 				9230D538288F6B1900CFBC11 /* UIColor.swift */,
+				92EB8724289E27CC00E3DA94 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,7 +278,7 @@
 		92EB8705289C1DE600E3DA94 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				92EB8706289C1F0700E3DA94 /* AuthDataService.swift */,
+				92EB8706289C1F0700E3DA94 /* UserDataService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -405,7 +411,6 @@
 				9230D5682891617E00CFBC11 /* NameViewController.swift in Sources */,
 				9230D53F288FB6E400CFBC11 /* PhoneNumberJoinViewController.swift in Sources */,
 				9230D58D2893CAE200CFBC11 /* NotificationViewController.swift in Sources */,
-				92EB870F289C352900E3DA94 /* SignInResponse.swift in Sources */,
 				9261E31C288E4F4D00A9094D /* LoginViewController.swift in Sources */,
 				9260D7FE289BF24800B11BFC /* CommentCell.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
@@ -413,6 +418,7 @@
 				926B6092289AE43C00554679 /* WritingViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
+				92EB8725289E27CC00E3DA94 /* UIViewController.swift in Sources */,
 				926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */,
 				9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */,
 				9230D5782892538300CFBC11 /* HomeFeedCell.swift in Sources */,
@@ -421,19 +427,21 @@
 				9261E333288EE39400A9094D /* UITextField.swift in Sources */,
 				929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */,
 				9230D54C2890EC9900CFBC11 /* TermsViewController.swift in Sources */,
+				92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */,
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
 				92EB8709289C204400E3DA94 /* Constant.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
+				92EB8721289E203500E3DA94 /* AuthResponse.swift in Sources */,
 				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
+				92EB8723289E25A600E3DA94 /* KakaoSignInRequest.swift in Sources */,
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
-				92EB870B289C311C00E3DA94 /* SignUpResponse.swift in Sources */,
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
 				92EB870D289C34F700E3DA94 /* SignInRequest.swift in Sources */,
-				92EB8707289C1F0700E3DA94 /* AuthDataService.swift in Sources */,
+				92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */,
 				9230D539288F6B1900CFBC11 /* UIColor.swift in Sources */,
 				92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */,
 				9230D58B2892E73500CFBC11 /* CommentViewController.swift in Sources */,

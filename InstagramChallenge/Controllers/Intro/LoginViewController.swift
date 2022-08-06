@@ -5,7 +5,8 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-var kakaoJoin = false
+var signUp = SignUpRequest()
+var kakaoSignUp = KakaoSignUpRequest()
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -14,7 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordViewButtonImgae: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     
-    private let authDataService = AuthDataService()
+    private let userDataService = UserDataService()
 
     var viewPassword = true
     var enableLoginButton = false
@@ -30,6 +31,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setTextFieldDesign()
         setLoginButtonDesign()
+        
+        userDataService.requestFetchAutoSignIn(delegate: self)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
     }
     
     func setTextFieldDesign() {
@@ -100,11 +107,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return pred.evaluate(with: textField.text)
     }
     
+    func didSuccessAutoLogin() {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+
+    
     @IBAction func pressLoginButton(_ sender: UIButton) {
         if !enableLoginButton { return }
     
         if isValidLogin(textField: idTextField, minLength: 3, maxLength: 20) && isValidLogin(textField: passwordTextField, minLength: 6, maxLength: 20) {
-            authDataService.requestFetchSignIn(SignInRequest(loginId: idTextField.text!, password: passwordTextField.text!))
+            userDataService.requestFetchSignIn(SignInRequest(loginId: idTextField.text!, password: passwordTextField.text!))
+            
             
             /*
             Auth.auth().signIn(withEmail: "\(idTextField.text!)@instagram.com", password: passwordTextField.text!) { result, error in
@@ -120,9 +135,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.present(alret, animated: true, completion: nil)
                     return
                 }
-                guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-                 vc.modalPresentationStyle = .fullScreen
-                 self.present(vc, animated: false, completion: nil)
+                
              
             }
              */
@@ -163,6 +176,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                      if let error = error {
                          print(error)
                      } else {
+                        // self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken))
+                         kakaoSignUp.accessToken = oauthToken!.accessToken
+                         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberOrEmailJoinViewController") as? PhoneNumberOrEmailJoinViewController else { return }
+                         vc.modalPresentationStyle = .fullScreen
+                         self.present(vc, animated: false, completion: nil)
                          /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {

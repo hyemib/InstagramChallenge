@@ -1,15 +1,14 @@
 
 import Foundation
 
-struct SignInResponse: Decodable {
+struct AuthResponse: Decodable {
     var isSuccess: Bool?
     var code: Int?
     var message: String?
-    var result: SignInResponseResult?
+    var result: AuthResponseResult?
 }
 
-struct SignInResponseResult: Decodable {
+struct AuthResponseResult: Decodable {
     var jwt: String?
     var loginId: String?
 }
-

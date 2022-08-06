@@ -7,6 +7,8 @@ import Firebase
 
 class JoinViewController: UIViewController {
 
+    private let userDataService = UserDataService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,8 @@ class JoinViewController: UIViewController {
                      if let error = error {
                          print(error)
                      } else {
+                         //self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken))
+                         kakaoSignUp.accessToken = oauthToken!.accessToken
                          /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {

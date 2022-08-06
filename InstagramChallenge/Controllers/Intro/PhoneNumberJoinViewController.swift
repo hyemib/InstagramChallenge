@@ -10,6 +10,8 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var xButtonView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     
+    private let userDataService = UserDataService()
+    
     var enableNextButton = false
     var phoneNumber = ""
     
@@ -69,6 +71,7 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
         phoneNumber = "+82\(phoneNumberTextField.text!.suffix(phoneNumberTextField.text!.count-1))"
         if isValidPhoneNumber(phone: phoneNumberTextField.text!) {
             signUp.phoneNumber = phoneNumberTextField.text!
+            kakaoSignUp.phoneNumber = phoneNumberTextField.text!
             guard let vc = self.storyboard?.instantiateViewController(identifier: "VerificationCodeViewController") as? VerificationCodeViewController else { return }
             vc.phoneNumber = phoneNumber
             vc.modalPresentationStyle = .fullScreen
@@ -90,6 +93,8 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
                      if let error = error {
                          print(error)
                      } else {
+                         //self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken))
+                         kakaoSignUp.accessToken = oauthToken!.accessToken
                          /*
                          Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
                              if let error = error {

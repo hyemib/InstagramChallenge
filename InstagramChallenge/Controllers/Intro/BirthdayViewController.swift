@@ -85,6 +85,7 @@ class BirthdayViewController: UIViewController {
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
         signUp.birthDate = birthDate
+        kakaoSignUp.birthDate = birthDate
         guard let vc = self.storyboard?.instantiateViewController(identifier: "TermsViewController") as? TermsViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

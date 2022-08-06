@@ -6,7 +6,7 @@ class FinalConfirmationViewController: UIViewController {
 
     @IBOutlet weak var joinButton: UIButton!
     
-    private let authDataService = AuthDataService()
+    private let authDataService = UserDataService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,11 @@ class FinalConfirmationViewController: UIViewController {
     }
     
     @IBAction func completeJoin(_ sender: UIButton) {
-        authDataService.requestFetchSignUp(signUp)
+        if kakaoSignUp.accessToken == "" {
+            authDataService.requestFetchSignUp(signUp)
+        } else {
+            authDataService.requestFetchKakaoSignUp(kakaoSignUp)
+        }
         
        /*
         Auth.auth().createUser(withEmail: userName, password: password) { authData, error in

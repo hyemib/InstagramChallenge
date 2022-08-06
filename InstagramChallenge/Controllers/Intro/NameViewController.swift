@@ -57,7 +57,9 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressNextButton(_ sender: UIButton) {
         if !enableNextButton { return }
         signUp.realName = nameTextField.text!
-        if !kakaoJoin {
+        kakaoSignUp.realName = nameTextField.text!
+        
+        if kakaoSignUp.accessToken == "" {
             guard let vc = self.storyboard?.instantiateViewController(identifier: "PasswordViewController") as? PasswordViewController else { return }
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)

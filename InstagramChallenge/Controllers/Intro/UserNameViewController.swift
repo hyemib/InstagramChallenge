@@ -50,6 +50,7 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
         present(alret, animated: true, completion: nil)
         */
         signUp.loginId = userNameTextField.text!
+        kakaoSignUp.loginId = userNameTextField.text!
         guard let vc = self.storyboard?.instantiateViewController(identifier: "FinalConfirmationViewController") as? FinalConfirmationViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
