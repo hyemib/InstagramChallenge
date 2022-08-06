@@ -3753,7 +3753,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxM-tN-XCN">
-                                <rect key="frame" x="40" y="270" width="334" height="48"/>
+                                <rect key="frame" x="40" y="280" width="334" height="48"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.57254901960000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="XzS-r9-Ba1"/>
@@ -3797,18 +3797,25 @@
                                     <constraint firstAttribute="height" constant="1" id="QXZ-id-Fi1"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv1-2L-Ocg">
+                                <rect key="frame" x="40" y="255" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXg-UM-evZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PxM-tN-XCN" firstAttribute="top" secondItem="QJ4-1j-VQd" secondAttribute="bottom" constant="25" id="8yk-42-zRc"/>
                             <constraint firstItem="aXg-UM-evZ" firstAttribute="trailing" secondItem="Q9H-C2-S5X" secondAttribute="trailing" constant="30" id="9CW-XU-0fE"/>
                             <constraint firstItem="Q9H-C2-S5X" firstAttribute="top" secondItem="RcB-15-vhK" secondAttribute="bottom" constant="15" id="EXt-kM-QIy"/>
                             <constraint firstItem="QJ4-1j-VQd" firstAttribute="top" secondItem="Q9H-C2-S5X" secondAttribute="bottom" constant="20" id="GC3-d5-ZAh"/>
                             <constraint firstItem="NaY-A8-Ldi" firstAttribute="leading" secondItem="0Wl-4t-55b" secondAttribute="leading" id="L2t-Y1-hic"/>
+                            <constraint firstItem="PxM-tN-XCN" firstAttribute="top" secondItem="wv1-2L-Ocg" secondAttribute="bottom" constant="25" id="L9O-IF-zlD"/>
                             <constraint firstItem="Q9H-C2-S5X" firstAttribute="leading" secondItem="aXg-UM-evZ" secondAttribute="leading" constant="30" id="MMW-GC-cuj"/>
                             <constraint firstItem="RcB-15-vhK" firstAttribute="top" secondItem="aXg-UM-evZ" secondAttribute="top" constant="45" id="QMb-YJ-E6U"/>
                             <constraint firstItem="aXg-UM-evZ" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" constant="40" id="REC-3h-Xf5"/>
+                            <constraint firstItem="wv1-2L-Ocg" firstAttribute="top" secondItem="QJ4-1j-VQd" secondAttribute="bottom" constant="10" id="TvR-0j-xkA"/>
                             <constraint firstItem="RcB-15-vhK" firstAttribute="centerX" secondItem="0Wl-4t-55b" secondAttribute="centerX" id="UFN-Wl-sQo"/>
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="leading" secondItem="QJ4-1j-VQd" secondAttribute="leading" id="Ude-fH-zdl"/>
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" id="Ztu-Ja-FhW"/>
@@ -3819,9 +3826,12 @@
                             <constraint firstAttribute="trailing" secondItem="NaY-A8-Ldi" secondAttribute="trailing" id="o7C-H9-wXy"/>
                             <constraint firstItem="Oox-xF-FoR" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" constant="-20" id="pdK-2k-pQd"/>
                             <constraint firstItem="Oox-xF-FoR" firstAttribute="centerY" secondItem="QJ4-1j-VQd" secondAttribute="centerY" id="rmq-7F-MFT"/>
+                            <constraint firstItem="wv1-2L-Ocg" firstAttribute="leading" secondItem="QJ4-1j-VQd" secondAttribute="leading" id="wUP-l6-pQJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clearButtonImage" destination="UJg-IB-J4L" id="oqR-vt-Ake"/>
+                        <outlet property="errorMessage" destination="wv1-2L-Ocg" id="wnh-zP-u4y"/>
                         <outlet property="nextButton" destination="PxM-tN-XCN" id="zgK-u5-iZh"/>
                         <outlet property="userNameTextField" destination="QJ4-1j-VQd" id="Jjt-w4-V6d"/>
                     </connections>
@@ -4013,6 +4023,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

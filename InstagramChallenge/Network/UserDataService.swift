@@ -190,20 +190,19 @@ struct UserDataService {
     }
     
     // 아이디 중복 조회
-    func requestFetchCheckDuplicateLoginId(loginId: String, delegate: LoginViewController) {
-        let url = "\(authSignInUrl)?loginIn=\(loginId)"
+    func requestFetchCheckDuplicateLoginId(loginId: String, delegate: UserNameViewController) {
+        let url = "\(checkDuplicateLoginIdUrl)?loginId=\(loginId)"
         
-        let header: HTTPHeaders = [ "Content-Type":"application/json"]
-        
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: header)
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
             .validate()
             .responseDecodable(of: AuthResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("성공")
-                        delegate.didSuccessLogin()
+                        delegate.didSuceessUserName()
                     } else {
+                        delegate.didFailUserName()
                         switch response.code {
                         case 2103: print("계정 아이디를 입력해주세요.")
                         case 2104: print("계정 아이디는 20자리 미만으로 입력해주세요.")
