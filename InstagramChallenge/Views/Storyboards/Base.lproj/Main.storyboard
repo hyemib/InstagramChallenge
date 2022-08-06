@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9a3-Yx-j8k">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -304,7 +304,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="movePhoneNumberOrEmailJoin:" destination="BEL-oM-YL4" eventType="touchUpInside" id="WK3-Ye-Ff6"/>
+                                    <action selector="movePhoneNumberOrEmailJoinView:" destination="BEL-oM-YL4" eventType="touchUpInside" id="mk4-0R-nEk"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="jbu-x5-CKs">
@@ -3768,6 +3768,35 @@
                                     <action selector="pressNextButton:" destination="9a3-Yx-j8k" eventType="touchUpInside" id="ONg-Qj-070"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Ax8-ou-zgN">
+                                <rect key="frame" x="117.5" y="832" width="179.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미 계정이 있으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-Bf-G7O">
+                                        <rect key="frame" x="0.0" y="0.0" width="126.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-6V-fc8">
+                                        <rect key="frame" x="121.5" y="0.0" width="58" height="30"/>
+                                        <color key="tintColor" red="0.25490197539999998" green="0.57254904510000004" blue="0.92549026010000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그인">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="13"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="moveLoginView:" destination="9a3-Yx-j8k" eventType="touchUpInside" id="JyV-Do-AWk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-A8-Ldi">
+                                <rect key="frame" x="0.0" y="801" width="414" height="1"/>
+                                <color key="backgroundColor" red="0.90196073060000004" green="0.90588235859999999" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="QXZ-id-Fi1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXg-UM-evZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3776,13 +3805,18 @@
                             <constraint firstItem="aXg-UM-evZ" firstAttribute="trailing" secondItem="Q9H-C2-S5X" secondAttribute="trailing" constant="30" id="9CW-XU-0fE"/>
                             <constraint firstItem="Q9H-C2-S5X" firstAttribute="top" secondItem="RcB-15-vhK" secondAttribute="bottom" constant="15" id="EXt-kM-QIy"/>
                             <constraint firstItem="QJ4-1j-VQd" firstAttribute="top" secondItem="Q9H-C2-S5X" secondAttribute="bottom" constant="20" id="GC3-d5-ZAh"/>
+                            <constraint firstItem="NaY-A8-Ldi" firstAttribute="leading" secondItem="0Wl-4t-55b" secondAttribute="leading" id="L2t-Y1-hic"/>
                             <constraint firstItem="Q9H-C2-S5X" firstAttribute="leading" secondItem="aXg-UM-evZ" secondAttribute="leading" constant="30" id="MMW-GC-cuj"/>
                             <constraint firstItem="RcB-15-vhK" firstAttribute="top" secondItem="aXg-UM-evZ" secondAttribute="top" constant="45" id="QMb-YJ-E6U"/>
                             <constraint firstItem="aXg-UM-evZ" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" constant="40" id="REC-3h-Xf5"/>
                             <constraint firstItem="RcB-15-vhK" firstAttribute="centerX" secondItem="0Wl-4t-55b" secondAttribute="centerX" id="UFN-Wl-sQo"/>
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="leading" secondItem="QJ4-1j-VQd" secondAttribute="leading" id="Ude-fH-zdl"/>
                             <constraint firstItem="PxM-tN-XCN" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" id="Ztu-Ja-FhW"/>
+                            <constraint firstItem="Ax8-ou-zgN" firstAttribute="centerX" secondItem="0Wl-4t-55b" secondAttribute="centerX" id="dKW-0S-mcE"/>
+                            <constraint firstItem="Ax8-ou-zgN" firstAttribute="top" secondItem="NaY-A8-Ldi" secondAttribute="bottom" constant="30" id="f5o-Jh-vYD"/>
                             <constraint firstItem="QJ4-1j-VQd" firstAttribute="leading" secondItem="aXg-UM-evZ" secondAttribute="leading" constant="40" id="gWe-tG-eNa"/>
+                            <constraint firstItem="aXg-UM-evZ" firstAttribute="bottom" secondItem="Ax8-ou-zgN" secondAttribute="bottom" id="lT4-ah-sXZ"/>
+                            <constraint firstAttribute="trailing" secondItem="NaY-A8-Ldi" secondAttribute="trailing" id="o7C-H9-wXy"/>
                             <constraint firstItem="Oox-xF-FoR" firstAttribute="trailing" secondItem="QJ4-1j-VQd" secondAttribute="trailing" constant="-20" id="pdK-2k-pQd"/>
                             <constraint firstItem="Oox-xF-FoR" firstAttribute="centerY" secondItem="QJ4-1j-VQd" secondAttribute="centerY" id="rmq-7F-MFT"/>
                         </constraints>

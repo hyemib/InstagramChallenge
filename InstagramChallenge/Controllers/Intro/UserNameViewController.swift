@@ -15,6 +15,10 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
         setNextButtonDesign()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    
     func setNextButtonDesign() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 5
         nextButton.backgroundColor = .mainBlueBlurColor
@@ -52,6 +56,12 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
         signUp.loginId = userNameTextField.text!
         kakaoSignUp.loginId = userNameTextField.text!
         guard let vc = self.storyboard?.instantiateViewController(identifier: "FinalConfirmationViewController") as? FinalConfirmationViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    @IBAction func moveLoginView(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }

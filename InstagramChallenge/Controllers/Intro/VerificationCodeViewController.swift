@@ -22,8 +22,13 @@ class VerificationCodeViewController: UIViewController {
         setNextButtonDesign()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    
     @IBAction func clearTextFieldText(_ sender: UIButton) {
         verificationCodeTextField.text = ""
+        setClearButton()
         setEnableNextButton()
     }
     
@@ -42,21 +47,28 @@ class VerificationCodeViewController: UIViewController {
         }
     }
     
+    func setClearButton() {
+        if verificationCodeTextField.text?.count ?? 0 > 0 {
+            xButtonView.isHidden = false
+        } else {
+            xButtonView.isHidden = true
+        }
+    }
+    
     func setEnableNextButton() {
         if !isValidVertificationCode(code: verificationCodeTextField.text!) {
             nextButton.backgroundColor = .mainBlueBlurColor
             enableNextButton = false
-            xButtonView.isHidden = true
         } else {
             nextButton.backgroundColor = .mainBlueColor
             enableNextButton = true
-            xButtonView.isHidden = false
         }
     }
     
     @IBAction func setverificationCodeTextField(_ sender: Any) {
         checkTextFieldMaxLength(textField: verificationCodeTextField, maxLength: 6)
         setEnableNextButton()
+        setClearButton()
     }
     
     func isValidVertificationCode(code: String?) -> Bool {

@@ -26,6 +26,10 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
         setNextButtonDesign()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    
     func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
         if textField.text?.count ?? 0 > maxLength {
             textField.deleteBackward()
@@ -81,40 +85,21 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-             if let error = error {
-                 print(error)
+             if let _ = error {
                  let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
                  let yes = UIAlertAction(title: "확인", style: .default)
                  alret.addAction(yes)
                  self.present(alret, animated: true, completion: nil)
              } else {
-                 print("loginWithKakaoAccount() success.")
                  UserApi.shared.me {(user, error) in
-                     if let error = error {
-                         print(error)
+                     if let _ = error {
+                         let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
+                         let yes = UIAlertAction(title: "확인", style: .default)
+                         alret.addAction(yes)
+                         self.present(alret, animated: true, completion: nil)
                      } else {
-                         //self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken))
+                         self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken), delegate: self)
                          kakaoSignUp.accessToken = oauthToken!.accessToken
-                         /*
-                         Auth.auth().signIn(withEmail: "\(String(describing: user?.kakaoAccount?.email))", password: "\(String(describing: user?.id))") { result, error in
-                             if let error = error {
-                                 
-                                 print(error)
-                                 
-                                 UserDefaults.standard.set(user?.kakaoAccount?.email, forKey: "emailKey")
-                                 UserDefaults.standard.set("\(String(describing: user?.id))", forKey: "passwordKey")
-                                 kakaoJoin = true
-                                 
-                                 guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberOrEmailJoinViewController") as? PhoneNumberOrEmailJoinViewController else { return }
-                                 vc.modalPresentationStyle = .fullScreen
-                                 self.present(vc, animated: false, completion: nil)
-                                 return
-                             }
-                             guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-                             vc.modalPresentationStyle = .fullScreen
-                             self.present(vc, animated: false, completion: nil)
-                         }
-                         */
                      }
                  }
              }

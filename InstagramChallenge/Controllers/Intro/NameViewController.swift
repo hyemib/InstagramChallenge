@@ -21,6 +21,10 @@ class NameViewController: UIViewController, UITextFieldDelegate {
         xButtonView.isHidden = true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+    }
+    
     func setNextButtonDesign() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 5
         nextButton.backgroundColor = .mainBlueBlurColor
