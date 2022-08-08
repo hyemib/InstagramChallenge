@@ -10,5 +10,6 @@ target 'InstagramChallenge' do
   pod 'Alamofire'
   pod 'Firebase/Storage'
   pod 'KakaoSDK'
+  pod 'Kingfisher'
 
 end

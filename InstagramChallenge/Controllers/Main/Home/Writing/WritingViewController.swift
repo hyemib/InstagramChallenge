@@ -1,12 +1,16 @@
 
 import UIKit
+import FirebaseStorage
+import Kingfisher
 
 class WritingViewController: UIViewController {
     
     @IBOutlet weak var selectImageView: UIImageView!
     @IBOutlet weak var pharseTextView: UITextView!
     
+    private let feedDataService = FeedDataService()
     var selectImage: UIImage?
+    var imagesURLString = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,30 @@ class WritingViewController: UIViewController {
     }
     
     @IBAction func clickShareButton(_ sender: UIButton) {
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
         
+        let storageRef = Storage.storage().reference().child("ena").child(Constant.myId).child("ena\(Int(Date().timeIntervalSince1970/1000.0))")
+        let image = (self.selectImageView.image?.jpegData(compressionQuality: 1.0))!
+        
+        storageRef.putData(image, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print(error!)
+                return
+            } else {
+                storageRef.downloadURL{ [self] (url, error) in
+                    guard let url = url, error == nil else {
+                        print(error)
+                        return
+                    }
+                    let urlString = url.absoluteString
+                    self.imagesURLString.append(urlString)
+                    
+                }
+            }
+        }
+        
+        feedDataService.requestFetchPostFeed(FeedRequest(feedText: pharseTextView.text!, contentsUrls: imagesURLString), delegate: self)
     }
     
     @IBAction func enterAParse(_ sender: UIButton) {

@@ -1034,7 +1034,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ak5-6F-EHx">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample_profile" translatesAutoresizingMaskIntoConstraints="NO" id="GSk-e7-v6t">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="GSk-e7-v6t">
                                                             <rect key="frame" x="15" y="12.5" width="35" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="SJl-To-bXE"/>
@@ -1219,6 +1219,9 @@
                                                                 <constraint firstAttribute="height" constant="26" id="pTB-F4-DFf"/>
                                                             </constraints>
                                                         </view>
+                                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nsN-TQ-5ed">
+                                                            <rect key="frame" x="149.5" y="12" width="115.5" height="26"/>
+                                                        </pageControl>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -1226,6 +1229,8 @@
                                                         <constraint firstAttribute="height" constant="50" id="APm-me-jsl"/>
                                                         <constraint firstItem="D5j-WX-k6c" firstAttribute="centerY" secondItem="IJm-jP-UxU" secondAttribute="centerY" id="Lwg-hr-dkZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="Uzk-d9-jYg" secondAttribute="trailing" constant="15" id="dUB-Ic-YDU"/>
+                                                        <constraint firstItem="nsN-TQ-5ed" firstAttribute="centerX" secondItem="IJm-jP-UxU" secondAttribute="centerX" id="nbm-o0-g4o"/>
+                                                        <constraint firstItem="nsN-TQ-5ed" firstAttribute="centerY" secondItem="IJm-jP-UxU" secondAttribute="centerY" id="o9E-QH-dak"/>
                                                         <constraint firstItem="D5j-WX-k6c" firstAttribute="leading" secondItem="IJm-jP-UxU" secondAttribute="leading" constant="15" id="u2t-yH-7tW"/>
                                                     </constraints>
                                                 </view>
@@ -1412,14 +1417,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="contetsUrl" destination="UtU-85-ica" id="p4S-ra-Xrs"/>
                                             <outlet property="feedCommentCount" destination="jap-UG-Y72" id="pf4-TS-CQp"/>
+                                            <outlet property="feedContets" destination="UtU-85-ica" id="Dje-Ju-Lak"/>
                                             <outlet property="feedCreatedAt" destination="bKM-VG-dKh" id="ob4-bP-U6g"/>
                                             <outlet property="feedImageCount" destination="uEY-4Q-qM5" id="XrC-nG-hEY"/>
                                             <outlet property="feedImageCountView" destination="zdh-7w-5sv" id="ZiW-db-Owe"/>
                                             <outlet property="feedLoginId" destination="vgn-Y7-bfs" id="eF1-PK-KQ1"/>
+                                            <outlet property="feedLoginId2" destination="oBK-nh-dVy" id="gg2-xZ-A57"/>
                                             <outlet property="feedProfileImage" destination="GSk-e7-v6t" id="t8N-wZ-efC"/>
                                             <outlet property="feedText" destination="Krg-4i-Ae7" id="rUj-kE-Obl"/>
+                                            <outlet property="pageControl" destination="nsN-TQ-5ed" id="U8w-A1-mLa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4230,7 +4237,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PO3-RM-VxE">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xnu-Ho-qT5" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xnu-Ho-qT5" customClass="TabBarController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ngI-sG-2dL">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -4238,6 +4245,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBarItems" destination="ngI-sG-2dL" id="npn-Qj-DQr"/>
                         <segue destination="L4Z-HH-NQ9" kind="relationship" relationship="viewControllers" id="dwc-Yg-5kv"/>
                         <segue destination="H60-Rs-LJ0" kind="relationship" relationship="viewControllers" id="PlP-1S-U84"/>
                         <segue destination="YoA-t6-USr" kind="relationship" relationship="viewControllers" id="R0N-4v-PEf"/>
@@ -4247,7 +4255,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWv-ss-T6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="2101"/>
+            <point key="canvasLocation" x="97" y="2099"/>
         </scene>
     </scenes>
     <resources>

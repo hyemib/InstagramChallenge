@@ -1,7 +1,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UIScrollViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -10,18 +10,34 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     private var currentPage = 0
     var fetchMore = false
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
         
-        feedDataService.requestFetchFeeds(pageIndex: currentPage, delegate: self)
+        feedDataService.requestFetchGetFeed(pageIndex: currentPage, delegate: self)
+       
+        initRefresh()
     }
     
     func didSuccessFeedData(result: [FeedsResponseResult]) {
         feedInfo.append(contentsOf: result)
         tableView.reloadData()
+    }
+    
+    func initRefresh() {
+        tableView.refreshControl = refreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+    }
+    
+    @objc func pullToRefresh(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @IBAction func goToCreatePost(_ sender: UIButton) {
@@ -41,8 +57,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.currentPage += 1
             
-            self.feedDataService.requestFetchFeeds(pageIndex: self.currentPage, delegate: self)
-           
+            self.feedDataService.requestFetchGetFeed(pageIndex: self.currentPage, delegate: self)
             self.tableView.reloadData()
         }
     }
@@ -54,6 +69,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             }
             
         }
+    }
+    
+    func getCurrentDate() -> Int {
+        let current = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        let currentDate = formatter.string(from: current).components(separatedBy: "-")
+        return Int(currentDate.joined())!
+        
     }
 }
 
@@ -84,10 +108,32 @@ extension HomeViewController: UITableViewDataSource {
         cell.delegate = self
         cell.index = indexPath.row
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
+        cell.feedLoginId2.text = feedInfo[indexPath.row].feedLoginId
         cell.feedText.text = feedInfo[indexPath.row].feedText
-        cell.feedCreatedAt.text = feedInfo[indexPath.row].feedCreatedAt
-        cell.feedCommentCount.text =
-        "\(feedInfo[indexPath.row].feedCommentCount ?? 0)개"
+       // cell.feedCreatedAt.text = feedInfo[indexPath.row].feedCreatedAt
+        cell.feedCommentCount.text = "\(feedInfo[indexPath.row].feedCommentCount ?? 0)개"
+        
+        cell.pageControl.numberOfPages = feedInfo[indexPath.row].contentsList?.count ?? 0
+        cell.pageControl.currentPage = 0
+        cell.pageControl.pageIndicatorTintColor = UIColor.mainLightGrayColor
+        cell.pageControl.currentPageIndicatorTintColor = UIColor.mainBlueColor
+        
+        if feedInfo[indexPath.row].contentsList?.count ?? 0 <= 1 {
+            cell.pageControl.isHidden = true
+            cell.feedImageCountView.isHidden = true
+        }
+        let url = URL(string: (feedInfo[indexPath.row].contentsList?[0].contentsUrl)!)
+        cell.feedContets.load(url: url!)
+        
+        var date = (feedInfo[indexPath.row].feedCreatedAt)!
+        let arr = date.components(separatedBy: "T")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let createdDate1 = dateFormatter.date(from: arr[0])
+        //dateFormatter.dateFormat = "HH-mm-ss"
+        //let createdDate2 = dateFormatter.date(from: arr[1])
+        let createdDate = dateFormatter.string(from: createdDate1!)
+        print(createdDate)
         
         
         return cell
