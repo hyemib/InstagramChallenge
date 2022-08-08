@@ -10,6 +10,9 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var imagesStackView: UIStackView!
     @IBOutlet weak var sendButton: UIButton!
     
+    private let chatDataService = ChatDataService()
+    var chatInfo: [ChatsResponseResult]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,16 +31,31 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         inputTextView.textContainerInset = UIEdgeInsets(top: 12, left: 47, bottom: 12, right: 10)
         
         sendButton.isHidden = true
+        
+        chatDataService.requestFetchGetChat(pageIndex: 0, size: 10, delegate: self)
+    }
+    
+    func didSuccessGetChatData(result: [ChatsResponseResult]) {
+        chatInfo = result
+        chatInfo?.reverse()
+        tableView.reloadData()
+    }
+    
+    func checkTextViewMaxLength(textView: UITextView!, maxLength: Int) {
+        if textView.text?.count ?? 0 > maxLength {
+            textView.deleteBackward()
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
         if textView.contentSize.height <= 40 {
             inputTextViewHeight.constant = 40
-        } else if textView.contentSize.height >= 100 {
-            inputTextViewHeight.constant = 100
+        } else if textView.contentSize.height >= 120 {
+            inputTextViewHeight.constant = 120
         } else {
             inputTextViewHeight.constant = textView.contentSize.height
         }
+        checkTextViewMaxLength(textView: inputTextView, maxLength: 200)
     }
     
     @objc func keyboardWillShow(noti: Notification) {
@@ -87,26 +105,26 @@ class ChatViewController: UIViewController, UITextViewDelegate {
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        return 10
+        return chatInfo?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
-            cell.selectionStyle = .none
-             return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
-        cell.selectionStyle = .none
-        return cell
+        /*let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
+        yourCell.selectionStyle = .none
+        yourCell.yourMessage.text = chatInfo?[indexPath.row].content
+        yourCell.date.text = chatInfo?[indexPath.row].updatedAt
+        return yourCell*/
+        let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
+        yourCell.selectionStyle = .none
+        yourCell.yourMessage.text = chatInfo?[indexPath.row].content
+        yourCell.date.isHidden = true
+      
+        //yourCell.date.text = chatInfo?[indexPath.row].updatedAt
+        return yourCell
+        
+        
     }
 }
 

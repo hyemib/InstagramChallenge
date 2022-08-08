@@ -247,7 +247,9 @@ struct UserDataService {
                         case 2223: print("해당 회원이 존재하지 않습니다.")
                         case 2232: print("아이디가 잘못 되었습니다.")
                         case 3000: print("자동로그인 검증에 실패하였습니다. 다시 시도해주세요.")
-                        case 3001: print("자동로그인이 만료되었습니다. 다시 로그인해주세요.")
+                        case 3001:
+                            print("자동로그인이 만료되었습니다. 다시 로그인해주세요.")
+                            delegate.expireToken()
                         case 4000: print("데이터 베이스 커텍션 에러")
                         case 4001: print("서버 에러")
                         case 4002: print("데이터 베이스 쿼리 에러")

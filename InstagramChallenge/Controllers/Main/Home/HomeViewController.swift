@@ -1,17 +1,27 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let data = ["ena", "e", "n", "a"]
+    private let feedDataService = FeedDataService()
+    var feedInfo = [FeedsResponseResult]()
+    private var currentPage = 0
+    var fetchMore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        feedDataService.requestFetchFeeds(pageIndex: currentPage, delegate: self)
+    }
+    
+    func didSuccessFeedData(result: [FeedsResponseResult]) {
+        feedInfo.append(contentsOf: result)
+        tableView.reloadData()
     }
     
     @IBAction func goToCreatePost(_ sender: UIButton) {
@@ -26,6 +36,25 @@ class HomeViewController: UIViewController {
         self.present(vc, animated: false, completion: nil)
     }
     
+    func beginBatchFetch() {
+        fetchMore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.currentPage += 1
+            
+            self.feedDataService.requestFetchFeeds(pageIndex: self.currentPage, delegate: self)
+           
+            self.tableView.reloadData()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y > (tableView.contentSize.height - tableView.bounds.size.height) {
+            if !fetchMore {
+                beginBatchFetch()
+            }
+            
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -43,7 +72,7 @@ extension HomeViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         }
-        return 10
+        return feedInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +83,13 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! HomeFeedCell
         cell.delegate = self
         cell.index = indexPath.row
+        cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
+        cell.feedText.text = feedInfo[indexPath.row].feedText
+        cell.feedCreatedAt.text = feedInfo[indexPath.row].feedCreatedAt
+        cell.feedCommentCount.text =
+        "\(feedInfo[indexPath.row].feedCommentCount ?? 0)개"
+        
+        
         return cell
     }
 }

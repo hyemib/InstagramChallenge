@@ -51,9 +51,13 @@
 		92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */; };
 		92EB8729289E4ACD00E3DA94 /* MyPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */; };
 		92EB872C289E5CD400E3DA94 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872B289E5CD400E3DA94 /* ChatViewController.swift */; };
-		92EB872E289E6D2100E3DA94 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872D289E6D2100E3DA94 /* DateCell.swift */; };
 		92EB8730289E6D3200E3DA94 /* MyMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */; };
 		92EB8732289E6D3C00E3DA94 /* YourMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */; };
+		92EB8736289EA75B00E3DA94 /* ChatDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8735289EA75B00E3DA94 /* ChatDataService.swift */; };
+		92EB873F289EA95100E3DA94 /* ChatsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB873E289EA95100E3DA94 /* ChatsResponse.swift */; };
+		92EB8741289EC24B00E3DA94 /* ChatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8740289EC24B00E3DA94 /* ChatRequest.swift */; };
+		92EB8745289EC7BE00E3DA94 /* FeedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8744289EC7BE00E3DA94 /* FeedsResponse.swift */; };
+		92EB8747289ECB1C00E3DA94 /* FeedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8746289ECB1C00E3DA94 /* FeedDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,9 +107,13 @@
 		92EB8726289E299600E3DA94 /* KakaoSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSignUpRequest.swift; sourceTree = "<group>"; };
 		92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageResponse.swift; path = InstagramChallenge/Models/User/MyPageResponse.swift; sourceTree = SOURCE_ROOT; };
 		92EB872B289E5CD400E3DA94 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		92EB872D289E6D2100E3DA94 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageCell.swift; sourceTree = "<group>"; };
 		92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourMessageCell.swift; sourceTree = "<group>"; };
+		92EB8735289EA75B00E3DA94 /* ChatDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataService.swift; sourceTree = "<group>"; };
+		92EB873E289EA95100E3DA94 /* ChatsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsResponse.swift; sourceTree = "<group>"; };
+		92EB8740289EC24B00E3DA94 /* ChatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRequest.swift; sourceTree = "<group>"; };
+		92EB8744289EC7BE00E3DA94 /* FeedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsResponse.swift; sourceTree = "<group>"; };
+		92EB8746289ECB1C00E3DA94 /* FeedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataService.swift; sourceTree = "<group>"; };
 		D0CA3B9AF515AC46EB275B8F /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F30F50BEDA85F5402ED9A0 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,17 +181,9 @@
 				9230D5512891404900CFBC11 /* HomeViewController.swift */,
 				9230D55C289156B600CFBC11 /* HomeStoryCell.swift */,
 				9230D5772892538300CFBC11 /* HomeFeedCell.swift */,
-				926B608D28999BAA00554679 /* PhotoSelectViewController.swift */,
-				926B608F289A9EB900554679 /* AlbumCell.swift */,
-				926B6091289AE43C00554679 /* WritingViewController.swift */,
-				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
-				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
-				9260D7FD289BF24800B11BFC /* CommentCell.swift */,
-				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
-				92EB872B289E5CD400E3DA94 /* ChatViewController.swift */,
-				92EB872D289E6D2100E3DA94 /* DateCell.swift */,
-				92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */,
-				92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */,
+				92EB8737289EA82400E3DA94 /* Writing */,
+				92EB8738289EA85C00E3DA94 /* Comment */,
+				92EB8739289EA86C00E3DA94 /* Chat */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -237,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				92EB872A289E4ADB00E3DA94 /* User */,
+				92EB873D289EA8B700E3DA94 /* Chat */,
+				92EB8743289EC75900E3DA94 /* Feed */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				92EB8706289C1F0700E3DA94 /* UserDataService.swift */,
+				92EB8735289EA75B00E3DA94 /* ChatDataService.swift */,
+				92EB8746289ECB1C00E3DA94 /* FeedDataService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -304,6 +308,54 @@
 				92EB8728289E4ACD00E3DA94 /* MyPageResponse.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		92EB8737289EA82400E3DA94 /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				926B608D28999BAA00554679 /* PhotoSelectViewController.swift */,
+				926B608F289A9EB900554679 /* AlbumCell.swift */,
+				926B6091289AE43C00554679 /* WritingViewController.swift */,
+				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
+		92EB8738289EA85C00E3DA94 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				9230D58A2892E73500CFBC11 /* CommentViewController.swift */,
+				9260D7FD289BF24800B11BFC /* CommentCell.swift */,
+				9230D58C2893CAE200CFBC11 /* NotificationViewController.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		92EB8739289EA86C00E3DA94 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				92EB872B289E5CD400E3DA94 /* ChatViewController.swift */,
+				92EB872F289E6D3200E3DA94 /* MyMessageCell.swift */,
+				92EB8731289E6D3C00E3DA94 /* YourMessageCell.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		92EB873D289EA8B700E3DA94 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				92EB873E289EA95100E3DA94 /* ChatsResponse.swift */,
+				92EB8740289EC24B00E3DA94 /* ChatRequest.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		92EB8743289EC75900E3DA94 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				92EB8744289EC7BE00E3DA94 /* FeedsResponse.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		9C37A48701E703F71AE81C1F /* Pods */ = {
@@ -439,6 +491,7 @@
 				9260D7FE289BF24800B11BFC /* CommentCell.swift in Sources */,
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
+				92EB873F289EA95100E3DA94 /* ChatsResponse.swift in Sources */,
 				926B6092289AE43C00554679 /* WritingViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
@@ -447,6 +500,7 @@
 				9230D5872892DC4700CFBC11 /* MyFeedViewController.swift in Sources */,
 				9230D5782892538300CFBC11 /* HomeFeedCell.swift in Sources */,
 				9230D54E2890F45100CFBC11 /* UserNameViewController.swift in Sources */,
+				92EB8741289EC24B00E3DA94 /* ChatRequest.swift in Sources */,
 				9261E31A288E4F4D00A9094D /* SceneDelegate.swift in Sources */,
 				9261E333288EE39400A9094D /* UITextField.swift in Sources */,
 				929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */,
@@ -454,16 +508,18 @@
 				92EB8727289E299600E3DA94 /* KakaoSignUpRequest.swift in Sources */,
 				9230D55E289156B600CFBC11 /* HomeStoryCell.swift in Sources */,
 				92EB872C289E5CD400E3DA94 /* ChatViewController.swift in Sources */,
+				92EB8745289EC7BE00E3DA94 /* FeedsResponse.swift in Sources */,
 				92EB8709289C204400E3DA94 /* Constant.swift in Sources */,
 				92EB8732289E6D3C00E3DA94 /* YourMessageCell.swift in Sources */,
 				9230D5482890217B00CFBC11 /* PasswordViewController.swift in Sources */,
 				92EB8721289E203500E3DA94 /* AuthResponse.swift in Sources */,
 				9230D53D288F9CD500CFBC11 /* PhoneNumberOrEmailJoinViewController.swift in Sources */,
+				92EB8747289ECB1C00E3DA94 /* FeedDataService.swift in Sources */,
 				92EB8723289E25A600E3DA94 /* KakaoSignInRequest.swift in Sources */,
+				92EB8736289EA75B00E3DA94 /* ChatDataService.swift in Sources */,
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
-				92EB872E289E6D2100E3DA94 /* DateCell.swift in Sources */,
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,

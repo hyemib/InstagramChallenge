@@ -6,7 +6,11 @@ class HomeFeedCell: UITableViewCell {
     @IBOutlet weak var feedProfileImage: UIImageView!
     @IBOutlet weak var feedImageCountView: UIView!
     @IBOutlet weak var feedImageCount: UILabel!
-    @IBOutlet weak var feedPhrase: UITextView!
+    @IBOutlet weak var feedLoginId: UILabel!
+    @IBOutlet weak var feedText: UILabel!
+    @IBOutlet weak var feedCreatedAt: UILabel!
+    @IBOutlet weak var feedCommentCount: UILabel!
+    @IBOutlet weak var contetsUrl: UIImageView!
     
     var delegate: MoveCommentViewDelegate?
     var index: Int?
@@ -16,6 +20,8 @@ class HomeFeedCell: UITableViewCell {
         
         feedProfileImage.layer.cornerRadius = feedProfileImage.frame.height / 2
         feedImageCountView.layer.cornerRadius = feedImageCountView.frame.height / 2
+    
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,7 +30,7 @@ class HomeFeedCell: UITableViewCell {
     
     @IBAction func clickCommentButton(_ sender: UIButton) {
         guard let idx = index else { return }
-        delegate?.moveCommentView(index: idx, pharse: feedPhrase.text)
+        delegate?.moveCommentView(index: idx, pharse: feedText.text!)
         
     }
 }
