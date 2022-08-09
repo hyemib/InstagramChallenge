@@ -27,7 +27,7 @@ class PhotoSelectViewController: UIViewController {
     }
     
     @IBAction func goPostWriteView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "WritingViewController") as? WritingViewController else { return }
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostWriteViewController") as? PostWriteViewController else { return }
         vc.selectImage = selectImage
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

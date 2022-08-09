@@ -14,8 +14,9 @@ class HomeFeedCell: UITableViewCell {
     @IBOutlet weak var feedContets: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var delegate: MoveCommentViewDelegate?
+    var delegate: SendHomeDelegate?
     var index: Int?
+    var feedId: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +34,15 @@ class HomeFeedCell: UITableViewCell {
         delegate?.moveCommentView(index: idx, pharse: feedText.text!)
     }
     
+    @IBAction func clickMoreButton(_ sender: UIButton) {
+        guard let idx = index else { return }
+        if feedId == Constant.myId {
+            delegate?.movePopupView(index: idx)
+        }
+    }
 }
 
-protocol MoveCommentViewDelegate: AnyObject {
+protocol SendHomeDelegate: AnyObject {
     func moveCommentView(index: Int, pharse: String)
+    func movePopupView(index: Int)
 }

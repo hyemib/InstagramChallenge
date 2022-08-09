@@ -3,7 +3,7 @@ import UIKit
 import FirebaseStorage
 import Kingfisher
 
-class WritingViewController: UIViewController {
+class PostWriteViewController: UIViewController {
     
     @IBOutlet weak var selectImageView: UIImageView!
     @IBOutlet weak var pharseTextView: UITextView!
@@ -62,7 +62,7 @@ protocol SendPharseDelegate: AnyObject {
     func send(pharse: String)
 }
 
-extension WritingViewController: SendPharseDelegate {
+extension PostWriteViewController: SendPharseDelegate {
     func send(pharse: String) {
         pharseTextView.text = pharse
         pharseTextView.font = .systemFont(ofSize: 16, weight: .regular)

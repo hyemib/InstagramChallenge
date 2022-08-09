@@ -107,6 +107,8 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! HomeFeedCell
         cell.delegate = self
         cell.index = indexPath.row
+        cell.feedId = feedInfo[indexPath.row].feedLoginId
+        
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
         cell.feedLoginId2.text = feedInfo[indexPath.row].feedLoginId
         cell.feedText.text = feedInfo[indexPath.row].feedText
@@ -140,7 +142,13 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: MoveCommentViewDelegate {
+extension HomeViewController: SendHomeDelegate {
+    func movePopupView(index: Int) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PopUpViewController") as? PopUpViewController else { return }
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     func moveCommentView(index: Int, pharse: String) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "CommentViewController") as? CommentViewController else { return }
         vc.pharse = pharse

@@ -6,6 +6,7 @@ struct FeedDataService {
     
     private var feedGetUrl = "\(Constant.BASE_URL)/app/feeds"
     private var feedPostUrl = "\(Constant.BASE_URL)/app/feed"
+    private var feedUserUrl = "\(Constant.BASE_URL)/app/feeds/user"
     
     // 피드 조회
     func requestFetchGetFeed(pageIndex: Int, delegate: HomeViewController) {
@@ -20,8 +21,10 @@ struct FeedDataService {
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
-                        print("성공")
+                        print("피드 조회 성공")
+                        
                         delegate.didSuccessFeedData(result: response.result!)
+                        
                     } else {
                         switch response.code {
                         case 2000: print("JWT 토큰을 입력해주세요.")
@@ -43,7 +46,7 @@ struct FeedDataService {
     }
     
     // 피드 생성
-    func requestFetchPostFeed(_ parameters: FeedRequest, delegate: WritingViewController) {
+    func requestFetchPostFeed(_ parameters: FeedRequest, delegate: PostWriteViewController) {
         let url = "\(feedPostUrl)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
@@ -62,6 +65,44 @@ struct FeedDataService {
                         case 2000: print("JWT 토큰을 입력해주세요.")
                         case 2902: print("페이지피드 문구는 최소 1자부터 최대 1000자 이내로 입력해야합니다.")
                         case 2903: print("페이지피드 컨텐츠는 최소 1장부터 최대 5장 이내로 선택해야합니다.")
+                        case 3000: print("자동로그인 검증에 실패하였습니다. 다시 시도해주세요.")
+                        case 3001: print("자동로그인이 만료되었습니다. 다시 로그인해주세요.")
+                        case 4000: print("데이터 베이스 커텍션 에러")
+                        case 4001: print("서버 에러")
+                        case 4002: print("데이터 베이스 쿼리 에러")
+                        default: return
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+        
+                }
+            }
+    }
+    
+    // 특정 유저 피드 조회
+    func requestFetchGetFeedUser(pageIndex: Int, loginId: String, delegate: MyFeedViewController) {
+        let url = "\(feedUserUrl)?pageIndex=\(pageIndex)&size=9&loginId=\(loginId)"
+        
+        let header: HTTPHeaders = [ "Content-Type":"application/json",
+                                    "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]
+        
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: header)
+            .validate()
+            .responseDecodable(of: FeedsResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if (response.isSuccess)! {
+                        print("특정 유저 피드 조회 성공")
+                        delegate.setMyPageFeed(resut: response.result!)
+                        
+                    } else {
+                        switch response.code {
+                        case 2000: print("JWT 토큰을 입력해주세요.")
+                        case 2103: print("계정 아이디를 입력해주세요.")
+                        case 2104: print("계정 아이디를 20자리 미만으로 입력해주세요.")
+                        case 2900: print("페이지 인덱스를 올바르게 입력해주세요.")
+                        case 2901: print("페이지 사이즈를 올바르게 입력해주세요.")
                         case 3000: print("자동로그인 검증에 실패하였습니다. 다시 시도해주세요.")
                         case 3001: print("자동로그인이 만료되었습니다. 다시 로그인해주세요.")
                         case 4000: print("데이터 베이스 커텍션 에러")

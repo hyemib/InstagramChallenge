@@ -39,11 +39,14 @@
 		9261E333288EE39400A9094D /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9261E332288EE39400A9094D /* UITextField.swift */; };
 		926B608E28999BAA00554679 /* PhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608D28999BAA00554679 /* PhotoSelectViewController.swift */; };
 		926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B608F289A9EB900554679 /* AlbumCell.swift */; };
-		926B6092289AE43C00554679 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* WritingViewController.swift */; };
+		926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* PostWriteViewController.swift */; };
 		929CABEB289BB31C00856AED /* PhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CABEA289BB31C00856AED /* PhraseViewController.swift */; };
 		929F4D7428A0EC7100C2FE72 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7328A0EC7100C2FE72 /* TabBarController.swift */; };
 		929F4D7628A100BE00C2FE72 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7528A100BE00C2FE72 /* UIImageView.swift */; };
 		929F4D7828A150EE00C2FE72 /* FeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7728A150EE00C2FE72 /* FeedRequest.swift */; };
+		929F4D7B28A16AD800C2FE72 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */; };
+		929F4D7D28A251C500C2FE72 /* PostUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7C28A251C500C2FE72 /* PostUpdateViewController.swift */; };
+		929F4D8128A2666600C2FE72 /* MyFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8028A2666600C2FE72 /* MyFeedCell.swift */; };
 		92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8703289C162700E3DA94 /* SignUpRequest.swift */; };
 		92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8706289C1F0700E3DA94 /* UserDataService.swift */; };
 		92EB8709289C204400E3DA94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8708289C204400E3DA94 /* Constant.swift */; };
@@ -98,11 +101,14 @@
 		9261E332288EE39400A9094D /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		926B608D28999BAA00554679 /* PhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectViewController.swift; sourceTree = "<group>"; };
 		926B608F289A9EB900554679 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		926B6091289AE43C00554679 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		926B6091289AE43C00554679 /* PostWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWriteViewController.swift; sourceTree = "<group>"; };
 		929CABEA289BB31C00856AED /* PhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseViewController.swift; sourceTree = "<group>"; };
 		929F4D7328A0EC7100C2FE72 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		929F4D7528A100BE00C2FE72 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		929F4D7728A150EE00C2FE72 /* FeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRequest.swift; sourceTree = "<group>"; };
+		929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		929F4D7C28A251C500C2FE72 /* PostUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUpdateViewController.swift; sourceTree = "<group>"; };
+		929F4D8028A2666600C2FE72 /* MyFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedCell.swift; sourceTree = "<group>"; };
 		92EB8703289C162700E3DA94 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		92EB8706289C1F0700E3DA94 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		92EB8708289C204400E3DA94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 				9230D5842892D88600CFBC11 /* MyPageViewController.swift */,
 				9230D5862892DC4700CFBC11 /* MyFeedViewController.swift */,
 				9230D5882892DCE300CFBC11 /* TagViewController.swift */,
+				929F4D8028A2666600C2FE72 /* MyFeedCell.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -323,8 +330,10 @@
 			children = (
 				926B608D28999BAA00554679 /* PhotoSelectViewController.swift */,
 				926B608F289A9EB900554679 /* AlbumCell.swift */,
-				926B6091289AE43C00554679 /* WritingViewController.swift */,
+				926B6091289AE43C00554679 /* PostWriteViewController.swift */,
 				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
+				929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */,
+				929F4D7C28A251C500C2FE72 /* PostUpdateViewController.swift */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -501,7 +510,7 @@
 				9230D5502890F68400CFBC11 /* FinalConfirmationViewController.swift in Sources */,
 				9230D5522891404900CFBC11 /* HomeViewController.swift in Sources */,
 				92EB873F289EA95100E3DA94 /* ChatsResponse.swift in Sources */,
-				926B6092289AE43C00554679 /* WritingViewController.swift in Sources */,
+				926B6092289AE43C00554679 /* PostWriteViewController.swift in Sources */,
 				9261E318288E4F4D00A9094D /* AppDelegate.swift in Sources */,
 				9230D54A28902CC300CFBC11 /* BirthdayViewController.swift in Sources */,
 				92EB8725289E27CC00E3DA94 /* UIViewController.swift in Sources */,
@@ -527,10 +536,13 @@
 				92EB8747289ECB1C00E3DA94 /* FeedDataService.swift in Sources */,
 				92EB8723289E25A600E3DA94 /* KakaoSignInRequest.swift in Sources */,
 				92EB8736289EA75B00E3DA94 /* ChatDataService.swift in Sources */,
+				929F4D7B28A16AD800C2FE72 /* PopUpViewController.swift in Sources */,
 				9230D5852892D88600CFBC11 /* MyPageViewController.swift in Sources */,
 				9230D5892892DCE300CFBC11 /* TagViewController.swift in Sources */,
+				929F4D7D28A251C500C2FE72 /* PostUpdateViewController.swift in Sources */,
 				9230D541288FE26900CFBC11 /* EmailJoinViewController.swift in Sources */,
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
+				929F4D8128A2666600C2FE72 /* MyFeedCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
 				929F4D7628A100BE00C2FE72 /* UIImageView.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
