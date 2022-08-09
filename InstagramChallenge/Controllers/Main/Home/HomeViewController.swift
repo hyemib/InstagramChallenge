@@ -108,6 +108,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.delegate = self
         cell.index = indexPath.row
         cell.feedId = feedInfo[indexPath.row].feedLoginId
+        cell.feedIndex = feedInfo[indexPath.row].feedId
         
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
         cell.feedLoginId2.text = feedInfo[indexPath.row].feedLoginId
@@ -149,9 +150,10 @@ extension HomeViewController: SendHomeDelegate {
         self.present(vc, animated: false, completion: nil)
     }
     
-    func moveCommentView(index: Int, pharse: String) {
+    func moveCommentView(index: Int, pharse: String, feedIndex: Int) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "CommentViewController") as? CommentViewController else { return }
         vc.pharse = pharse
+        vc.feedIndex = feedIndex
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
