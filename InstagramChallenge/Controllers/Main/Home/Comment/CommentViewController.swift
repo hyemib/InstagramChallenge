@@ -6,6 +6,7 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var inputTextViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var completButton: UIButton!
     
     private let feedDataService = FeedDataService()
     var feedIndex: Int?
@@ -13,6 +14,7 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
     var contents: CommentContents?
     var commentInfo = [CommentResponseResult]()
     var fetchMore = false
+    var enableButton = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         
         feedDataService.requestFetchGetComment(feedId: feedIndex!, pageIndex: currentPage, size: 10, delegate: self)
         
+        completButton.tintColor = .mainBlueBlurColor
         inputTextView.layer.borderWidth = 1
         inputTextView.layer.cornerRadius = inputTextView.frame.height / 2
         inputTextView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
@@ -33,6 +36,7 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(noti:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidChange), name: UITextView.textDidChangeNotification, object: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,13 +72,19 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         }
     }
     
+    func checkTextViewMaxLength(textView: UITextView!, maxLength: Int) {
+        if textView.text?.count ?? 0 > maxLength {
+            textView.deleteBackward()
+        }
+    }
+    
     @objc func keyboardWillShow(noti: Notification) {
         inputTextView.text = ""
         inputTextView.textColor = .black
-        
+ 
         let notiInfo = noti.userInfo!
         let keyboardFrame = notiInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-        let height = keyboardFrame.size.height //- self.view.safeAreaInsets.bottom
+        let height = keyboardFrame.size.height - self.view.safeAreaInsets.bottom
         
         let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         
@@ -82,12 +92,13 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
             self.inputTextViewBottom.constant = height
             self.view.layoutIfNeeded()
         }
+    
     }
     
     @objc func keyboardWillHide(noti: Notification) {
         inputTextView.text = "댓글 달기..."
         inputTextView.textColor = .mainLightGrayColor
-        
+
         let notiInfo = noti.userInfo!
         let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: animationDuration) {
@@ -96,9 +107,27 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         }
     }
     
+    @objc func handleTextDidChange() {
+        checkTextViewMaxLength(textView: inputTextView, maxLength: 200)
+        if inputTextView.text.count > 0 {
+            enableButton = true
+            completButton.tintColor = .mainBlueColor
+        } else {
+            enableButton = false
+            completButton.tintColor = .mainBlueBlurColor
+        }
+    }
     
     @IBAction func completeCommentButton(_ sender: UIButton) {
-        //feedDataService.requestFetchPostComment(<#T##parameters: CommentRequest##CommentRequest#>, feedId: <#T##Int#>, delegate: <#T##CommentViewController#>)
+        if !enableButton { return }
+        feedDataService.requestFetchPostComment(CommentRequest(commentText: inputTextView.text!), feedId: feedIndex!, delegate: self)
+        self.view.endEditing(true)
+        
+    }
+    
+    func didSuccessAddComment() {
+        commentInfo = []
+        feedDataService.requestFetchGetComment(feedId: feedIndex!, pageIndex: 0, size: 10, delegate: self)
     }
     
 }

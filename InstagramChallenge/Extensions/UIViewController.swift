@@ -41,10 +41,10 @@ extension UIViewController {
                 return "\(m)월 \(d)일 전"
             } else if d >= 1 {
                 return "\(d)일 전"
-            } else if h+9 >= 1 {
-                return "\(h+9)시간 전"
-            } else if mm >= 1 {
-                return "\(mm)분 전"
+            } else if h+8 >= 1 {
+                return "\(h+8)시간 전"
+            } else {
+                return "\(60+mm)분 전"
             }
         }
         return ""

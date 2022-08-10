@@ -36,6 +36,12 @@ class MyPageViewController: UIViewController {
         feedCount.text = "\(String(describing: (result.feedCount)!))"
     }
     
+    @IBAction func goToCreatePost(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PhotoSelectViewController") as? PhotoSelectViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
     @IBAction func selectMyFeedBarTabBar(_ sender: UIButton) {
         changeViewToMyFeedView()
         myFeedBar.isHidden = false

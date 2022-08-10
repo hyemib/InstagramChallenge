@@ -37,7 +37,6 @@ class PostWriteViewController: UIViewController {
                 
                 storageRef.downloadURL{ (url, error) in
                     guard let url = url, error == nil else {
-                        print(error)
                         return
                     }
                     let urlString = url.absoluteString

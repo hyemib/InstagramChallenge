@@ -2,12 +2,13 @@
 import UIKit
 import Kingfisher
 
-class MyFeedViewController: UIViewController {
+class MyFeedViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let feedDataService = FeedDataService()
     var feedInfo = [FeedsResponseResult]()
+    var fetchMore = false
     var currentPage = 0
     
     override func viewDidLoad() {
@@ -22,6 +23,25 @@ class MyFeedViewController: UIViewController {
     func setMyPageFeed(resut: [FeedsResponseResult]) {
         feedInfo = resut
         collectionView.reloadData()
+    }
+    
+    func beginBatchFetch() {
+        fetchMore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.currentPage += 1
+            
+            self.feedDataService.requestFetchGetFeedUser(pageIndex: self.currentPage, loginId: Constant.myId, delegate: self)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if collectionView.contentOffset.y > (collectionView.contentSize.height - collectionView.bounds.size.height) {
+            if !fetchMore {
+                beginBatchFetch()
+            }
+            
+        }
     }
 }
 

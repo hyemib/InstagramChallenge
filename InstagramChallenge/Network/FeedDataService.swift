@@ -64,7 +64,7 @@ struct FeedDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("피드 생성 성공.")
-                        delegate.didSuccessLogin()
+                       
                     } else {
                         switch response.code {
                         case 2000: print("JWT 토큰을 입력해주세요.")
@@ -254,7 +254,8 @@ struct FeedDataService {
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
-                        //delegate.didSuccessLogin()
+                        delegate.didSuccessAddComment()
+                        
                         print("댓글 생성에 성공하였습니다.")
                         
                     } else {
