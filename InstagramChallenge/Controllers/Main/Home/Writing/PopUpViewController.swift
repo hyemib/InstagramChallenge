@@ -10,6 +10,8 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var storeView: UIView!
     @IBOutlet weak var removeView: UIView!
     
+    var feedIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,10 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func removePostButotn(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "RemoveViewController") as? RemoveViewController else { return }
+        vc.feedIndex = self.feedIndex
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
     }
     
 }

@@ -30,4 +30,23 @@ extension UIViewController {
         alret.addAction(yes)
         self.present(alret, animated: true, completion: nil)
     }
+    
+    func setDate(_ dateString: String) -> String {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let date = dateFormatter.date(from: dateString)
+        let offsetComps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date!, to: Date())
+        if case let (m?, d?, h?, mm?) = (offsetComps.month, offsetComps.day, offsetComps.hour, offsetComps.minute) {
+            if m >= 1 {
+                return "\(m)월 \(d)일 전"
+            } else if d >= 1 {
+                return "\(d)일 전"
+            } else if h >= 1 {
+                return "\(h)시간 전"
+            } else if mm >= 1 {
+                return "\(mm)분 전"
+            }
+        }
+        return ""
+    }
 }

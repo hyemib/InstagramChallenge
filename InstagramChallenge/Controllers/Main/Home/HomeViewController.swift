@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         feedDataService.requestFetchGetFeed(pageIndex: currentPage, delegate: self)
        
         initRefresh()
+        
+        
     }
     
     func didSuccessFeedData(result: [FeedsResponseResult]) {
@@ -112,15 +114,18 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
         cell.feedLoginId2.text = feedInfo[indexPath.row].feedLoginId
-        cell.feedText.text = feedInfo[indexPath.row].feedText
-       // cell.feedCreatedAt.text = feedInfo[indexPath.row].feedCreatedAt
+        var textArr = (feedInfo[indexPath.row].feedText)?.components(separatedBy: "\n")
+        cell.feedText.text = textArr?[0]
+        textArr?.removeFirst()
+        if textArr?.count ?? 0 >= 1 {
+            cell.feedMoreText.text = textArr?.joined(separator: "\n")
+        }
         cell.feedCommentCount.text = "\(feedInfo[indexPath.row].feedCommentCount ?? 0)개"
         
         cell.pageControl.numberOfPages = feedInfo[indexPath.row].contentsList?.count ?? 0
         cell.pageControl.currentPage = 0
         cell.pageControl.pageIndicatorTintColor = UIColor.mainLightGrayColor
         cell.pageControl.currentPageIndicatorTintColor = UIColor.mainBlueColor
-        
         if feedInfo[indexPath.row].contentsList?.count ?? 0 <= 1 {
             cell.pageControl.isHidden = true
             cell.feedImageCountView.isHidden = true
@@ -128,15 +133,7 @@ extension HomeViewController: UITableViewDataSource {
         let url = URL(string: (feedInfo[indexPath.row].contentsList?[0].contentsUrl)!)
         cell.feedContets.load(url: url!)
         
-        var date = (feedInfo[indexPath.row].feedCreatedAt)!
-        let arr = date.components(separatedBy: "T")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let createdDate1 = dateFormatter.date(from: arr[0])
-        //dateFormatter.dateFormat = "HH-mm-ss"
-        //let createdDate2 = dateFormatter.date(from: arr[1])
-        let createdDate = dateFormatter.string(from: createdDate1!)
-        print(createdDate)
+        cell.feedCreatedAt.text = setDate(feedInfo[indexPath.row].feedCreatedAt!)
         
         
         return cell
@@ -144,7 +141,7 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: SendHomeDelegate {
-    func movePopupView(index: Int) {
+    func movePopupView(index: Int, feedIndex: Int) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PopUpViewController") as? PopUpViewController else { return }
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: false, completion: nil)

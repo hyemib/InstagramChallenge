@@ -2,5 +2,5 @@
 import Foundation
 
 struct ChatRequest: Encodable {
-    var content = ""
+    var content: String
 }

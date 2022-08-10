@@ -49,6 +49,7 @@
 		929F4D8128A2666600C2FE72 /* MyFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8028A2666600C2FE72 /* MyFeedCell.swift */; };
 		929F4D8328A27A9700C2FE72 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8228A27A9700C2FE72 /* CommentResponse.swift */; };
 		929F4D8528A2829F00C2FE72 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8428A2829F00C2FE72 /* CommentRequest.swift */; };
+		929F4D8728A2882B00C2FE72 /* RemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8628A2882B00C2FE72 /* RemoveViewController.swift */; };
 		92EB8704289C162700E3DA94 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8703289C162700E3DA94 /* SignUpRequest.swift */; };
 		92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8706289C1F0700E3DA94 /* UserDataService.swift */; };
 		92EB8709289C204400E3DA94 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8708289C204400E3DA94 /* Constant.swift */; };
@@ -113,6 +114,7 @@
 		929F4D8028A2666600C2FE72 /* MyFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedCell.swift; sourceTree = "<group>"; };
 		929F4D8228A27A9700C2FE72 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		929F4D8428A2829F00C2FE72 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
+		929F4D8628A2882B00C2FE72 /* RemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveViewController.swift; sourceTree = "<group>"; };
 		92EB8703289C162700E3DA94 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		92EB8706289C1F0700E3DA94 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		92EB8708289C204400E3DA94 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -310,8 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				92EB8706289C1F0700E3DA94 /* UserDataService.swift */,
-				92EB8735289EA75B00E3DA94 /* ChatDataService.swift */,
 				92EB8746289ECB1C00E3DA94 /* FeedDataService.swift */,
+				92EB8735289EA75B00E3DA94 /* ChatDataService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -338,6 +340,7 @@
 				929CABEA289BB31C00856AED /* PhraseViewController.swift */,
 				929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */,
 				929F4D7C28A251C500C2FE72 /* PostUpdateViewController.swift */,
+				929F4D8628A2882B00C2FE72 /* RemoveViewController.swift */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				929F4D7628A100BE00C2FE72 /* UIImageView.swift in Sources */,
 				929F4D8528A2829F00C2FE72 /* CommentRequest.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
+				929F4D8728A2882B00C2FE72 /* RemoveViewController.swift in Sources */,
 				92EB870D289C34F700E3DA94 /* SignInRequest.swift in Sources */,
 				929F4D7828A150EE00C2FE72 /* FeedRequest.swift in Sources */,
 				92EB8707289C1F0700E3DA94 /* UserDataService.swift in Sources */,

@@ -41,7 +41,7 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func completeCommentButton(_ sender: UIButton) {
-        feedDataService.requestFetchPostComment(<#T##parameters: CommentRequest##CommentRequest#>, feedId: <#T##Int#>, delegate: <#T##CommentViewController#>)
+        //feedDataService.requestFetchPostComment(<#T##parameters: CommentRequest##CommentRequest#>, feedId: <#T##Int#>, delegate: <#T##CommentViewController#>)
     }
     
 }

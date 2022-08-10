@@ -181,7 +181,9 @@ struct UserDataService {
                         switch response.code {
                         case 2000: print("JWT 토큰을 입력해주세요.")
                         case 3000: print("자동로그인 검증에 실패하였습니다. 다시 시도해주세요.")
-                        case 3001: print("자동로그인 만료되었습니다. 다시 로그인해주세요.")
+                        case 3001:
+                            print("자동로그인 만료되었습니다. 다시 로그인해주세요.")
+                            delegate.expireToken()
                         default: return
                         }
                     }
