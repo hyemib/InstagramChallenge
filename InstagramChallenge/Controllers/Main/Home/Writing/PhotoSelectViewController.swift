@@ -22,7 +22,7 @@ class PhotoSelectViewController: UIViewController {
         self.collectionView.dataSource = self
     }
     
-    @IBAction func goHomeView(_ sender: UIButton) {
+    @IBAction func returnHomeView(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
     

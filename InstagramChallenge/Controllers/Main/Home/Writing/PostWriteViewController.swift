@@ -34,19 +34,26 @@ class PostWriteViewController: UIViewController {
                 print(error!)
                 return
             } else {
-                storageRef.downloadURL{ [self] (url, error) in
+                
+                storageRef.downloadURL{ (url, error) in
                     guard let url = url, error == nil else {
                         print(error)
                         return
                     }
                     let urlString = url.absoluteString
                     self.imagesURLString.append(urlString)
-                    
+                    print(self.imagesURLString)
+                    self.feedDataService.requestFetchPostFeed(FeedRequest(feedText: self.pharseTextView.text!, contentsUrls: self.imagesURLString), delegate: self)
                 }
             }
         }
         
-        feedDataService.requestFetchPostFeed(FeedRequest(feedText: pharseTextView.text!, contentsUrls: imagesURLString), delegate: self)
+        
+        
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
+        vc.tableView.reloadData()
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func enterAParse(_ sender: UIButton) {

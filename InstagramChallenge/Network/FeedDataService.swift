@@ -12,8 +12,8 @@ struct FeedDataService {
     private var commentPostUrl = "\(Constant.BASE_URL)/app/feeds"
     
     // 피드 조회
-    func requestFetchGetFeed(pageIndex: Int, delegate: HomeViewController) {
-        let url = "\(feedGetUrl)?pageIndex=\(pageIndex)&size=10"
+    func requestFetchGetFeed(pageIndex: Int, size: Int, delegate: HomeViewController) {
+        let url = "\(feedGetUrl)?pageIndex=\(pageIndex)&size=\(size)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
                                     "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]
@@ -204,7 +204,7 @@ struct FeedDataService {
     
     // 댓글 조회
     func requestFetchGetComment(feedId:Int, pageIndex: Int, size: Int, delegate: CommentViewController) {
-        let url = "\(commentGetUrl)/\(feedId)/comments?pageIndex=\(pageIndex)&size=10"
+        let url = "\(commentGetUrl)/\(feedId)/comments?pageIndex=\(pageIndex)&size=\(size)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
                                     "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]

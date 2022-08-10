@@ -19,6 +19,7 @@ class HomeFeedCell: UITableViewCell {
     var index: Int?
     var feedId: String?
     var feedIndex: Int?
+    var contents: CommentContents?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +37,7 @@ class HomeFeedCell: UITableViewCell {
     
     @IBAction func clickCommentButton(_ sender: UIButton) {
         guard let idx = index else { return }
-        delegate?.moveCommentView(index: idx, pharse: feedText.text!, feedIndex: feedIndex!)
+        delegate?.moveCommentView(index: idx, feedIndex: feedIndex!, contents: contents)
     }
     
     @IBAction func clickMoreButton(_ sender: UIButton) {
@@ -48,6 +49,6 @@ class HomeFeedCell: UITableViewCell {
 }
 
 protocol SendHomeDelegate: AnyObject {
-    func moveCommentView(index: Int, pharse: String, feedIndex: Int)
+    func moveCommentView(index: Int, feedIndex: Int, contents: CommentContents?)
     func movePopupView(index: Int, feedIndex: Int)
 }

@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         tableView.delegate = self
         tableView.dataSource = self
         
-        feedDataService.requestFetchGetFeed(pageIndex: currentPage, delegate: self)
+        feedDataService.requestFetchGetFeed(pageIndex: currentPage, size: 10, delegate: self)
        
         initRefresh()
         
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.currentPage += 1
             
-            self.feedDataService.requestFetchGetFeed(pageIndex: self.currentPage, delegate: self)
+            self.feedDataService.requestFetchGetFeed(pageIndex: self.currentPage, size: 10, delegate: self)
             self.tableView.reloadData()
         }
     }
@@ -111,6 +111,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.index = indexPath.row
         cell.feedId = feedInfo[indexPath.row].feedLoginId
         cell.feedIndex = feedInfo[indexPath.row].feedId
+        cell.contents = CommentContents(feedLoginId: feedInfo[indexPath.row].feedLoginId!, feedText: feedInfo[indexPath.row].feedText!, feedCreatedAt: feedInfo[indexPath.row].feedCreatedAt!)
         
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
         cell.feedLoginId2.text = feedInfo[indexPath.row].feedLoginId
@@ -134,8 +135,6 @@ extension HomeViewController: UITableViewDataSource {
         cell.feedContets.load(url: url!)
         
         cell.feedCreatedAt.text = setDate(feedInfo[indexPath.row].feedCreatedAt!)
-        
-        
         return cell
     }
 }
@@ -147,10 +146,10 @@ extension HomeViewController: SendHomeDelegate {
         self.present(vc, animated: false, completion: nil)
     }
     
-    func moveCommentView(index: Int, pharse: String, feedIndex: Int) {
+    func moveCommentView(index: Int, feedIndex: Int, contents: CommentContents?) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "CommentViewController") as? CommentViewController else { return }
-        vc.pharse = pharse
         vc.feedIndex = feedIndex
+        vc.contents = contents
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
