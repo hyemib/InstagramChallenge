@@ -38,6 +38,7 @@ class ChatViewController: UIViewController, UITextViewDelegate, UIScrollViewDele
     }
     
     func didSuccessGetChatData(result: [ChatsResponseResult]) {
+        
         chatInfo = result
         chatInfo?.reverse()
         tableView.reloadData()

@@ -24,7 +24,9 @@ class MyPageViewController: UIViewController {
         
         changeViewToMyFeedView()
         TagBar.isHidden = true
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         userDataService.requestFetchMyPage(loginId: Constant.myId, delegate: self)
     }
     

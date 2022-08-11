@@ -30,12 +30,19 @@ class PopUpViewController: UIViewController {
         removeView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: NSNotification.Name("DismissDetailView"), object: nil, userInfo: nil)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let y = touches.first?.location(in: self.view).y
         if y! < 288.0 {
             self.dismiss(animated: false, completion: nil)
         }
     }
+    
+    
     
     @IBAction func updatePostButton(_ sender: UIButton) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PostUpdateViewController") as? PostUpdateViewController else { return }
@@ -46,27 +53,26 @@ class PopUpViewController: UIViewController {
     
     
     func removeFeed() {
-        feedDataService.requestFetchDeleteFeed(feedId: (feedInfo?.feedId)!, delegate: self)
-        
+        self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func removePostButotn(_ sender: UIButton) {
-        guard let pvc = self.presentingViewController else { return }
-
-        self.dismiss(animated: false) {
-            let alert = UIAlertController(title:"", message: "이 게시물을 삭제하지 않으려면 게시물을 보관할 수 있습니다. 보관한 게시물은 회원님만 볼 수 있습니다.", preferredStyle: .actionSheet)
-            let remove = UIAlertAction(title: "삭제", style: .destructive) { action in
-                self.removeFeed()
-            }
-            let store = UIAlertAction(title: "보관", style: .default, handler: nil)
-            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-            
-            alert.addAction(remove)
-            alert.addAction(store)
-            alert.addAction(cancel)
-          
-            pvc.present(alert, animated: false, completion: nil)
+        popUpView.isHidden = true
+       
+        let alert = UIAlertController(title:"", message: "이 게시물을 삭제하지 않으려면 게시물을 보관할 수 있습니다. 보관한 게시물은 회원님만 볼 수 있습니다.", preferredStyle: .actionSheet)
+        let remove = UIAlertAction(title: "삭제", style: .destructive) { action in
+            self.feedDataService.requestFetchDeleteFeed(feedId: (self.feedInfo?.feedId)!, delegate: self)
         }
+        let store = UIAlertAction(title: "보관", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(remove)
+        alert.addAction(store)
+        alert.addAction(cancel)
+          
+            
+        self.present(alert, animated: false)
+        
     }
     
 }

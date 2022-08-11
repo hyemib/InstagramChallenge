@@ -137,6 +137,7 @@ struct FeedDataService {
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
+                        delegate.removeFeed()
                         print("피드 삭제 성공.")
                     } else {
                         switch response.code {

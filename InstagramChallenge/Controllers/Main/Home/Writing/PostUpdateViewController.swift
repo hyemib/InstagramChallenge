@@ -57,8 +57,6 @@ class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
         }
     }
         
-        
-    
     @objc func keyboardWillHide(noti: Notification) {
 
         let notiInfo = noti.userInfo!
@@ -75,6 +73,7 @@ class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
     
     @IBAction func completeUpdateFeed(_ sender: UIButton) {
         feedDataService.requestFetchUpdateFeed(FeedsRequest(feedText: feedText.text!), feedId: (feedInfo?.feedId)!, delegate: self)
+        self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
 

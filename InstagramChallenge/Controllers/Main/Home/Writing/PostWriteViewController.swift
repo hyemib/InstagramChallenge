@@ -18,6 +18,11 @@ class PostWriteViewController: UIViewController {
         selectImageView.image = selectImage
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: NSNotification.Name("DismissDetailView"), object: nil, userInfo: nil)
+    }
+    
     @IBAction func returnPhotoSelectView(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
@@ -42,10 +47,12 @@ class PostWriteViewController: UIViewController {
                     self.imagesURLString.append(urlString)
                     print(self.imagesURLString)
                     self.feedDataService.requestFetchPostFeed(FeedRequest(feedText: self.pharseTextView.text!, contentsUrls: self.imagesURLString), delegate: self)
+                    self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
                 }
             }
         }
         
+        //self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
         
     }
     
