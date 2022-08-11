@@ -18,6 +18,7 @@ class HomeFeedCell: UITableViewCell {
     var delegate: SendHomeDelegate?
     var index: Int?
     var feedId: String?
+    var feedInfo: FeedsResponseResult?
     var feedIndex: Int?
     var contents: CommentContents?
     
@@ -43,12 +44,12 @@ class HomeFeedCell: UITableViewCell {
     @IBAction func clickMoreButton(_ sender: UIButton) {
         guard let idx = index else { return }
         if feedId == Constant.myId {
-            delegate?.movePopupView(index: idx, feedIndex: feedIndex!)
+            delegate?.movePopupView(index: idx, feedInfo: feedInfo!)
         }
     }
 }
 
 protocol SendHomeDelegate: AnyObject {
     func moveCommentView(index: Int, feedIndex: Int, contents: CommentContents?)
-    func movePopupView(index: Int, feedIndex: Int)
+    func movePopupView(index: Int, feedInfo: FeedsResponseResult)
 }

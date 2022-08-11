@@ -34,7 +34,6 @@ class PostWriteViewController: UIViewController {
                 print(error!)
                 return
             } else {
-                
                 storageRef.downloadURL{ (url, error) in
                     guard let url = url, error == nil else {
                         return
@@ -48,11 +47,6 @@ class PostWriteViewController: UIViewController {
         }
         
         
-        
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "HomeViewController") as? HomeViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        vc.tableView.reloadData()
-        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func enterAParse(_ sender: UIButton) {

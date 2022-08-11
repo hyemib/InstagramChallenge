@@ -20,7 +20,7 @@ struct ChatDataService {
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
-                        print("성공")
+                        print("채팅 조회에 성공하였습니다.")
                         delegate.didSuccessGetChatData(result: response.result!)
                     } else {
                         switch response.code {
@@ -52,11 +52,12 @@ struct ChatDataService {
                                     "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]
         
         AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
-            .responseDecodable(of: ChatsResponse.self) { response in
+            .responseDecodable(of: ChatResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("채팅 보내기에 성공하였습니다.")
+                        delegate.didSuccessPostChat()
                     } else {
                         switch response.code {
                         case 2000: print("JWT 토큰을 입력해주세요.")

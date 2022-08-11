@@ -63,5 +63,12 @@ extension MyFeedViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let width = collectionView.frame.width/3
         return CGSize(width: width, height: width)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "FeedViewController") as? FeedViewController else { return }
+        vc.feedInfo = feedInfo[indexPath.row]
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
 }
 

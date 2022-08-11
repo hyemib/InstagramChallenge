@@ -15,8 +15,6 @@ class YourMessageCell: UITableViewCell {
         yourMessageView.layer.borderWidth = 1
         yourMessageView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
         yourMessageView.layer.cornerRadius = 20
-        
-        profileImage.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

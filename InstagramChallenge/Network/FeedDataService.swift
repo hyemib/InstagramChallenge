@@ -25,7 +25,6 @@ struct FeedDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("피드 조회 성공")
-                        
                         delegate.didSuccessFeedData(result: response.result!)
                         
                     } else {
@@ -88,13 +87,13 @@ struct FeedDataService {
     }
     
     // 피드 수정
-    func requestFetchUpdateFeed(feedId: Int, delegate: PostUpdateViewController) {
-        let url = "\(feedPatchUrl)/\(feedId)/"
+    func requestFetchUpdateFeed(_ parameters: FeedsRequest, feedId: Int, delegate: PostUpdateViewController) {
+        let url = "\(feedPatchUrl)/\(feedId)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
                                     "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]
         
-        AF.request(url, method: .patch, parameters: nil, encoding: URLEncoding.default, headers: header)
+        AF.request(url, method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: FeedsResponse.self) { response in
                 switch response.result {
@@ -126,9 +125,9 @@ struct FeedDataService {
     
     
     // 피드 삭제
-    func requestFetchDeleteFeed(feedId: Int, delegate: RemoveViewController) {
+    func requestFetchDeleteFeed(feedId: Int, delegate: PopUpViewController) {
         let url = "\(feedPatchUrl)/\(feedId)/delete-status"
-        
+        print(url)
         let header: HTTPHeaders = [ "Content-Type":"application/json",
                                     "X-ACCESS-TOKEN":"\(Constant.jwtToken)"]
         

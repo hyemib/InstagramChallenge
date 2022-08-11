@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextViewDelegate {
+class ChatViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextView: UITextView!
@@ -12,6 +12,8 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     
     private let chatDataService = ChatDataService()
     var chatInfo: [ChatsResponseResult]?
+    var currentPage = 0
+    var fetchMore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +34,31 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         
         sendButton.isHidden = true
         
-        chatDataService.requestFetchGetChat(pageIndex: 0, size: 10, delegate: self)
+        chatDataService.requestFetchGetChat(pageIndex: currentPage, size: 10, delegate: self)
     }
     
     func didSuccessGetChatData(result: [ChatsResponseResult]) {
         chatInfo = result
         chatInfo?.reverse()
         tableView.reloadData()
+    }
+    
+    func beginBatchFetch() {
+        fetchMore = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.currentPage += 1
+            
+            self.chatDataService.requestFetchGetChat(pageIndex: self.currentPage, size: 10, delegate: self)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y > (tableView.contentSize.height - tableView.bounds.size.height) {
+            if !fetchMore {
+                beginBatchFetch()
+            }
+        }
     }
     
     func checkTextViewMaxLength(textView: UITextView!, maxLength: Int) {
@@ -94,13 +114,22 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
+    func didSuccessPostChat() {
+        chatInfo = []
+        currentPage = 0
+        chatDataService.requestFetchGetChat(pageIndex: currentPage, size: 10, delegate: self)
+    }
+    
     @IBAction func sendMessage(_ sender: UIButton) {
+        chatDataService.requestFetchPostChat(ChatRequest(content: inputTextView.text!), delegate: self)
         let lastIndexPath = IndexPath(row: 0, section: 0)
         
         //tableView.insertRows(at: [lastIndexPath], with: UITableView.RowAnimation.automatic)
         
-        tableView.scrollToRow(at: lastIndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-        inputTextViewHeight.constant = 40
+        //tableView.scrollToRow(at: lastIndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+        //inputTextViewHeight.constant = 46
+        inputTextView.text = ""
+        
     }
 }
 
@@ -111,20 +140,17 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
-        yourCell.selectionStyle = .none
-        yourCell.yourMessage.text = chatInfo?[indexPath.row].content
-        yourCell.date.text = chatInfo?[indexPath.row].updatedAt
-        return yourCell*/
+        if chatInfo?[indexPath.row].loginId == Constant.myId {
+            let myCell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
+            myCell.selectionStyle = .none
+            myCell.myMessage.text = chatInfo?[indexPath.row].content
+            return myCell
+        }
         let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
         yourCell.selectionStyle = .none
         yourCell.yourMessage.text = chatInfo?[indexPath.row].content
         yourCell.date.isHidden = true
-      
-        //yourCell.date.text = chatInfo?[indexPath.row].updatedAt
         return yourCell
-        
-        
     }
 }
 

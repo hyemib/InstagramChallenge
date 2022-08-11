@@ -1,7 +1,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UIScrollViewDelegate{
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +21,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate{
         feedDataService.requestFetchGetFeed(pageIndex: currentPage, size: 10, delegate: self)
        
         initRefresh()
-        
-        
     }
     
     func didSuccessFeedData(result: [FeedsResponseResult]) {
@@ -111,6 +109,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.index = indexPath.row
         cell.feedId = feedInfo[indexPath.row].feedLoginId
         cell.feedIndex = feedInfo[indexPath.row].feedId
+        cell.feedInfo = feedInfo[indexPath.row]
         cell.contents = CommentContents(feedLoginId: feedInfo[indexPath.row].feedLoginId!, feedText: feedInfo[indexPath.row].feedText!, feedCreatedAt: feedInfo[indexPath.row].feedCreatedAt!)
         
         cell.feedLoginId.text = feedInfo[indexPath.row].feedLoginId
@@ -140,8 +139,9 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: SendHomeDelegate {
-    func movePopupView(index: Int, feedIndex: Int) {
+    func movePopupView(index: Int, feedInfo: FeedsResponseResult) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PopUpViewController") as? PopUpViewController else { return }
+        vc.feedInfo = feedInfo
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: false, completion: nil)
     }

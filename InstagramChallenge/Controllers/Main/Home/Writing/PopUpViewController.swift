@@ -10,7 +10,8 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var storeView: UIView!
     @IBOutlet weak var removeView: UIView!
     
-    var feedIndex: Int?
+    private let feedDataService = FeedDataService()
+    var feedInfo: FeedsResponseResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,35 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func updatePostButton(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostUpdateViewController") as? PostUpdateViewController else { return }
+        vc.feedInfo = feedInfo
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    
+    func removeFeed() {
+        feedDataService.requestFetchDeleteFeed(feedId: (feedInfo?.feedId)!, delegate: self)
+        
     }
     
     @IBAction func removePostButotn(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "RemoveViewController") as? RemoveViewController else { return }
-        vc.feedIndex = self.feedIndex
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false, completion: nil)
+        guard let pvc = self.presentingViewController else { return }
+
+        self.dismiss(animated: false) {
+            let alert = UIAlertController(title:"", message: "이 게시물을 삭제하지 않으려면 게시물을 보관할 수 있습니다. 보관한 게시물은 회원님만 볼 수 있습니다.", preferredStyle: .actionSheet)
+            let remove = UIAlertAction(title: "삭제", style: .destructive) { action in
+                self.removeFeed()
+            }
+            let store = UIAlertAction(title: "보관", style: .default, handler: nil)
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alert.addAction(remove)
+            alert.addAction(store)
+            alert.addAction(cancel)
+          
+            pvc.present(alert, animated: false, completion: nil)
+        }
     }
     
 }
