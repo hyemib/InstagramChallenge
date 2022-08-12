@@ -26,14 +26,9 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         feedDataService.requestFetchGetComment(feedId: feedIndex!, pageIndex: currentPage, size: 10, delegate: self)
         
         completButton.tintColor = .mainBlueBlurColor
-        inputTextView.layer.borderWidth = 1
-        inputTextView.layer.cornerRadius = inputTextView.frame.height / 2
-        inputTextView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
         
-        inputTextView.textContainerInset = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
-        
+        setInputTextViewDesign()
       
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(noti:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidChange), name: UITextView.textDidChangeNotification, object: nil)
@@ -48,6 +43,13 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
         tableView.reloadData()
     }
     
+    func setInputTextViewDesign() {
+        inputTextView.layer.borderWidth = 1
+        inputTextView.layer.cornerRadius = inputTextView.frame.height / 2
+        inputTextView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
+        
+        inputTextView.textContainerInset = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
+    }
     
     @IBAction func returnHomeView(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)

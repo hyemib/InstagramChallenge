@@ -25,7 +25,7 @@ struct FeedDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("피드 조회 성공")
-                        delegate.didSuccessFeedData(result: response.result!)
+                        delegate.didSuccessGetFeedData(result: response.result!)
                         
                     } else {
                         switch response.code {
@@ -50,7 +50,7 @@ struct FeedDataService {
     }
     
     // 피드 생성
-    func requestFetchPostFeed(_ parameters: FeedRequest, delegate: PostWriteViewController) {
+    func requestFetchPostFeed(_ parameters: FeedRequest, delegate: FeedWriteViewController) {
         let url = "\(feedPostUrl)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
@@ -87,7 +87,7 @@ struct FeedDataService {
     }
     
     // 피드 수정
-    func requestFetchUpdateFeed(_ parameters: FeedsRequest, feedId: Int, delegate: PostUpdateViewController) {
+    func requestFetchUpdateFeed(_ parameters: FeedsRequest, feedId: Int, delegate: FeedUpdateViewController) {
         let url = "\(feedPatchUrl)/\(feedId)"
         
         let header: HTTPHeaders = [ "Content-Type":"application/json",
@@ -176,7 +176,7 @@ struct FeedDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         print("특정 유저 피드 조회 성공")
-                        delegate.setMyPageFeed(resut: response.result!)
+                        delegate.setMyPageGetFeedData(result: response.result!)
                         
                     } else {
                         switch response.code {

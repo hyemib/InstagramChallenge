@@ -27,14 +27,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setNextButtonDesign() {
-        nextButton.layer.cornerRadius = nextButton.frame.height / 5
-        nextButton.backgroundColor = .mainBlueBlurColor
-    }
-    
-    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
-        if textField.text?.count ?? 0 > maxLength {
-            textField.deleteBackward()
-        }
+        setLoginOrJoinButtonDesign(button: nextButton)
     }
     
     func setEnableNextButton() {
@@ -85,8 +78,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        moveLoginView()
     }
 }

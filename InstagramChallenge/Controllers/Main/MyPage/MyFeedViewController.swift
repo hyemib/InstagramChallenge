@@ -20,8 +20,8 @@ class MyFeedViewController: UIViewController, UIScrollViewDelegate {
         feedDataService.requestFetchGetFeedUser(pageIndex: currentPage, loginId: Constant.myId, delegate: self)
     }
     
-    func setMyPageFeed(resut: [FeedsResponseResult]) {
-        feedInfo = resut
+    func setMyPageGetFeedData(result: [FeedsResponseResult]) {
+        feedInfo = result
         collectionView.reloadData()
     }
     

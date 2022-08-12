@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xnu-Ho-qT5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -159,7 +159,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="changePasswordView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5yf-FN-btT"/>
+                                            <action selector="changePasswordSecure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vfC-h3-Lfe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1944,24 +1944,15 @@
                                                         <constraint firstAttribute="trailing" secondItem="yeB-fZ-0a7" secondAttribute="trailing" constant="13" id="TWo-a5-rk3"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 9:36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec8-Lf-rfX">
-                                                    <rect key="frame" x="179.5" y="0.0" width="55" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="VSf-lL-jkp" secondAttribute="trailing" constant="10" id="4tb-aE-fXb"/>
                                                 <constraint firstAttribute="bottom" secondItem="VSf-lL-jkp" secondAttribute="bottom" constant="4" id="Axx-uU-Q9l"/>
-                                                <constraint firstItem="ec8-Lf-rfX" firstAttribute="top" secondItem="AGC-4p-bjq" secondAttribute="top" id="I8Q-Gc-DjE"/>
-                                                <constraint firstItem="ec8-Lf-rfX" firstAttribute="centerX" secondItem="AGC-4p-bjq" secondAttribute="centerX" id="X8k-l4-IPX"/>
                                                 <constraint firstItem="VSf-lL-jkp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AGC-4p-bjq" secondAttribute="leading" constant="50" id="dlM-ar-EdP"/>
                                                 <constraint firstItem="VSf-lL-jkp" firstAttribute="top" secondItem="AGC-4p-bjq" secondAttribute="top" constant="3" id="wSB-kp-1ce"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="date" destination="ec8-Lf-rfX" id="JBL-Rx-TBP"/>
                                             <outlet property="myMessage" destination="yeB-fZ-0a7" id="fxR-Da-pND"/>
                                             <outlet property="myMessageTop" destination="wSB-kp-1ce" id="Pkl-5W-fwp"/>
                                             <outlet property="myMessageView" destination="VSf-lL-jkp" id="zdK-5r-6Ge"/>
@@ -1992,12 +1983,6 @@
                                                         <constraint firstItem="ToW-a0-Xma" firstAttribute="leading" secondItem="DiX-aF-qZh" secondAttribute="leading" constant="13" id="vAW-Du-KwX"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 9:36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne4-Og-468">
-                                                    <rect key="frame" x="179.5" y="0.0" width="55" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="vQF-yC-7DJ">
                                                     <rect key="frame" x="10" y="89" width="33" height="33"/>
                                                     <constraints>
@@ -2007,10 +1992,8 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ne4-Og-468" firstAttribute="centerX" secondItem="MO0-Y1-a34" secondAttribute="centerX" id="GuL-t1-7pm"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DiX-aF-qZh" secondAttribute="trailing" constant="50" id="MUL-Dg-hzS"/>
                                                 <constraint firstAttribute="bottom" secondItem="DiX-aF-qZh" secondAttribute="bottom" constant="4" id="O8K-RO-xe1"/>
-                                                <constraint firstItem="Ne4-Og-468" firstAttribute="top" secondItem="MO0-Y1-a34" secondAttribute="top" id="aNw-fS-VLY"/>
                                                 <constraint firstItem="DiX-aF-qZh" firstAttribute="top" secondItem="MO0-Y1-a34" secondAttribute="top" constant="4" id="b53-wz-HT9"/>
                                                 <constraint firstItem="vQF-yC-7DJ" firstAttribute="leading" secondItem="MO0-Y1-a34" secondAttribute="leading" constant="10" id="cg5-vs-3Zu"/>
                                                 <constraint firstItem="vQF-yC-7DJ" firstAttribute="bottom" secondItem="DiX-aF-qZh" secondAttribute="bottom" id="ibC-WH-pvw"/>
@@ -2018,7 +2001,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="date" destination="Ne4-Og-468" id="OVp-jj-bFy"/>
                                             <outlet property="profileImage" destination="vQF-yC-7DJ" id="DiK-kr-qPe"/>
                                             <outlet property="yourMessage" destination="ToW-a0-Xma" id="LZP-LC-zzl"/>
                                             <outlet property="yourMessageTop" destination="b53-wz-HT9" id="Rsw-uy-myc"/>
@@ -2059,10 +2041,10 @@
             </objects>
             <point key="canvasLocation" x="-1993" y="3688"/>
         </scene>
-        <!--Post Update View Controller-->
+        <!--Feed Update View Controller-->
         <scene sceneID="UPn-zj-hkX">
             <objects>
-                <viewController storyboardIdentifier="PostUpdateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KVO-LO-8Pl" customClass="PostUpdateViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedUpdateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KVO-LO-8Pl" customClass="FeedUpdateViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zi2-I6-HAo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2455,7 +2437,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                                 <connections>
-                                                                    <action selector="updatePostButton:" destination="LiS-3f-arg" eventType="touchUpInside" id="tHg-ON-TK3"/>
+                                                                    <action selector="updateFeedButton:" destination="LiS-3f-arg" eventType="touchUpInside" id="uLJ-jh-1KW"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -2515,7 +2497,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                                 <connections>
-                                                                    <action selector="removePostButotn:" destination="LiS-3f-arg" eventType="touchUpInside" id="H6m-82-yWy"/>
+                                                                    <action selector="removeFeedButotn:" destination="LiS-3f-arg" eventType="touchUpInside" id="n1P-0J-UDd"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -2578,10 +2560,10 @@
             </objects>
             <point key="canvasLocation" x="113" y="4333"/>
         </scene>
-        <!--Post Write View Controller-->
+        <!--Feed Write View Controller-->
         <scene sceneID="aTT-y2-yVV">
             <objects>
-                <viewController storyboardIdentifier="PostWriteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="keC-pW-9kC" customClass="PostWriteViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedWriteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="keC-pW-9kC" customClass="FeedWriteViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lhX-L9-JO9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2608,7 +2590,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="enterAParse:" destination="keC-pW-9kC" eventType="touchUpInside" id="g2C-Lb-zoq"/>
+                                            <action selector="inputContent:" destination="keC-pW-9kC" eventType="touchUpInside" id="K3X-7y-AV2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2967,7 +2949,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pharseTextView" destination="xj6-wq-mLJ" id="EhA-vI-jYU"/>
+                        <outlet property="inputTextView" destination="xj6-wq-mLJ" id="uxI-JF-nT4"/>
                         <outlet property="selectImageView" destination="DHI-9v-ItR" id="bMY-Dl-EMg"/>
                     </connections>
                 </viewController>
@@ -2975,10 +2957,10 @@
             </objects>
             <point key="canvasLocation" x="787" y="3680"/>
         </scene>
-        <!--Phrase View Controller-->
+        <!--Content View Controller-->
         <scene sceneID="mUa-at-Aay">
             <objects>
-                <viewController storyboardIdentifier="PhraseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S6k-8e-QxV" customClass="PhraseViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S6k-8e-QxV" customClass="ContentViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TCe-KI-JRA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3095,7 +3077,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6M-f6-weU">
-                                <rect key="frame" x="5" y="44" width="404" height="100"/>
+                                <rect key="frame" x="5" y="44" width="404" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="3oE-Or-Gd0">
                                         <rect key="frame" x="15" y="15" width="52" height="52"/>
@@ -3111,32 +3093,32 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="히히" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nU-qs-DsQ">
-                                        <rect key="frame" x="82" y="40.5" width="28" height="19.5"/>
+                                        <rect key="frame" x="82" y="38.5" width="28" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUn-eE-C3A">
-                                        <rect key="frame" x="187" y="81" width="30" height="4"/>
+                                        <rect key="frame" x="184.5" y="65" width="35" height="5"/>
                                         <color key="backgroundColor" red="0.90196073060000004" green="0.90588235859999999" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="4" id="YCb-s9-biD"/>
-                                            <constraint firstAttribute="width" constant="30" id="oL1-0w-ohG"/>
+                                            <constraint firstAttribute="height" constant="5" id="YCb-s9-biD"/>
+                                            <constraint firstAttribute="width" constant="35" id="oL1-0w-ohG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="3oE-Or-Gd0" firstAttribute="leading" secondItem="s6M-f6-weU" secondAttribute="leading" constant="15" id="4ZP-Ub-p7p"/>
-                                    <constraint firstAttribute="height" constant="100" id="FDK-u5-aWZ"/>
+                                    <constraint firstAttribute="height" constant="80" id="FDK-u5-aWZ"/>
                                     <constraint firstItem="a8E-bh-bCT" firstAttribute="top" secondItem="3oE-Or-Gd0" secondAttribute="top" id="KU9-r5-W3D"/>
                                     <constraint firstItem="a8E-bh-bCT" firstAttribute="leading" secondItem="3oE-Or-Gd0" secondAttribute="trailing" constant="15" id="OSs-76-2ha"/>
-                                    <constraint firstItem="1nU-qs-DsQ" firstAttribute="top" secondItem="a8E-bh-bCT" secondAttribute="bottom" constant="5" id="SRK-zs-U2M"/>
+                                    <constraint firstItem="1nU-qs-DsQ" firstAttribute="top" secondItem="a8E-bh-bCT" secondAttribute="bottom" constant="3" id="SRK-zs-U2M"/>
                                     <constraint firstItem="1nU-qs-DsQ" firstAttribute="leading" secondItem="a8E-bh-bCT" secondAttribute="leading" id="TZ5-1Q-yqq"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1nU-qs-DsQ" secondAttribute="trailing" constant="150" id="Wpj-5s-MAg"/>
                                     <constraint firstItem="aUn-eE-C3A" firstAttribute="centerX" secondItem="s6M-f6-weU" secondAttribute="centerX" id="XeD-Fw-4uq"/>
                                     <constraint firstItem="3oE-Or-Gd0" firstAttribute="top" secondItem="s6M-f6-weU" secondAttribute="top" constant="15" id="ZyB-RX-GIW"/>
-                                    <constraint firstAttribute="bottom" secondItem="aUn-eE-C3A" secondAttribute="bottom" constant="15" id="vAX-rr-OBZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="aUn-eE-C3A" secondAttribute="bottom" constant="10" id="vAX-rr-OBZ"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a8E-bh-bCT" secondAttribute="trailing" constant="150" id="w78-m2-gHt"/>
                                 </constraints>
                             </view>
@@ -3149,6 +3131,10 @@
                             <constraint firstItem="s6M-f6-weU" firstAttribute="leading" secondItem="lBs-yL-CIP" secondAttribute="leading" constant="5" id="dtU-N4-O8I"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatContent" destination="1nU-qs-DsQ" id="Mxu-FQ-7Wp"/>
+                        <outlet property="chatView" destination="s6M-f6-weU" id="vXA-XS-bdn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8b-Sz-6SS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

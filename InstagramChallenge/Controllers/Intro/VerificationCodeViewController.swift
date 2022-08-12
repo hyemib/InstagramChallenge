@@ -33,18 +33,11 @@ class VerificationCodeViewController: UIViewController {
     }
     
     func setNextButtonDesign() {
-        nextButton.layer.cornerRadius = nextButton.frame.height / 5
-        nextButton.backgroundColor = .mainBlueBlurColor
+        setLoginOrJoinButtonDesign(button: nextButton)
     }
     
     @IBAction func movePhoneNumberOrEmailView(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
-    }
-    
-    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
-        if textField.text?.count ?? 0 > maxLength {
-            textField.deleteBackward()
-        }
     }
     
     func setClearButton() {

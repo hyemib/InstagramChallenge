@@ -10,6 +10,13 @@ extension UIViewController {
         self.present(vc, animated: false, completion: nil)
     }
     
+    func presentFailKakaoLoginAlert() {
+        let alert = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(yes)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func didFailKakaoLogin() {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhoneNumberOrEmailJoinViewController") as? PhoneNumberOrEmailJoinViewController else { return }
         vc.modalPresentationStyle = .fullScreen
@@ -31,6 +38,20 @@ extension UIViewController {
         self.present(alret, animated: true, completion: nil)
     }
     
+    // 텍스트필드 글자수 제한
+    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
+        if textField.text?.count ?? 0 > maxLength {
+            textField.deleteBackward()
+        }
+    }
+    
+    // 로그인 및 회원가입 버튼 디자인
+    func setLoginOrJoinButtonDesign(button: UIButton!) {
+        button.layer.cornerRadius = button.frame.height / 5
+        button.backgroundColor = .mainBlueBlurColor
+    }
+    
+    // 날짜 설정
     func setDate(_ dateString: String) -> String {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]

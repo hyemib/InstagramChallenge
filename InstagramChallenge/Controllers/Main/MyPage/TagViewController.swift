@@ -5,7 +5,5 @@ class TagViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 }

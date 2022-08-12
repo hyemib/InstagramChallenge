@@ -24,14 +24,7 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setNextButtonDesign() {
-        nextButton.layer.cornerRadius = nextButton.frame.height / 5
-        nextButton.backgroundColor = .mainBlueColor
-    }
-    
-    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
-        if textField.text?.count ?? 0 > maxLength {
-            textField.deleteBackward()
-        }
+        setLoginOrJoinButtonDesign(button: nextButton)
     }
     
     @IBAction func setUserNameTextField_(_ sender: Any) {
@@ -87,8 +80,6 @@ class UserNameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        moveLoginView()
     }
 }

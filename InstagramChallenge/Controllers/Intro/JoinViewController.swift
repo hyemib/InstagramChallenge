@@ -17,17 +17,11 @@ class JoinViewController: UIViewController {
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let _ = error {
-                 let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                 let yes = UIAlertAction(title: "확인", style: .default)
-                 alret.addAction(yes)
-                 self.present(alret, animated: true, completion: nil)
+                 self.presentFailKakaoLoginAlert()
              } else {
                  UserApi.shared.me {(user, error) in
                      if let _ = error {
-                         let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                         let yes = UIAlertAction(title: "확인", style: .default)
-                         alret.addAction(yes)
-                         self.present(alret, animated: true, completion: nil)
+                         self.presentFailKakaoLoginAlert()
                      } else {
                          self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken), delegate: self)
                          kakaoSignUp.accessToken = oauthToken!.accessToken
@@ -45,9 +39,7 @@ class JoinViewController: UIViewController {
     
     
     @IBAction func moveLoginView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        moveLoginView()
     }
 }
 

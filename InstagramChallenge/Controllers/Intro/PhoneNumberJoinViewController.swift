@@ -30,20 +30,13 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
             self.view.endEditing(true)
     }
     
-    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
-        if textField.text?.count ?? 0 > maxLength {
-            textField.deleteBackward()
-        }
-    }
-    
     @IBAction func setPhoneNumberTextField_(_ sender: Any) {
         checkTextFieldMaxLength(textField: phoneNumberTextField, maxLength: 11)
         setEnableNextButton()
     }
     
     func setNextButtonDesign() {
-        nextButton.layer.cornerRadius = nextButton.frame.height / 5
-        nextButton.backgroundColor = .mainBlueBlurColor
+        setLoginOrJoinButtonDesign(button: nextButton)
     }
     
     func setEnableNextButton() {
@@ -86,17 +79,11 @@ class PhoneNumberJoinViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let _ = error {
-                 let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                 let yes = UIAlertAction(title: "확인", style: .default)
-                 alret.addAction(yes)
-                 self.present(alret, animated: true, completion: nil)
+                 self.presentFailKakaoLoginAlert()
              } else {
                  UserApi.shared.me {(user, error) in
                      if let _ = error {
-                         let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                         let yes = UIAlertAction(title: "확인", style: .default)
-                         alret.addAction(yes)
-                         self.present(alret, animated: true, completion: nil)
+                          self.presentFailKakaoLoginAlert()
                      } else {
                          self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken), delegate: self)
                          kakaoSignUp.accessToken = oauthToken!.accessToken

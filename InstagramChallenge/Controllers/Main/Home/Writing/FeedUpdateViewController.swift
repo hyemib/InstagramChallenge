@@ -1,7 +1,7 @@
 
 import UIKit
 
-class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
+class FeedUpdateViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var personTagView: UIView!
@@ -32,7 +32,6 @@ class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
             view.endEditing(true)
     }
    
-    
     func setFeedData() {
         feedLoginId.text = feedInfo?.feedLoginId
         let imageUrl = URL(string: (feedInfo?.contentsList?[0].contentsUrl)!)
@@ -41,7 +40,6 @@ class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
     }
     
     @objc func keyboardWillShow(noti: Notification) {
-        
         let notiInfo = noti.userInfo!
         let keyboardFrame = notiInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
         let height = keyboardFrame.size.height + self.view.safeAreaInsets.bottom
@@ -75,6 +73,4 @@ class PostUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
         feedDataService.requestFetchUpdateFeed(FeedsRequest(feedText: feedText.text!), feedId: (feedInfo?.feedId)!, delegate: self)
         self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
     }
-    
-
 }

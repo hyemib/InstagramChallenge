@@ -26,22 +26,24 @@ class ChatViewController: UIViewController, UITextViewDelegate, UIScrollViewDele
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(noti:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(noti:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        inputTextView.layer.borderWidth = 1
-        inputTextView.layer.cornerRadius = inputTextView.frame.height / 2
-        inputTextView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
-        
-        inputTextView.textContainerInset = UIEdgeInsets(top: 12, left: 47, bottom: 12, right: 10)
-        
         sendButton.isHidden = true
+        setInputTextViewDesign()
         
         chatDataService.requestFetchGetChat(pageIndex: currentPage, size: 10, delegate: self)
     }
     
     func didSuccessGetChatData(result: [ChatsResponseResult]) {
-        
         chatInfo = result
         chatInfo?.reverse()
         tableView.reloadData()
+    }
+    
+    func setInputTextViewDesign() {
+        inputTextView.layer.borderWidth = 1
+        inputTextView.layer.cornerRadius = inputTextView.frame.height / 2
+        inputTextView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
+        
+        inputTextView.textContainerInset = UIEdgeInsets(top: 12, left: 47, bottom: 12, right: 10)
     }
     
     func beginBatchFetch() {
@@ -125,17 +127,21 @@ class ChatViewController: UIViewController, UITextViewDelegate, UIScrollViewDele
         chatDataService.requestFetchPostChat(ChatRequest(content: inputTextView.text!), delegate: self)
         let lastIndexPath = IndexPath(row: 0, section: 0)
         
-        //tableView.insertRows(at: [lastIndexPath], with: UITableView.RowAnimation.automatic)
+        tableView.insertRows(at: [lastIndexPath], with: UITableView.RowAnimation.automatic)
         
-        //tableView.scrollToRow(at: lastIndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
-        //inputTextViewHeight.constant = 46
+        tableView.scrollToRow(at: lastIndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+        inputTextViewHeight.constant = 46
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "NotificationViewController") as? NotificationViewController else { return }
+        vc.content = (chatInfo?.last?.content)!
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false, completion: nil)
+        
         inputTextView.text = ""
         
     }
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatInfo?.count ?? 0
     }
@@ -150,7 +156,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let yourCell = tableView.dequeueReusableCell(withIdentifier: "YourMessageCell", for: indexPath) as! YourMessageCell
         yourCell.selectionStyle = .none
         yourCell.yourMessage.text = chatInfo?[indexPath.row].content
-        yourCell.date.isHidden = true
+
         return yourCell
     }
 }

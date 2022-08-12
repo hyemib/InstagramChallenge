@@ -5,7 +5,6 @@ class MyMessageCell: UITableViewCell {
 
     @IBOutlet weak var myMessageView: UIView!
     @IBOutlet weak var myMessage: UITextView!
-    @IBOutlet weak var date: UILabel!
     
     @IBOutlet weak var myMessageTop: NSLayoutConstraint!
     

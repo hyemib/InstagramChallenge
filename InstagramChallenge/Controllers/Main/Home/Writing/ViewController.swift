@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func yeyeye(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostWriteViewController") as? PostWriteViewController else { return }
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostWriteViewController") as? FeedWriteViewController else { return }
         //vc.selectImage = selectImage
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

@@ -20,31 +20,22 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
        
         initRefresh()
         
-        NotificationCenter.default.addObserver(
-                  self,
-                  selector: #selector(self.didDismissDetailNotification(_:)),
-                  name: NSNotification.Name("DismissDetailView"),
-                  object: nil
-            )
+        NotificationCenter.default.addObserver(self,selector: #selector(self.didDismissDetailNotification(_:)),name: NSNotification.Name("DismissDetailView"),object: nil)
         
         feedDataService.requestFetchGetFeed(pageIndex: currentPage, size: 10, delegate: self)
     }
 
 
       @objc func didDismissDetailNotification(_ notification: Notification) {
-          
           DispatchQueue.main.async {
               self.feedInfo = []
-               self.currentPage = 0
-                print("yyy")
-               self.feedDataService.requestFetchGetFeed(pageIndex: self.currentPage, size: 10, delegate: self)
+              self.currentPage = 0
+              self.feedDataService.requestFetchGetFeed(pageIndex: self.currentPage, size: 10, delegate: self)
             
           }
       }
 
-    
-    
-    func didSuccessFeedData(result: [FeedsResponseResult]) {
+    func didSuccessGetFeedData(result: [FeedsResponseResult]) {
         feedInfo.append(contentsOf: result)
         tableView.reloadData()
     }
@@ -88,7 +79,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             if !fetchMore {
                 beginBatchFetch()
             }
-            
         }
     }
     
@@ -98,7 +88,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
         let currentDate = formatter.string(from: current).components(separatedBy: "-")
         return Int(currentDate.joined())!
-        
     }
 }
 

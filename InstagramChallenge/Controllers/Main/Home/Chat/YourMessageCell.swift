@@ -7,7 +7,6 @@ class YourMessageCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var yourMessage: UITextView!
     @IBOutlet weak var yourMessageTop: NSLayoutConstraint!
-    @IBOutlet weak var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

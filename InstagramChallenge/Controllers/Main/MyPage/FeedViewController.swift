@@ -40,6 +40,4 @@ class FeedViewController: UIViewController {
     @IBAction func returnMyFeedView(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
-    
-
 }

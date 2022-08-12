@@ -29,9 +29,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.isSecureTextEntry = viewPassword
         
         setTextFieldDesign()
-        setLoginButtonDesign()
+        setLoginOrJoinButtonDesign(button: loginButton)
         
-        //userDataService.requestFetchAutoSignIn(delegate: self)
+       // userDataService.requestFetchAutoSignIn(delegate: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -42,13 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         idTextField.addLeftPaading(padding: 10)
         passwordTextField.addLeftPaading(padding: 10)
     }
-    
-    func checkTextFieldMaxLength(textField: UITextField!, maxLength: Int) {
-        if textField.text?.count ?? 0 > maxLength {
-            textField.deleteBackward()
-        }
-    }
-  
+
     @IBAction func setIdTextField_(_ sender: Any) {
         checkTextFieldMaxLength(textField: idTextField, maxLength: 20)
         setEnableLoginButton()
@@ -59,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setEnableLoginButton()
     }
     
-    @IBAction func changePasswordView(_ sender: Any) {
+    @IBAction func changePasswordSecure(_ sender: Any) {
         if viewPassword {
             passwordTextField.isSecureTextEntry = false
             passwordViewButtonImgae.image = UIImage(named: "password_view_true")
@@ -77,11 +71,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             pressLoginButton(loginButton)
         }
         return true
-    }
-    
-    func setLoginButtonDesign() {
-        loginButton.layer.cornerRadius = loginButton.frame.height / 5
-        loginButton.backgroundColor = .mainBlueBlurColor
     }
     
     func setEnableLoginButton() {
@@ -143,17 +132,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressKakaoLoginButton(_ sender: UIButton) {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
              if let _ = error {
-                 let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                 let yes = UIAlertAction(title: "확인", style: .default)
-                 alret.addAction(yes)
-                 self.present(alret, animated: true, completion: nil)
+                 self.presentFailKakaoLoginAlert()
              } else {
                  UserApi.shared.me {(user, error) in
                      if let _ = error {
-                         let alret = UIAlertController(title: "로그인에 실패하였습다.", message: "", preferredStyle: .alert)
-                         let yes = UIAlertAction(title: "확인", style: .default)
-                         alret.addAction(yes)
-                         self.present(alret, animated: true, completion: nil)
+                         self.presentFailKakaoLoginAlert()
                      } else {
                          self.userDataService.requestFetchKakaoSignIn(KakaoSignInRequest(accessToken: oauthToken!.accessToken), delegate: self)
                          kakaoSignUp.accessToken = oauthToken!.accessToken

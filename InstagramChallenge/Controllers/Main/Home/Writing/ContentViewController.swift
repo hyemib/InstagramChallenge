@@ -1,7 +1,7 @@
 
 import UIKit
 
-class PhraseViewController: UIViewController {
+class ContentViewController: UIViewController {
 
     @IBOutlet weak var selectImageView: UIImageView!
     @IBOutlet weak var pharseTextView: UITextView!
@@ -28,7 +28,7 @@ class PhraseViewController: UIViewController {
     }
 }
 
-extension PhraseViewController: UITextViewDelegate {
+extension ContentViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let currentText = pharseTextView.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }

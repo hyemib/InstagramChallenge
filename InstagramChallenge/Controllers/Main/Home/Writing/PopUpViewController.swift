@@ -18,16 +18,7 @@ class PopUpViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.7)
 
-        popUpView.layer.cornerRadius = 20
-        popUpView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        
-        shareView.layer.cornerRadius = 15
-        linkView.layer.cornerRadius = 15
-        listView.layer.cornerRadius = 15
-        storeView.layer.cornerRadius = 15
-        storeView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        removeView.layer.cornerRadius = 15
-        removeView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        setViewDesign()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,21 +33,31 @@ class PopUpViewController: UIViewController {
         }
     }
     
+    func setViewDesign() {
+        popUpView.layer.cornerRadius = 20
+        popUpView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        shareView.layer.cornerRadius = 15
+        linkView.layer.cornerRadius = 15
+        listView.layer.cornerRadius = 15
+        storeView.layer.cornerRadius = 15
+        storeView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        removeView.layer.cornerRadius = 15
+        removeView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+    }
     
-    
-    @IBAction func updatePostButton(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "PostUpdateViewController") as? PostUpdateViewController else { return }
+    @IBAction func updateFeedButton(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "FeedUpdateViewController") as? FeedUpdateViewController else { return }
         vc.feedInfo = feedInfo
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }
     
-    
     func removeFeed() {
         self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func removePostButotn(_ sender: UIButton) {
+    @IBAction func removeFeedButotn(_ sender: UIButton) {
         popUpView.isHidden = true
        
         let alert = UIAlertController(title:"", message: "이 게시물을 삭제하지 않으려면 게시물을 보관할 수 있습니다. 보관한 게시물은 회원님만 볼 수 있습니다.", preferredStyle: .actionSheet)
@@ -69,10 +70,7 @@ class PopUpViewController: UIViewController {
         alert.addAction(remove)
         alert.addAction(store)
         alert.addAction(cancel)
-          
             
         self.present(alert, animated: false)
-        
     }
-    
 }

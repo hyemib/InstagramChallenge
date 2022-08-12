@@ -39,8 +39,6 @@ class FinalConfirmationViewController: UIViewController {
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        moveLoginView()
     }
 }

@@ -8,7 +8,6 @@ class PhoneNumberOrEmailJoinViewController: UIViewController {
     @IBOutlet weak var phoneNumberBar: UIView!
     @IBOutlet weak var emailBar: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,9 +51,7 @@ class PhoneNumberOrEmailJoinViewController: UIViewController {
     }
     
     @IBAction func moveLoginView(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        moveLoginView()
     }
     
 }

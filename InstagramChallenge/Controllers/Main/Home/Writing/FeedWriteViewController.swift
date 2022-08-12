@@ -3,10 +3,10 @@ import UIKit
 import FirebaseStorage
 import Kingfisher
 
-class PostWriteViewController: UIViewController {
+class FeedWriteViewController: UIViewController {
     
     @IBOutlet weak var selectImageView: UIImageView!
-    @IBOutlet weak var pharseTextView: UITextView!
+    @IBOutlet weak var inputTextView: UITextView!
     
     private let feedDataService = FeedDataService()
     var selectImage: UIImage?
@@ -46,18 +46,15 @@ class PostWriteViewController: UIViewController {
                     let urlString = url.absoluteString
                     self.imagesURLString.append(urlString)
                     print(self.imagesURLString)
-                    self.feedDataService.requestFetchPostFeed(FeedRequest(feedText: self.pharseTextView.text!, contentsUrls: self.imagesURLString), delegate: self)
+                    self.feedDataService.requestFetchPostFeed(FeedRequest(feedText: self.inputTextView.text!, contentsUrls: self.imagesURLString), delegate: self)
                     self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
                 }
             }
         }
-        
-        //self.view?.window?.rootViewController?.dismiss(animated: false, completion: nil)
-        
     }
     
-    @IBAction func enterAParse(_ sender: UIButton) {
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "PhraseViewController") as? PhraseViewController else { return }
+    @IBAction func inputContent(_ sender: UIButton) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "ContentViewController") as? ContentViewController else { return }
         vc.selectImage = selectImage
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
@@ -69,11 +66,11 @@ protocol SendPharseDelegate: AnyObject {
     func send(pharse: String)
 }
 
-extension PostWriteViewController: SendPharseDelegate {
+extension FeedWriteViewController: SendPharseDelegate {
     func send(pharse: String) {
-        pharseTextView.text = pharse
-        pharseTextView.font = .systemFont(ofSize: 16, weight: .regular)
-        pharseTextView.textColor = .black
+        inputTextView.text = pharse
+        inputTextView.font = .systemFont(ofSize: 16, weight: .regular)
+        inputTextView.textColor = .black
         
     }
 }
