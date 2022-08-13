@@ -54,7 +54,7 @@ extension MyFeedViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyFeedCell", for: indexPath) as! MyFeedCell
         let imageUrl = URL(string: (feedInfo[indexPath.row].contentsList?[0].contentsUrl)!)
-        cell.feedImage.load(url: imageUrl!)
+        cell.feedImage.kf.setImage(with: imageUrl)
         
         return cell
     }

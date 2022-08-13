@@ -22,6 +22,7 @@ struct UserDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         Constant.jwtToken = (response.result?.jwt)!
+                        Constant.myId = (response.result?.loginId)!
                         delegate.didSuccessJoin()
                         print("회원가입에 성공하였습니다.")
                     } else {
@@ -65,6 +66,7 @@ struct UserDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         Constant.jwtToken = (response.result?.jwt)!
+                        Constant.myId = (response.result?.loginId)!
                         delegate.didSuccessLogin()
                         print("로그인에 성공하였습니다.")
                     } else {
@@ -100,6 +102,7 @@ struct UserDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         Constant.jwtToken = (response.result?.jwt)!
+                        Constant.myId = (response.result?.loginId)!
                         delegate.didSuccessJoin()
                         print("카카오 회원가입에 성공하였습니다.")
                     } else {
@@ -139,6 +142,7 @@ struct UserDataService {
                 case .success(let response):
                     if (response.isSuccess)! {
                         Constant.jwtToken = (response.result?.jwt)!
+                        Constant.myId = (response.result?.loginId)!
                         delegate.didSuccessLogin()
                         print("카카오 로그인에 성공하였습니다.")
                         

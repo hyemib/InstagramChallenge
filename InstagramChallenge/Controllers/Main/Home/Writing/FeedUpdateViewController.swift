@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class FeedUpdateViewController: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
 
@@ -29,13 +30,13 @@ class FeedUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            view.endEditing(true)
+        view.endEditing(true)
     }
    
     func setFeedData() {
         feedLoginId.text = feedInfo?.feedLoginId
         let imageUrl = URL(string: (feedInfo?.contentsList?[0].contentsUrl)!)
-        feedImage.load(url: imageUrl!)
+        feedImage.kf.setImage(with: imageUrl)
         feedText.text = feedInfo?.feedText
     }
     
@@ -56,7 +57,6 @@ class FeedUpdateViewController: UIViewController, UITextViewDelegate, UIScrollVi
     }
         
     @objc func keyboardWillHide(noti: Notification) {
-
         let notiInfo = noti.userInfo!
         let animationDuration = notiInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
         UIView.animate(withDuration: animationDuration) {

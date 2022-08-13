@@ -52,7 +52,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func goToCreatePost(_ sender: UIButton) {
+    @IBAction func goCreatePost(_ sender: UIButton) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhotoSelectViewController") as? PhotoSelectViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
@@ -141,7 +141,7 @@ extension HomeViewController: UITableViewDataSource {
             cell.feedImageCountView.isHidden = true
         }
         let url = URL(string: (feedInfo[indexPath.row].contentsList?[0].contentsUrl)!)
-        cell.feedContets.load(url: url!)
+        cell.feedContets.kf.setImage(with: url)
         
         cell.feedCreatedAt.text = setDate(feedInfo[indexPath.row].feedCreatedAt!)
         return cell

@@ -70,7 +70,6 @@ class CommentViewController: UIViewController, UIScrollViewDelegate, UITextViewD
             if !fetchMore {
                 beginBatchFetch()
             }
-            
         }
     }
     

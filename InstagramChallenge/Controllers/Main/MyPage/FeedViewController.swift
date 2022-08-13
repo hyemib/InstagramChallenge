@@ -25,7 +25,7 @@ class FeedViewController: UIViewController {
         feedLoginId.text = feedInfo?.feedLoginId
         feedLoginId2.text = feedInfo?.feedLoginId
         let imageUrl = URL(string: (feedInfo?.contentsList?[0].contentsUrl)!)
-        feedImage.load(url: imageUrl!)
+        feedImage.kf.setImage(with: imageUrl)
         var textArr = (feedInfo?.feedText)?.components(separatedBy: "\n")
         feedText.text = textArr?[0]
         textArr?.removeFirst()

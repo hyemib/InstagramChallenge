@@ -12,7 +12,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var tagImage: UIImageView!
     
     @IBOutlet weak var loginId: UILabel!
-    @IBOutlet var realName: UILabel!
+    @IBOutlet weak var realName: UILabel!
     @IBOutlet weak var feedCount: UILabel!
     @IBOutlet weak var followerCount: UILabel!
     @IBOutlet weak var followingCount: UILabel!
@@ -38,7 +38,7 @@ class MyPageViewController: UIViewController {
         feedCount.text = "\(String(describing: (result.feedCount)!))"
     }
     
-    @IBAction func goToCreatePost(_ sender: UIButton) {
+    @IBAction func goCreatePost(_ sender: UIButton) {
         guard let vc = self.storyboard?.instantiateViewController(identifier: "PhotoSelectViewController") as? PhotoSelectViewController else { return }
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)

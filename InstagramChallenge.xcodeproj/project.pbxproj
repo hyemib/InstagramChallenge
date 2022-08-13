@@ -42,14 +42,12 @@
 		926B6092289AE43C00554679 /* FeedWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B6091289AE43C00554679 /* FeedWriteViewController.swift */; };
 		929CABEB289BB31C00856AED /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929CABEA289BB31C00856AED /* ContentViewController.swift */; };
 		929F4D7428A0EC7100C2FE72 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7328A0EC7100C2FE72 /* TabBarController.swift */; };
-		929F4D7628A100BE00C2FE72 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7528A100BE00C2FE72 /* UIImageView.swift */; };
 		929F4D7828A150EE00C2FE72 /* FeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7728A150EE00C2FE72 /* FeedRequest.swift */; };
 		929F4D7B28A16AD800C2FE72 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */; };
 		929F4D7D28A251C500C2FE72 /* FeedUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D7C28A251C500C2FE72 /* FeedUpdateViewController.swift */; };
 		929F4D8128A2666600C2FE72 /* MyFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8028A2666600C2FE72 /* MyFeedCell.swift */; };
 		929F4D8328A27A9700C2FE72 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8228A27A9700C2FE72 /* CommentResponse.swift */; };
 		929F4D8528A2829F00C2FE72 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8428A2829F00C2FE72 /* CommentRequest.swift */; };
-		929F4D8928A3A48900C2FE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8828A3A48900C2FE72 /* ViewController.swift */; };
 		929F4D8B28A3BB6200C2FE72 /* CommentContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8A28A3BB6200C2FE72 /* CommentContents.swift */; };
 		929F4D8D28A3D69800C2FE72 /* ContentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8C28A3D69800C2FE72 /* ContentsCell.swift */; };
 		929F4D8F28A4285900C2FE72 /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929F4D8E28A4285900C2FE72 /* ChatResponse.swift */; };
@@ -112,14 +110,12 @@
 		926B6091289AE43C00554679 /* FeedWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWriteViewController.swift; sourceTree = "<group>"; };
 		929CABEA289BB31C00856AED /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		929F4D7328A0EC7100C2FE72 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		929F4D7528A100BE00C2FE72 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		929F4D7728A150EE00C2FE72 /* FeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRequest.swift; sourceTree = "<group>"; };
 		929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		929F4D7C28A251C500C2FE72 /* FeedUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUpdateViewController.swift; sourceTree = "<group>"; };
 		929F4D8028A2666600C2FE72 /* MyFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedCell.swift; sourceTree = "<group>"; };
 		929F4D8228A27A9700C2FE72 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		929F4D8428A2829F00C2FE72 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
-		929F4D8828A3A48900C2FE72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		929F4D8A28A3BB6200C2FE72 /* CommentContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContents.swift; sourceTree = "<group>"; };
 		929F4D8C28A3D69800C2FE72 /* ContentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsCell.swift; sourceTree = "<group>"; };
 		929F4D8E28A4285900C2FE72 /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
@@ -314,7 +310,6 @@
 				9261E332288EE39400A9094D /* UITextField.swift */,
 				9230D538288F6B1900CFBC11 /* UIColor.swift */,
 				92EB8724289E27CC00E3DA94 /* UIViewController.swift */,
-				929F4D7528A100BE00C2FE72 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -351,7 +346,6 @@
 				929CABEA289BB31C00856AED /* ContentViewController.swift */,
 				929F4D7A28A16AD800C2FE72 /* PopUpViewController.swift */,
 				929F4D7C28A251C500C2FE72 /* FeedUpdateViewController.swift */,
-				929F4D8828A3A48900C2FE72 /* ViewController.swift */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -381,8 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				92EB873E289EA95100E3DA94 /* ChatsResponse.swift */,
-				929F4D8E28A4285900C2FE72 /* ChatResponse.swift */,
 				92EB8740289EC24B00E3DA94 /* ChatRequest.swift */,
+				929F4D8E28A4285900C2FE72 /* ChatResponse.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -390,11 +384,11 @@
 		92EB8743289EC75900E3DA94 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				929F4D9228A528A200C2FE72 /* FeedsRequest.swift */,
 				92EB8744289EC7BE00E3DA94 /* FeedsResponse.swift */,
 				929F4D7728A150EE00C2FE72 /* FeedRequest.swift */,
-				929F4D9228A528A200C2FE72 /* FeedsRequest.swift */,
-				929F4D8228A27A9700C2FE72 /* CommentResponse.swift */,
 				929F4D8428A2829F00C2FE72 /* CommentRequest.swift */,
+				929F4D8228A27A9700C2FE72 /* CommentResponse.swift */,
 				929F4D8A28A3BB6200C2FE72 /* CommentContents.swift */,
 			);
 			path = Feed;
@@ -572,9 +566,7 @@
 				926B6090289A9EBA00554679 /* AlbumCell.swift in Sources */,
 				929F4D8128A2666600C2FE72 /* MyFeedCell.swift in Sources */,
 				9230D53B288F84C200CFBC11 /* JoinViewController.swift in Sources */,
-				929F4D7628A100BE00C2FE72 /* UIImageView.swift in Sources */,
 				929F4D8528A2829F00C2FE72 /* CommentRequest.swift in Sources */,
-				929F4D8928A3A48900C2FE72 /* ViewController.swift in Sources */,
 				9230D54328900E3B00CFBC11 /* VerificationCodeViewController.swift in Sources */,
 				92EB870D289C34F700E3DA94 /* SignInRequest.swift in Sources */,
 				929F4D7828A150EE00C2FE72 /* FeedRequest.swift in Sources */,
